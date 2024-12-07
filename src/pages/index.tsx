@@ -7,7 +7,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 text-2xl">
           <h2 className="font-planar font-bold">GT Planar Bold</h2>
           <h2 className="font-planar font-black">GT Planar Black</h2>
-          <h2 className="font-apparat font-normal">KMR Apparat Regular</h2>
+          <h2 className="font-apparat font-bold">KMR Apparat Bold</h2>
           <h2 className="font-apparat font-medium">KMR Apparat Medium</h2>
           <h2 className="font-mono font-normal">CoFo Sans Regular</h2>
           <h2 className="font-mono font-medium">CoFo Sans Medium</h2>
