@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+        font-family: "KMR Apparat";
+        src: url("./fonts/trial/KMR-Apparat-Regular.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "KMR Apparat";
+        src: url("./fonts/trial/KMR-Apparat-Medium.woff") format("woff");
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "GT Planar";
+        src: url("./fonts/trial/GT-Planar-Bold-Trial.woff2") format("woff2");
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "GT Planar";
+        src: url("./fonts/trial/GT-Planar-Black-Trial.woff2") format("woff2");
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "CoFo Sans Mono";
+        src: url("./fonts/trial/CoFoSansMono-Regular-Trial.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "CoFo Sans Mono";
+        src: url("./fonts/trial/CoFoSansMono-Medium-Trial.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+    }
+}
+
 :root {
     --background: #ffffff;
     --foreground: #171717;

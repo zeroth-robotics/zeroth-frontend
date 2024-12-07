@@ -18,9 +18,9 @@ export default {
                 "col2": "#d000ff",
             },
             fontFamily: {
-                "body": [],
-                "display": [],
-                "mono": []
+                apparat: ['KMR Apparat', 'sans-serif'],
+                planar: ['GT Planar', 'sans-serif'],
+                mono: ['Cofo Sans Mono', 'monospace'],
             }
         },
     },
