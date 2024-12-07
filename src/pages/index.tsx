@@ -6,7 +6,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-col gap-4 text-2xl">
           <h2 className="font-planar font-bold">GT Planar Bold</h2>
-          <h2 className="font-planar font-black">GT Planar Black</h2>
+          <h2 className="font-planar font-normal">GT Planar Regular</h2>
           <h2 className="font-apparat font-bold">KMR Apparat Bold</h2>
           <h2 className="font-apparat font-medium">KMR Apparat Medium</h2>
           <h2 className="font-mono font-normal">CoFo Sans Regular</h2>
