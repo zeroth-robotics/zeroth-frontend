@@ -76,10 +76,20 @@ body {
     background: #010101;
     border-radius: 0.6rem;
     min-height: 0.6rem;
+    transition: ease-in 0.1s;
 }
 
-.scrollbar-hidden::-webkit-scrollbar-thumb {
-    background: transparent;
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+    background: #010101;
     border-radius: 0.6rem;
     min-height: 0.6rem;
+    transition: ease-in 2s;
+}
+
+::-webkit-scrollbar-thumb {
+    opacity: 0;
+    border-radius: 0.6rem;
+    min-height: 0.6rem;
+    transition: ease-in 2s;
 }

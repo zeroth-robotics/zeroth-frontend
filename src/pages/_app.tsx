@@ -5,19 +5,18 @@ import Navbar from "@/components/navbar/navbar";
 import {useEffect, useState} from "react";
 
 export default function App({Component, pageProps}: AppProps) {
-    const scrollState: string[] = ["scrollbar-hidden", "scrollbar-visible"];
+    const scrollbar: string = "scrollbar-visible";
 
     useEffect(() => {
+        let scrollTimeout: NodeJS.Timeout | undefined;
+
         const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const isScrolling = scrollPosition > 100;
-            if (isScrolling) {
-                document.body.classList.add(scrollState[0]);
-                document.body.classList.remove(scrollState[1]);
-            } else {
-                document.body.classList.add(scrollState[1]);
-                document.body.classList.remove(scrollState[0]);
-            }
+            document.body.classList.add(scrollbar);
+            clearTimeout(scrollTimeout);
+
+            scrollTimeout = setTimeout(() => {
+                document.body.classList.remove(scrollbar);
+            }, 2000);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -25,7 +24,7 @@ export default function App({Component, pageProps}: AppProps) {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [scrollState]);
+    }, []);
     return (<>
         <Head>
             <title>K-Scale</title>
