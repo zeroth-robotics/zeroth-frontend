@@ -3,8 +3,10 @@ import Logotype from "@/components/logos/logotype";
 import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
 import {useState} from "react";
+import ArrowUpRight from "@/components/arrowUpRight";
 
 const navItems: string[] = ["research", "docs", "login", "CTA"];
+const arrowStyling = "font-planar font-normal text-off-black text-2xl select-none";
 
 const navVariants = {
     visible: {
@@ -63,8 +65,8 @@ export default function NavBar() {
                                 duration: 1.6,
                             }}>
                             {name !== "CTA" ?
-                                <NavButton text={name}/> :
-                                <CTAButton/>}
+                                <NavButton text={name}/>
+                                : <CTAButton/>}
                         </motion.div>
                     );
                 })}

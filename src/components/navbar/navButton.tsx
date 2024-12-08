@@ -2,6 +2,7 @@ import {TextProps} from "@/components/interfaces";
 import {motion} from "motion/react";
 import React from "react";
 import Link from "next/link";
+import ArrowUpRight from "@/components/arrowUpRight";
 
 const NavButton = (props: TextProps) => {
     return (
@@ -24,7 +25,7 @@ const NavButton = (props: TextProps) => {
                 background: "#f1f1f1",
                 color: "#010101",
             }}>
-            <Link href={`/${props.text}`}>
+            <Link className={"flex flex-row"} href={`/${props.text}`}>
                 {props.text}
             </Link>
         </motion.button>
