@@ -2,7 +2,6 @@ import {TextProps} from "@/components/interfaces";
 import {motion} from "motion/react";
 import React from "react";
 import Link from "next/link";
-import ArrowUpRight from "@/components/arrowUpRight";
 
 const NavButton = (props: TextProps) => {
     return (
