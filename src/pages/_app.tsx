@@ -2,9 +2,30 @@ import "@/styles/globals.css";
 import type {AppProps} from "next/app";
 import Head from "next/head";
 import Navbar from "@/components/navbar/navbar";
+import {useEffect} from "react";
 
 export default function App({Component, pageProps}: AppProps) {
-    return <>
+    const scrollbar: string = "scrollbar-visible";
+
+    useEffect(() => {
+        let scrollTimeout: NodeJS.Timeout | undefined;
+
+        const handleScroll = () => {
+            document.body.classList.add(scrollbar);
+            clearTimeout(scrollTimeout);
+
+            scrollTimeout = setTimeout(() => {
+                document.body.classList.remove(scrollbar);
+            }, 2000);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    return (<>
         <Head>
             <title>K-Scale</title>
             <meta name="description" content="Buy, sell and build androids online"/>
@@ -65,5 +86,5 @@ export default function App({Component, pageProps}: AppProps) {
         </Head>
         <Navbar/>
         <Component {...pageProps} />
-    </>
+    </>)
 }

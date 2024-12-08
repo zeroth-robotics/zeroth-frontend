@@ -4,7 +4,7 @@ import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
 import {useState} from "react";
 
-const navItems: string[] = ["research", "docs", "login", "CTA"];
+const navItems: string[] = ["research", "docs", "login"];
 
 const navVariants = {
     visible: {
@@ -42,33 +42,35 @@ export default function NavBar() {
     });
 
     return (
-        <motion.nav
-            className={"flex flex-row gap-8 justify-between py-7 px-6 fixed w-full"}
-            variants={navVariants}
-            animate={hidden ? "hidden" : "visible"}
-            transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 1,
-                staggerChildren: 0.05,
-            }}>
+        <nav
+            className={"flex flex-row gap-8 justify-between py-7 px-6 fixed w-full"}>
             <Logotype/>
             <div className={"flex flex-row gap-3 items-center"}>
-                {navItems.map((name, i) => {
-                    return (
-                        <motion.div
-                            key={i}
-                            variants={navItemVariants}
-                            transition={{
-                                ease: [0.1, 0.25, 0.3, 1],
-                                duration: 1.6,
-                            }}>
-                            {name !== "CTA" ?
+                <motion.div
+                    className={"flex flex-row gap-3 items-center"}
+                    variants={navVariants}
+                    animate={hidden ? "hidden" : "visible"}
+                    transition={{
+                        ease: [0.1, 0.25, 0.3, 1],
+                        duration: 0.5,
+                        staggerChildren: 0.05,
+                    }}>
+                    {navItems.map((name, i) => {
+                        return (
+                            <motion.div
+                                key={i}
+                                variants={navItemVariants}
+                                transition={{
+                                    ease: [0.1, 0.25, 0.3, 1],
+                                    duration: 0.3,
+                                }}>
                                 <NavButton text={name}/>
-                                : <CTAButton/>}
-                        </motion.div>
-                    );
-                })}
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+                <CTAButton/>
             </div>
-        </motion.nav>
+        </nav>
     );
 }
