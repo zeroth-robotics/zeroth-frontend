@@ -21,8 +21,7 @@ const CTAButton = (props: TextProps) => {
                 background: "#ff8c25",
                 color: "#f1f1f1",
             }}>
-            <div className={"font-planar font-normal text-2xl px-4 py-2 " +
-                " select-none "}
+            <div className={"font-planar font-normal text-2xl px-4 py-2 select-none "}
             >{props.text}
             </div>
         </motion.button>

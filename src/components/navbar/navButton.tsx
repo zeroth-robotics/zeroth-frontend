@@ -1,6 +1,7 @@
 import {TextProps} from "@/components/interfaces";
 import {motion} from "motion/react";
 import React from "react";
+import Link from "next/link";
 
 const NavButton = (props: TextProps) => {
     return (
@@ -22,10 +23,9 @@ const NavButton = (props: TextProps) => {
                 background: "#f1f1f1",
                 color: "#010101",
             }}>
-            <div className={"font-planar font-normal text-2xl px-4 py-2 " +
-                " select-none "}
-            >{props.text}
-            </div>
+            <Link className={"font-planar font-normal text-2xl px-4 py-2 select-none "} href={"/"}>
+                {props.text}
+            </Link>
         </motion.button>
     );
 };

@@ -6,3 +6,7 @@ export interface TextColourProps {
     text: string,
     color: string
 }
+
+export interface LinkProps {
+    linkURL: string
+}
