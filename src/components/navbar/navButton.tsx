@@ -23,7 +23,7 @@ const NavButton = (props: TextProps) => {
                 background: "#f1f1f1",
                 color: "#010101",
             }}>
-            <Link className={"font-planar font-normal text-2xl px-4 py-2 select-none "} href={"/"}>
+            <Link className={"font-planar font-normal text-2xl px-4 py-2 select-none"} href={"/"}>
                 {props.text}
             </Link>
         </motion.button>

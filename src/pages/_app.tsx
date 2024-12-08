@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type {AppProps} from "next/app";
 import Head from "next/head";
+import Navbar from "@/components/navbar/navbar";
 
 export default function App({Component, pageProps}: AppProps) {
     return <>
@@ -61,7 +62,8 @@ export default function App({Component, pageProps}: AppProps) {
                 rel="shortcut icon"
                 type="image/x-icon"
                 href="/favicons/favicon.ico"/>
-        </Head><Component {...pageProps} />
+        </Head>
+        <Navbar/>
+        <Component {...pageProps} />
     </>
-        ;
 }

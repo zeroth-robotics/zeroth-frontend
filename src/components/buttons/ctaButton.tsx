@@ -1,8 +1,7 @@
 import React from "react";
-import {TextProps} from "@/components/interfaces";
 import {motion} from "motion/react";
 
-const CTAButton = (props: TextProps) => {
+const CTAButton = () => {
     return (
         <motion.button
             transition={{
@@ -21,8 +20,8 @@ const CTAButton = (props: TextProps) => {
                 background: "#ff8c25",
                 color: "#f1f1f1",
             }}>
-            <div className={"font-planar font-normal text-2xl px-4 py-2 select-none "}
-            >{props.text}
+            <div className={"font-planar font-normal text-2xl px-4 py-2 select-none "}>
+                Order GPR 1.0
             </div>
         </motion.button>
     );

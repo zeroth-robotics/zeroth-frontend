@@ -10,3 +10,7 @@ export interface TextColourProps {
 export interface LinkProps {
     linkURL: string
 }
+
+export interface SizeColourProps {
+    styling: string
+}
