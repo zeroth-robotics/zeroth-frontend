@@ -13,15 +13,13 @@ const CTAButton = (props: TextProps) => {
             initial={{
                 scale: 1,
                 background: "#010101",
-                borderColor: "#010101",
                 borderRadius: "0.375rem",
-                borderWidth: "2px",
                 color: "#f1f1f1",
             }}
             whileHover={{
                 scale: 0.95,
-                background: "#f1f1f1",
-                color: "#010101",
+                background: "#ff8c25",
+                color: "#f1f1f1",
             }}>
             <div className={"font-planar font-normal text-2xl px-4 py-2 " +
                 " select-none "}
