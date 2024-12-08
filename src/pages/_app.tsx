@@ -2,9 +2,31 @@ import "@/styles/globals.css";
 import type {AppProps} from "next/app";
 import Head from "next/head";
 import Navbar from "@/components/navbar/navbar";
+import {useEffect, useState} from "react";
 
 export default function App({Component, pageProps}: AppProps) {
-    return <>
+    const scrollState: string[] = ["scrollbar-hidden", "scrollbar-visible"];
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const isScrolling = scrollPosition > 100;
+            if (isScrolling) {
+                document.body.classList.add(scrollState[0]);
+                document.body.classList.remove(scrollState[1]);
+            } else {
+                document.body.classList.add(scrollState[1]);
+                document.body.classList.remove(scrollState[0]);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [scrollState]);
+    return (<>
         <Head>
             <title>K-Scale</title>
             <meta name="description" content="Buy, sell and build androids online"/>
@@ -65,5 +87,5 @@ export default function App({Component, pageProps}: AppProps) {
         </Head>
         <Navbar/>
         <Component {...pageProps} />
-    </>
+    </>)
 }

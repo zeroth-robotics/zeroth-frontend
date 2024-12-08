@@ -57,9 +57,6 @@
         --foreground: #ededed;
     }
 }
-html {
-    overflow-y: scroll;
-}
 
 body {
     color: var(--foreground);
@@ -68,19 +65,21 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0.6rem;
+    width: 0.75vw;
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 1rem;
+.scrollbar-visible::-webkit-scrollbar-thumb {
+    background: #010101;
+    border-radius: 0.6rem;
+    min-height: 0.6rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    transition: ease-in 1s;
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0.6rem;
+    min-height: 0.6rem;
 }
