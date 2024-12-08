@@ -6,6 +6,7 @@ import Link from "next/link";
 const NavButton = (props: TextProps) => {
     return (
         <motion.button
+            className={"font-planar font-normal capitalize w-full h-full text-2xl px-4 py-2 select-none"}
             transition={{
                 duration: 0.85,
                 ease: "circOut",
@@ -23,7 +24,7 @@ const NavButton = (props: TextProps) => {
                 background: "#f1f1f1",
                 color: "#010101",
             }}>
-            <Link className={"font-planar font-normal text-2xl px-4 py-2 select-none"} href={"/"}>
+            <Link href={`/${props.text}`}>
                 {props.text}
             </Link>
         </motion.button>
