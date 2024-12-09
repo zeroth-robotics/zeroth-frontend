@@ -65,32 +65,40 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-::-webkit-scrollbar {
-    width: 0.75vw;
-}
+/*::-webkit-scrollbar {*/
+/*    width: 0.75vw;*/
+/*}*/
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
+/*::-webkit-scrollbar-track {*/
+/*    background: transparent;*/
+/*}*/
 
-.scrollbar-visible::-webkit-scrollbar-thumb {
-    background: #010101;
-    border-radius: 0.6rem;
-    min-height: 0.6rem;
-    transition: ease-in 0.1s;
-}
+/*.scrollbar-visible::-webkit-scrollbar-thumb {*/
+/*    background: #010101;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 0.1s;*/
+/*}*/
 
-::-webkit-scrollbar-thumb:hover {
-    opacity: 1;
-    background: #010101;
-    border-radius: 0.6rem;
-    min-height: 0.6rem;
-    transition: ease-in 2s;
-}
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    opacity: 1;*/
+/*    background: #010101;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 2s;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    opacity: 0;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 2s;*/
+/*}*/
 
 ::-webkit-scrollbar-thumb {
-    opacity: 0;
-    border-radius: 0.6rem;
-    min-height: 0.6rem;
-    transition: ease-in 2s;
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
