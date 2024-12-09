@@ -15,7 +15,7 @@ export default {
                 foreground: "var(--foreground)",
                 "off-white": "#f1f1f1",
                 "off-black": "#010101",
-                "col1": "#ff4d00",
+                "kscale-orange": "#ff6124",
                 "col2": "#d000ff",
             },
             fontFamily: {

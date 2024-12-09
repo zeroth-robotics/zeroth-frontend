@@ -1,12 +1,13 @@
 import React from "react";
 import {motion} from "motion/react";
+import {bgBlackDarkWhite, textWhiteDarkBlack, transitionEaseLinearDuration300} from "@/components/util/constants";
 
 const CTAButton = () => {
     return (
         <motion.button
             className={"font-planar font-normal text-2xl px-4 py-2 select-none " +
-                "bg-off-black dark:bg-off-white hover:bg-orange-600 " +
-                "text-off-white dark:text-off-black "}
+                bgBlackDarkWhite + " hover:bg-kscale-orange " +
+                transitionEaseLinearDuration300 + textWhiteDarkBlack}
             transition={{
                 duration: 0.85,
                 ease: "circOut",
