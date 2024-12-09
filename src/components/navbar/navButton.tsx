@@ -22,7 +22,7 @@ const NavButton = (props: Text2Props) => {
                 borderColor: "transparent",
             }}
             whileHover={scaleMotionNumber}>
-            <Link className={"flex flex-row"} href={`/${props.text}`}>
+            <Link className={"flex flex-row"} href={props.text2} target={"_blank"}>
                 {props.text}
             </Link>
         </motion.button>
