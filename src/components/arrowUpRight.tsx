@@ -1,4 +1,4 @@
-import {SizeColourProps} from "@/components/interfaces";
+import {SizeColourProps} from "@/components/util/interfaces";
 
 const ArrowUpRight = (props:SizeColourProps) => {
     return (
