@@ -1,9 +1,9 @@
-import {TextProps} from "@/components/interfaces";
+import {Text2Props, TextProps} from "@/components/interfaces";
 import {motion} from "motion/react";
 import React from "react";
 import Link from "next/link";
 
-const NavButton = (props: TextProps) => {
+const NavButton = (props: Text2Props) => {
     return (
         <motion.button
             className={"font-planar font-normal capitalize w-full h-full text-2xl px-4 py-2 select-none"}
@@ -24,7 +24,7 @@ const NavButton = (props: TextProps) => {
                 background: "#f1f1f1",
                 color: "#010101",
             }}>
-            <Link className={"flex flex-row"} href={`/${props.text}`}>
+            <Link className={"flex flex-row"} href={props.text2} target={"_blank"}>
                 {props.text}
             </Link>
         </motion.button>

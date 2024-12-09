@@ -5,6 +5,7 @@ import CTAButton from "@/components/buttons/ctaButton";
 import {useState} from "react";
 
 const navItems: string[] = ["research", "docs", "login"];
+const navItemLinks: string[] = ["https://kscale.dev/research", "https://docs.kscale.dev/", "https://kscale.dev/"];
 
 const navVariants = {
     visible: {
@@ -64,7 +65,7 @@ export default function NavBar() {
                                     ease: [0.1, 0.25, 0.3, 1],
                                     duration: 0.3,
                                 }}>
-                                <NavButton text={name}/>
+                                <NavButton text={name} text2={navItemLinks[i]}/>
                             </motion.div>
                         );
                     })}
