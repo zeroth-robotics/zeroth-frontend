@@ -8,7 +8,7 @@ import {
 const Logotype = () => {
     return (
         <button>
-            <Link className={"font-apparat font-bold text-3xl select-none " +
+            <Link className={"font-apparat font-bold text-3xl select-none z-50 " +
                 textBlackDarkWhite + " hover:text-kscale-orange " +
                 transitionEaseLinearDuration300} href={"/"}>
                 k-scale labs
