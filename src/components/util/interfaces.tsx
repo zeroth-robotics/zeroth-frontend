@@ -1,3 +1,5 @@
+import {Dispatch, SetStateAction} from "react";
+
 export interface TextProps {
     text: string
 }
@@ -20,13 +22,7 @@ export interface SizeColourProps {
     styling: string
 }
 
-export interface BurgerMenuProps {
-    shouldOpen: boolean,
-    setBurgerState: (state: boolean) => void,
-}
-
 export interface BurgerOpenButtonProps {
-    buttonText: string,
-    onClick: () => void,
     isOpen: boolean,
+    onClick: Dispatch<SetStateAction<boolean>>,
 }
