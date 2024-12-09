@@ -2,7 +2,7 @@ import {motion, useMotionValueEvent, useScroll} from "motion/react";
 import Logotype from "@/components/logos/logotype";
 import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useWindowSize} from "@/components/util/functions";
 import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
@@ -125,6 +125,19 @@ export default function NavBar() {
             </>
         );
     }
+
+    useEffect(() => {
+        if (mobileShouldOpenBurger) {
+            document.body.classList.add("scroll-lock");
+        } else {
+            document.body.classList.remove("scroll-lock");
+        }
+
+        // Cleanup on component unmount
+        return () => {
+            document.body.classList.remove("scroll-lock");
+        };
+    }, [mobileShouldOpenBurger]);
 
     return (
         <nav
