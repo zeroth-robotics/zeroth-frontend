@@ -6,6 +6,7 @@ import {useState} from "react";
 import {useWindowSize} from "@/components/util/functions";
 
 const navItems: string[] = ["research", "docs", "login"];
+const navItemLinks: string[] = ["https://kscale.dev/research", "https://docs.kscale.dev/", "https://kscale.dev/"];
 
 const navVariants = {
     visible: {
@@ -28,8 +29,8 @@ const navItemVariants = {
 const desktopNavStyling = "flex flex-row gap-8 justify-between py-7 px-6 fixed w-full";
 
 export default function NavBar() {
-    const [hidden, setHidden] = useState(false);
     const {scrollY} = useScroll();
+    const [hidden, setHidden] = useState(false);
     const [previousScroll, setPrevScroll] = useState(scrollY.get());
 
     function update(current: number, previous: number): void {
@@ -80,7 +81,7 @@ export default function NavBar() {
                                         ease: [0.1, 0.25, 0.3, 1],
                                         duration: 0.3,
                                     }}>
-                                    <NavButton text={name}/>
+                                    <NavButton text={name} text2={navItemLinks[i]}/>
                                 </motion.div>
                             );
                         })}

@@ -1,4 +1,4 @@
-import {TextProps} from "@/components/util/interfaces";
+import {Text2Props} from "@/components/util/interfaces";
 import {motion} from "motion/react";
 import React from "react";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import {
     scaleMotionNumber
 } from "@/components/util/constants";
 
-const NavButton = (props: TextProps) => {
+const NavButton = (props: Text2Props) => {
     return (
         <motion.button
             className={"font-planar font-normal capitalize w-full h-full text-2xl px-4 py-2 select-none " +
