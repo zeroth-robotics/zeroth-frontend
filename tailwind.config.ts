@@ -7,6 +7,7 @@ export default {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/styles/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    darkMode: "media",
     theme: {
         extend: {
             colors: {
@@ -21,7 +22,8 @@ export default {
                 apparat: ['KMR Apparat', 'sans-serif'],
                 planar: ['GT Planar', 'sans-serif'],
                 mono: ['Cofo Sans Mono', 'monospace'],
-            }
+            },
+
         },
     },
     plugins: [],

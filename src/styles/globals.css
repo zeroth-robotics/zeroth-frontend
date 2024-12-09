@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     @font-face {
         font-family: "KMR Apparat";
@@ -47,14 +48,14 @@
 }
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #f1f1f1f;
+    --foreground: #010101;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+        --background: #010101;
+        --foreground: #f1f1f1;
     }
 }
 
