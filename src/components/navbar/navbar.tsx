@@ -29,7 +29,7 @@ const navItemVariants = {
 };
 
 const desktopNavStyling = "flex flex-row gap-8 justify-between py-7 px-6 fixed w-full";
-const mobileNavStyling = "w-[100%] flex items-center justify-center mb-5 h-[20dvh] bottom-0 left-0 fixed ";
+const mobileNavStyling = "w-[100%] z-50 top-0 left-0 fixed ";
 
 export default function NavBar() {
     const {scrollY} = useScroll();
@@ -50,23 +50,45 @@ export default function NavBar() {
         setPrevScroll(current);
     });
     const width = useWindowSize().width;
-    const navBasedOnWidth = (isMobile: boolean) => {
-        return isMobile ? desktopNavBar() : mobileNavBar();
+    const navBasedOnWidth = (isDesktop: boolean) => {
+        return isDesktop ? desktopNavBar() : mobileNavBar();
     }
 
-    const navStyling = (isMobile: boolean) => {
-        return isMobile ? mobileNavStyling : desktopNavStyling;
+    const navStyling = (isDesktop: boolean) => {
+        return isDesktop ? desktopNavStyling : mobileNavStyling;
     }
 
 
     const mobileNavBar = () => {
         return (
-            <div className={(mobileShouldOpenBurger ? "w-fit" : "100%") +
-                " flex flex-row grow justify-between items-end"}>
-                <Logotype/>
-                <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger}/>
-                {BurgerMenu(mobileShouldOpenBurger, "hidden", navItems, navItemLinks)}
-            </div>
+            <menu
+                className={"overflow-hidden w-[100%] p-4 top-0 left-0 gap-2.5 "
+                    + (mobileShouldOpenBurger ? "h-[100dvh] bg-off-white dark:bg-off-black" :
+                        "bg-gradient-to-b from-90% from-off-white dark:from-off-black h-fit")}>
+                <div
+                    className={" flex flex-row grow justify-between"}>
+                    {mobileShouldOpenBurger ?
+                        <Logotype/> : <motion.div
+                            variants={navVariants}
+                            animate={desktopNavHidden ? "hidden" : "visible"}
+                            transition={{
+                                ease: [0.1, 0.25, 0.3, 1],
+                                duration: 0.5,
+                                staggerChildren: 0.05,
+                            }}>
+                            <motion.div
+                                variants={navItemVariants}
+                                transition={{
+                                    ease: [0.1, 0.25, 0.3, 1],
+                                    duration: 0.3,
+                                }}>
+                                <Logotype/>
+                            </motion.div>
+                        </motion.div>}
+                    <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger}/>
+                </div>
+                {BurgerMenu(mobileShouldOpenBurger, navItems, navItemLinks)}
+            </menu>
         );
     }
 

@@ -13,7 +13,7 @@ export default {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                "off-white": "#f1f1f1",
+                "off-white": "#ffffff",
                 "off-black": "#010101",
                 "kscale-orange": "#ff6124",
                 "col2": "#d000ff",
