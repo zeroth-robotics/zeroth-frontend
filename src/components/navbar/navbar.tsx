@@ -2,7 +2,7 @@ import {motion, useMotionValueEvent, useScroll} from "motion/react";
 import Logotype from "@/components/logos/logotype";
 import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
-import {SetStateAction, useState} from "react";
+import {useState} from "react";
 import {useWindowSize} from "@/components/util/functions";
 import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";

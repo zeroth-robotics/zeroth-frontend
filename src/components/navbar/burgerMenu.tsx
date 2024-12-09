@@ -1,4 +1,3 @@
-import {motion} from "motion/react";
 import BurgerButton from "@/components/navbar/burgerButton";
 
 const BurgerMenu = (isOpen: boolean, buttonText: string[], buttonLinks: string[]) => {
