@@ -1,25 +1,19 @@
-import {motion} from "motion/react";
 import React from "react";
 import Link from "next/link";
+import {
+    textBlackDarkWhite,
+    transitionEaseLinearDuration300
+} from "@/components/util/constants";
 
 const Logotype = () => {
     return (
-        <motion.button
-            transition={{
-                duration: 0.85,
-                ease: "circOut",
-                bounce: "spring",
-            }}
-            initial={{
-                color: "#010101",
-            }}
-            whileHover={{
-                color: "#ff4d00",
-            }}>
-            <Link className={"font-apparat font-bold text-3xl select-none "} href={"/"}>
+        <button>
+            <Link className={"font-apparat font-bold text-3xl select-none " +
+                textBlackDarkWhite + " hover:text-kscale-orange " +
+                transitionEaseLinearDuration300} href={"/"}>
                 k-scale labs
             </Link>
-        </motion.button>
+        </button>
     );
 }
 

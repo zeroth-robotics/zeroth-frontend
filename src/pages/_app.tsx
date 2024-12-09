@@ -6,7 +6,6 @@ import {useEffect} from "react";
 
 export default function App({Component, pageProps}: AppProps) {
     const scrollbar: string = "scrollbar-visible";
-
     useEffect(() => {
         let scrollTimeout: NodeJS.Timeout | undefined;
 
