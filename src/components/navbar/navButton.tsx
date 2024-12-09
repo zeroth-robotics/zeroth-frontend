@@ -6,7 +6,7 @@ import {
     textBlackDarkWhite,
     navMotionTransition,
     transitionEaseLinearDuration300,
-    scaleMotionNumber, textWhiteDarkBlack
+    scaleMotionNumber,
 } from "@/components/util/constants";
 
 const NavButton = (props: Text2Props) => {

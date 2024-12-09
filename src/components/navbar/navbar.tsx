@@ -4,6 +4,8 @@ import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
 import {useState} from "react";
 import {useWindowSize} from "@/components/util/functions";
+import BurgerMenu from "@/components/navbar/burgerMenu";
+import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
 
 const navItems: string[] = ["research", "docs", "login"];
 const navItemLinks: string[] = ["https://kscale.dev/research", "https://docs.kscale.dev/", "https://kscale.dev/"];
@@ -54,6 +56,10 @@ export default function NavBar() {
     const mobileNavBar = () => {
         return (
             <>
+                <div>
+                    {BurgerMenu()}
+                    <BurgerOpenButton/>
+                </div>
             </>
         );
     }

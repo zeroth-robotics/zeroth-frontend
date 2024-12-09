@@ -19,3 +19,14 @@ export interface LinkProps {
 export interface SizeColourProps {
     styling: string
 }
+
+export interface BurgerMenuProps {
+    shouldOpen: boolean,
+    setBurgerState: (state: boolean) => void,
+}
+
+export interface BurgerOpenButtonProps {
+    buttonText: string,
+    onClick: () => void,
+    isOpen: boolean,
+}
