@@ -6,7 +6,7 @@ import {
     navMotionTransition,
     transitionEaseLinearDuration300, scaleMotionNumber
 } from "@/components/util/constants";
-
+//Order GPR 1.0
 const CTAButton = () => {
     return (
         <motion.button
@@ -19,7 +19,7 @@ const CTAButton = () => {
                 borderRadius: "0.375rem",
             }}
             whileHover={scaleMotionNumber}>
-            Order GPR 1.0
+            👀👀👀👀👀
         </motion.button>
     );
 };
