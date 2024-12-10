@@ -1,3 +1,7 @@
+import {motion} from "motion/react";
+import Link from "next/link";
+import {navMotionTransition, scaleMotionNumber} from "@/components/util/constants";
+
 export default function Home() {
     return (
         <div
@@ -5,8 +9,16 @@ export default function Home() {
       gap-16 sm:p-20 `}
         >
             <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-                <h1 className="text-2xl font-planar font-normal text-foreground ">We're cooking something 👀</h1>
-                <h3 className="text-2xl font-planar font-normal text-foreground"></h3>
+                <h1 className="text-xl font-planar font-normal text-foreground ">We're cooking something 👀</h1>
+                <div className={"flex flex-row items-baseline gap-2 "}>
+                    <p className="text-md font-planar font-normal text-foreground">Join </p>
+                    <motion.a initial={{scale: 1}} whileHover={scaleMotionNumber} transition={navMotionTransition}
+                              className={"font-bold text-foreground hover:text-accent-blood-orange"}
+                              href={"https://discord.gg/kscale"} target={"_blank"}>our
+                        Discord
+                    </motion.a>
+                    <p className="text-md font-planar font-normal text-foreground">for most updated info :)</p>
+                </div>
                 {/*<div className="flex flex-col gap-4 text-2xl">*/}
                 {/*    <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">*/}
                 {/*        <rect width="50" height="50" x="10" y="10" className={"fill-accent-aubergine"}/>*/}
