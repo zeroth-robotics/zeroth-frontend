@@ -1,7 +1,4 @@
-import {
-  navMotionTransition,
-  scaleMotionNumber,
-} from "@/components/util/constants";
+import { navMotionTransition, scaleMotionNumber } from "@/components/util/constants";
 import { motion } from "motion/react";
 
 export default function Home() {
@@ -15,16 +12,12 @@ export default function Home() {
           We're cooking something 👀
         </h1>
         <div className={"flex flex-row items-baseline gap-2 "}>
-          <p className="text-md font-planar font-normal text-foreground">
-            Join{" "}
-          </p>
+          <p className="text-md font-planar font-normal text-foreground">Join </p>
           <motion.a
             initial={{ scale: 1 }}
             whileHover={scaleMotionNumber}
             transition={navMotionTransition}
-            className={
-              "font-bold text-foreground hover:text-accent-blood-orange"
-            }
+            className={"font-bold text-foreground hover:text-accent-blood-orange"}
             href={"https://discord.gg/kscale"}
             target={"_blank"}
           >
