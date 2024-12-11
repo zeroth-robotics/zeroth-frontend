@@ -71,9 +71,25 @@ const RobotRenderer: React.FC = () => {
 
     const loader = new URDFLoader();
     loader.load(URDF_URL, (robot: THREE.Object3D) => {
-      scene.add(robot);
+      const updateMaterials = () => {
+        robot.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            const originalColor =
+              child.material instanceof THREE.Material
+                ? (child.material as THREE.MeshPhysicalMaterial).color
+                : new THREE.Color(0x808080);
+            child.material = new THREE.MeshPhysicalMaterial({
+              metalness: 0.4,
+              roughness: 0.5,
+              color: originalColor,
+            });
+          }
+        });
+      };
 
-      // Correcting for the robot initial size and position.
+      scene.add(robot);
+      updateMaterials();
+
       robot.rotateY(Math.PI / 2);
       robot.translateY(TRANSLATE_Y);
       robot.scale.set(SCALE, SCALE, SCALE);
@@ -91,7 +107,6 @@ const RobotRenderer: React.FC = () => {
         requestAnimationFrame(animate);
         controls.update();
 
-        // Update joint positions with a sinusoidal pattern
         const time = (Date.now() - startTime) / 1000;
         robot.traverse((child) => {
           const joint = child as URDFJoint;
