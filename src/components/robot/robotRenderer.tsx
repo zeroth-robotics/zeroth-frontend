@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import URDFLoader from "urdf-loader";
+import { URDFJoint } from "urdf-loader/src/URDFClasses";
 
 const URDF_URL = "/cad/gpr-20241204.urdf";
 const SCALE = 4;
@@ -49,10 +50,21 @@ const RobotRenderer: React.FC = () => {
       controls.screenSpacePanning = false;
       controls.maxPolarAngle = Math.PI / 2;
 
+      let time = 0;
+
       const animate = () => {
         requestAnimationFrame(animate);
         controls.update();
-        robot.rotation.y += 0.005;
+
+        // Update joint positions with a sinusoidal pattern
+        time += 0.01;
+        robot.traverse((child) => {
+          const joint = child as URDFJoint;
+          if (joint.isURDFJoint) {
+            joint.setJointValue(Math.sin(time) * 0.5);
+          }
+        });
+
         renderer.render(scene, camera);
       };
 
