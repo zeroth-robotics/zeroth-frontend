@@ -3,29 +3,10 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const scrollbar: string = "scrollbar-visible";
-  // useEffect(() => {
-  //     let scrollTimeout: NodeJS.Timeout | undefined;
-  //
-  //     const handleScroll = () => {
-  //         document.body.classList.add(scrollbar);
-  //         clearTimeout(scrollTimeout);
-  //
-  //         scrollTimeout = setTimeout(() => {
-  //             document.body.classList.remove(scrollbar);
-  //         }, 2000);
-  //     };
-  //
-  //     window.addEventListener("scroll", handleScroll);
-  //
-  //     return () => {
-  //         window.removeEventListener("scroll", handleScroll);
-  //     };
-  // }, []);
   return (
     <>
       <Head>
-        <title>K-Scale</title>
+        <title>K-Scale Labs</title>
         <meta name="description" content="Buy, sell and build androids online" />
         <meta
           name="keywords"

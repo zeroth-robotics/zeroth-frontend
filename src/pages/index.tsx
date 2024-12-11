@@ -1,26 +1,38 @@
+import CTAButton from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
 import NavBar from "@/components/navbar/navbar";
 
+const Header = () => {
+  return (
+    <section className="pt-16 bg-black text-white">
+      <div className="flex flex-col items-center text-center pt-10">
+        <h1 className="text-5xl mt-16">
+          The world's first humanoid robot for those who prefer transparency over trust.
+        </h1>
+        <h2 className="text-3xl mt-8">
+          Open-source to protect your privacy, ensure fair pricing, and ensure your contributions
+          help move humanity up the Kardashev scale.
+        </h2>
+      </div>
+    </section>
+  );
+};
+
+const BuyNow = () => {
+  return (
+    <div className="flex flex-col items-center text-center pt-10">
+      <CTAButton />
+    </div>
+  );
+};
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-black text-white">
       <NavBar />
-      <header className="flex flex-col items-center justify-center py-20 px-[5%]">
-        <h1 className="text-5xl font-bold">Welcome to Our Website</h1>
-        <p className="text-lg mt-4">We're glad to have you here.</p>
-      </header>
-      <main className="flex-grow p-8">
-        <section className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-4">About Us</h2>
-          <p className="text-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p className="text-md mt-4">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
-          </p>
-        </section>
+      <main className="flex-grow p-8 max-w-7xl mx-auto">
+        <Header />
+        <BuyNow />
       </main>
       <Footer />
     </div>

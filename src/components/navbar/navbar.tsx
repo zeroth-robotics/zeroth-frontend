@@ -1,17 +1,15 @@
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import Logotype from "@/components/logos/logotype";
-import NavButton from "@/components/navbar/navButton";
 import CTAButton from "@/components/buttons/ctaButton";
-import { useEffect, useState } from "react";
-import { useWindowSize } from "@/components/util/functions";
+import Logotype from "@/components/logos/logotype";
 import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
+import NavButton from "@/components/navbar/navButton";
+import { useWindowSize } from "@/components/util/functions";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useEffect, useState } from "react";
 
-const navItems: string[] = ["research", "docs", "login"];
-const navItemLinks: string[] = [
-  "https://dashboard.kscale.dev/research/",
-  "https://docs.kscale.dev/",
-  "https://dashboard.kscale.dev/login/",
+const navItems = [
+  { name: "docs", link: "https://docs.kscale.dev/" },
+  { name: "dashboard", link: "https://dashboard.kscale.dev/login/" },
 ];
 
 const navVariants = {
@@ -96,7 +94,7 @@ export default function NavBar() {
           )}
           <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
         </div>
-        {BurgerMenu(mobileShouldOpenBurger, navItems, navItemLinks)}
+        {BurgerMenu({ isOpen: mobileShouldOpenBurger, items: navItems })}
       </menu>
     );
   };
@@ -116,7 +114,7 @@ export default function NavBar() {
               staggerChildren: 0.05,
             }}
           >
-            {navItems.map((name, i) => {
+            {navItems.map((item, i) => {
               return (
                 <motion.div
                   key={i}
@@ -126,7 +124,7 @@ export default function NavBar() {
                     duration: 0.3,
                   }}
                 >
-                  <NavButton text={name} text2={navItemLinks[i]} />
+                  <NavButton text={item.name} text2={item.link} />
                 </motion.div>
               );
             })}

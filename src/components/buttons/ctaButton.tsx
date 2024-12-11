@@ -1,30 +1,29 @@
 import {
   bgBlackDarkWhite,
-  navMotionTransition,
   textWhiteDarkBlack,
   transitionEaseLinearDuration300,
 } from "@/components/util/constants";
-import { motion } from "motion/react";
+import { useRouter } from "next/router";
+
+const SHOP_URL = "https://shop.kscale.dev/";
 
 const CTAButton = () => {
+  const router = useRouter();
+
   return (
-    <motion.div
+    <button
       className={
         "font-planar font-normal text-2xl px-4 py-2 select-none z-50 " +
         bgBlackDarkWhite +
-        " hover:bg-accent-blood-orange cursor-wait " +
+        " hover:bg-accent-blood-orange cursor-pointer " +
         transitionEaseLinearDuration300 +
-        textWhiteDarkBlack
+        textWhiteDarkBlack +
+        " rounded"
       }
-      transition={navMotionTransition}
-      initial={{
-        scale: 1,
-        borderRadius: "0.375rem",
-      }}
-      // whileHover={scaleMotionNumber}>
+      onClick={() => router.push(SHOP_URL)}
     >
-      👀👀👀👀👀
-    </motion.div>
+      Pre-Order
+    </button>
   );
 };
 

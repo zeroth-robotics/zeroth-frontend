@@ -74,57 +74,28 @@ body {
   background: var(--background);
 }
 
-footer {
-  bottom: 0;
-  left: 0;
-  padding: 13% 2.5% 5% 2.5%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5%;
-}
-
-main {
-  display: grid;
-  margin-left: 5%;
-  margin-right: 5%;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5%;
-}
-
 main {
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
-  font-size: 17px;
-  line-height: 20px;
-  letter-spacing: -0.01em;
 }
 
 h1 {
   @apply font-apparat;
   @apply font-medium;
   font-style: normal;
-  font-size: 62px;
-  line-height: 60px;
-  letter-spacing: -0.02em;
 }
 
 h2 {
   @apply font-apparat;
   @apply font-medium;
   font-style: normal;
-  font-size: 38.5px;
-  line-height: 40px;
-  letter-spacing: -0.015em;
 }
 
 h3 {
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
-  font-size: 25px;
-  line-height: 25px;
-  letter-spacing: -0.01em;
 }
 
 caption,
@@ -132,9 +103,6 @@ figcaption {
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.02em;
 }
 
 caption .code,
@@ -144,9 +112,6 @@ figcaption .pre {
   @apply font-mono;
   @apply font-normal;
   font-style: normal;
-  font-size: 13px;
-  line-height: 14px;
-  letter-spacing: 0.03em;
 }
 
 code,
@@ -154,120 +119,12 @@ pre {
   @apply font-mono;
   @apply font-normal;
   font-style: normal;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
-}
-
-@media (min-width: 640px) {
-  main,
-  footer {
-    padding: 8% 2.5%;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2.5%;
-  }
-}
-
-@media (min-width: 1024px) {
-  main,
-  footer {
-    padding: 4% 5%;
-    grid-template-columns: repeat(9, 1fr);
-    gap: 2.5%;
-  }
-}
-
-@media (min-width: 1440px) {
-  main,
-  footer {
-    padding: 3% 5% 10% 5%;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1.25%;
-  }
-
-  main {
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-  }
-
-  h1 {
-    font-size: 96px;
-    line-height: 84px;
-    letter-spacing: -0.02em;
-  }
-
-  h2 {
-    font-size: 57.5px;
-    line-height: 56px;
-    letter-spacing: -0.015em;
-  }
-
-  h3 {
-    font-size: 39.5px;
-    line-height: 42px;
-    letter-spacing: -0.01em;
-  }
-
-  caption,
-  figcaption {
-    font-size: 17px;
-    line-height: 28px;
-    letter-spacing: 0.02em;
-  }
-
-  caption .code,
-  caption .pre,
-  figcaption .code,
-  figcaption .pre {
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.02em;
-  }
-
-  code,
-  pre {
-    font-size: 18px;
-    line-height: 18px;
-    letter-spacing: 0.02em;
-  }
 }
 
 .scroll-lock {
   overflow: hidden;
   height: 100vh; /* Prevents resizing quirks */
 }
-
-/*::-webkit-scrollbar {*/
-/*    width: 0.75vw;*/
-/*}*/
-
-/*::-webkit-scrollbar-track {*/
-/*    background: transparent;*/
-/*}*/
-
-/*need to add back .scrollbar-visible*/
-/*::-webkit-scrollbar-thumb {*/
-/*    background: #010101;*/
-/*    border-radius: 0.6rem;*/
-/*    min-height: 0.6rem;*/
-/*    transition: ease-in 0.1s;*/
-/*}*/
-
-/*::-webkit-scrollbar-thumb:hover {*/
-/*    opacity: 1;*/
-/*    background: #010101;*/
-/*    border-radius: 0.6rem;*/
-/*    min-height: 0.6rem;*/
-/*    transition: ease-in 2s;*/
-/*}*/
-
-/*::-webkit-scrollbar-thumb {*/
-/*    opacity: 0;*/
-/*    border-radius: 0.6rem;*/
-/*    min-height: 0.6rem;*/
-/*    transition: ease-in 2s;*/
-/*}*/
 
 ::-webkit-scrollbar-thumb {
   display: none;
