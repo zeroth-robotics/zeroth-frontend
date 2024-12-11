@@ -34,13 +34,8 @@ export default function About() {
               <h2 className="text-3xl mb-4">Our Team</h2>
               <ul className="flex space-x-4">
                 {TEAM_MEMBERS.map((member) => (
-                  <li key={member.name} className="text-lg border p-2">
-                    <a
-                      href={member.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
-                    >
+                  <li key={member.name} className="text-lg border rounded-md p-2">
+                    <a href={member.website} target="_blank" rel="noopener noreferrer">
                       {member.name}
                     </a>
                   </li>

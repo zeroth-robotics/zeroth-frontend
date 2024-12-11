@@ -7,17 +7,8 @@ const HeaderSection = () => {
   return (
     <section className="pt-16">
       <div className="flex flex-col items-center text-center pt-10 px-4 max-w-full">
-        <h1 className="text-5xl mt-16">
-          The world&apos;s first humanoid robot
-          <br />
-          for those who prefer
-          <br />
-          transparency over trust.
-        </h1>
-        <h2 className="text-3xl mt-8">
-          Open-source to protect your privacy, ensure fair pricing, and ensure your contributions
-          help move humanity up the Kardashev scale.
-        </h2>
+        <h1 className="text-5xl mt-16">The world&apos;s freest humanoid robot</h1>
+        <h2 className="text-3xl mt-8">Built to move humanity up the Kardashev scale</h2>
       </div>
     </section>
   );
