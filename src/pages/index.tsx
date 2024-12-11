@@ -7,7 +7,7 @@ const Header = () => {
     <section className="pt-16 bg-black text-white">
       <div className="flex flex-col items-center text-center pt-10">
         <h1 className="text-5xl mt-16">
-          The world's first humanoid robot for those who prefer transparency over trust.
+          The world&apos;s first humanoid robot for those who prefer transparency over trust.
         </h1>
         <h2 className="text-3xl mt-8">
           Open-source to protect your privacy, ensure fair pricing, and ensure your contributions
