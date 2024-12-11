@@ -22,7 +22,7 @@ const socialMediaLinks: string[] = [
 
 export interface FooterSectionListProps {
   title: string;
-  items: { title: string; url: string }[];
+  items: { title: string; url: string; isInternal?: boolean }[];
   extraStyling: string;
 }
 
@@ -88,6 +88,11 @@ export default function Footer() {
               { title: "Terms of service", url: "https://dashboard.kscale.dev/tos" },
               { title: "Privacy policy", url: "https://dashboard.kscale.dev/privacy" },
             ]}
+            extraStyling={"col-span-2"}
+          />
+          <FooterSectionList
+            title={"Company"}
+            items={[{ title: "About Us", url: "/about" }]}
             extraStyling={"col-span-2"}
           />
         </div>
