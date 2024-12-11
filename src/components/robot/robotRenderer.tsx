@@ -90,6 +90,7 @@ const RobotRenderer: React.FC = () => {
       scene.add(robot);
       updateMaterials();
 
+      // Correcting for the robot initial size and position.
       robot.rotateY(Math.PI / 2);
       robot.translateY(TRANSLATE_Y);
       robot.scale.set(SCALE, SCALE, SCALE);
@@ -107,6 +108,7 @@ const RobotRenderer: React.FC = () => {
         requestAnimationFrame(animate);
         controls.update();
 
+        // Update joint positions with a sinusoidal pattern
         const time = (Date.now() - startTime) / 1000;
         robot.traverse((child) => {
           const joint = child as URDFJoint;
