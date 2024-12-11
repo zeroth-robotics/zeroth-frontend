@@ -120,16 +120,3 @@ pre {
   @apply font-normal;
   font-style: normal;
 }
-
-.scroll-lock {
-  overflow: hidden;
-  height: 100vh; /* Prevents resizing quirks */
-}
-
-::-webkit-scrollbar-thumb {
-  display: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}

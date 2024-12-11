@@ -5,8 +5,8 @@ import RobotRenderer from "@/components/robot/robotRenderer";
 
 const HeaderSection = () => {
   return (
-    <section className="pt-16 bg-black text-white">
-      <div className="flex flex-col items-center text-center pt-10">
+    <section className="pt-16">
+      <div className="flex flex-col items-center text-center pt-10 px-4 max-w-full">
         <h1 className="text-5xl mt-16">
           The world&apos;s first humanoid robot for those who prefer transparency over trust.
         </h1>
@@ -21,7 +21,7 @@ const HeaderSection = () => {
 
 const RobotSection = () => {
   return (
-    <div className="flex flex-col items-center text-center pt-10">
+    <div className="flex flex-col items-center text-center pt-10 max-w-full aspect-square border-2 rounded-lg my-8">
       <RobotRenderer />
     </div>
   );
@@ -29,7 +29,7 @@ const RobotSection = () => {
 
 const BuyNowSection = () => {
   return (
-    <div className="flex flex-col items-center text-center pt-10">
+    <div className="flex flex-col items-center text-center pt-10 max-w-full">
       <CTAButton />
     </div>
   );
@@ -37,9 +37,9 @@ const BuyNowSection = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow p-8 max-w-7xl mx-auto">
+      <main className="flex-grow p-8 max-w-7xl mx-auto px-4 w-full">
         <HeaderSection />
         <RobotSection />
         <BuyNowSection />
