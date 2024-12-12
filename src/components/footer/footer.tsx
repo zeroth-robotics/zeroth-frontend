@@ -15,7 +15,6 @@ const socialMediaLinks: string[] = [
   "https://discord.gg/kscale",
   "https://www.linkedin.com/company/kscale",
   "https://x.com/kscalelabs",
-
   "https://github.com/kscalelabs",
 ];
 
@@ -48,11 +47,41 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
 };
 
 export default function Footer() {
+  const handleCopyEmail = async () => {
+    const email = "ben@kscale.dev";
+
+    // Check if the clipboard API is available
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch (err) {
+        console.error("Clipboard API failed:", err);
+        // Fallback to legacy approach
+        legacyCopy(email);
+      }
+    } else {
+      // Use legacy approach for browsers that don't support clipboard API
+      legacyCopy(email);
+    }
+  };
+
+  // Legacy approach using temporary input element
+  const legacyCopy = (text: string) => {
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand("copy");
+    } catch (err) {
+      console.error("Legacy clipboard copy failed:", err);
+    }
+    document.body.removeChild(tempInput);
+  };
+
   return (
     <footer
-      className={
-        "z-50 bg-rust text-background dark:text-foreground-dark px-[5vw] py-5 2xl:py-10 grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9 2xl:grid-cols-12 gap-x-[5vw] sm:gap-x-[2.5vw] gap-y-8"
-      }
+      className={"z-50 bg-rust text-background dark:text-foreground-dark py-8  grid-r gap-y-8"}
     >
       <ul
         className={
@@ -74,10 +103,12 @@ export default function Footer() {
         <h3 className={"text-caption uppercase"}>Get in touch</h3>
         <hgroup>
           <h4>Business inquiries</h4>
-          <p className="opacity-[77%]">ben@kscale.dev</p>
-          <button className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm">
-            Copy email
-          </button>
+          <div className="cursor-pointer" onClick={() => handleCopyEmail()}>
+            <p className="opacity-[77%]">ben@kscale.dev</p>
+            <button className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm">
+              Copy email
+            </button>
+          </div>
         </hgroup>
       </section>
       <FooterSectionList

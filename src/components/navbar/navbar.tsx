@@ -31,8 +31,8 @@ const navItemVariants = {
   },
 };
 
-const desktopNavStyling = "flex flex-row gap-8 justify-between py-7 px-[5%] fixed w-full";
-const mobileNavStyling = "w-[100%] z-50 top-0 left-0 fixed ";
+const desktopNavStyling = "grid-r fixed";
+const mobileNavStyling = "grid-r fixed";
 
 export default function NavBar() {
   const { scrollY } = useScroll();
@@ -53,98 +53,73 @@ export default function NavBar() {
     setPrevScroll(current);
   });
   const width = useWindowSize().width;
-  const navBasedOnWidth = (isDesktop: boolean) => {
-    return isDesktop ? desktopNavBar() : mobileNavBar();
-  };
 
-  const navStyling = (isDesktop: boolean) => {
-    return isDesktop ? desktopNavStyling : mobileNavStyling;
+  const navBasedOnWidth = (isDesktop: boolean) => {
+    return mobileNavBar();
   };
 
   const mobileNavBar = () => {
     return (
       <menu
         className={
-          "overflow-hidden w-[100%] p-4 top-0 left-0 gap-2.5 " +
+          "grid-r overflow-hidden w-[100%] top-0 left-0 py-4 items-end bg-background dark:bg-background-dark " +
           (mobileShouldOpenBurger ? "h-[100dvh] bg-background dark:bg-background-dark" : "h-fit")
         }
       >
-        <div className="flex flex-row grow justify-between">
-          {mobileShouldOpenBurger ? (
-            <>
-              <Logotype />
-              <DarkModeToggle />
-            </>
-          ) : (
-            <motion.div
-              variants={navVariants}
-              animate={desktopNavHidden ? "hidden" : "visible"}
-              transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 0.5,
-                staggerChildren: 0.05,
-              }}
-            >
-              <motion.div
-                variants={navItemVariants}
-                transition={{
-                  ease: [0.1, 0.25, 0.3, 1],
-                  duration: 0.3,
-                }}
-              >
-                <Logotype />
-              </motion.div>
-            </motion.div>
-          )}
+        <Logotype />
+
+        <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
+          <CTAButton>Buy GPR</CTAButton>
           <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
         </div>
+
         {BurgerMenu({ isOpen: mobileShouldOpenBurger, items: navItems })}
       </menu>
     );
   };
 
-  const desktopNavBar = () => {
-    return (
-      <>
-        <Logotype />
-        <div className="flex flex-row gap-3 items-center">
-          <motion.div
-            className="flex flex-row gap-3 items-center"
-            variants={navVariants}
-            animate={desktopNavHidden ? "hidden" : "visible"}
-            transition={{
-              ease: [0.1, 0.25, 0.3, 1],
-              duration: 0.5,
-              staggerChildren: 0.05,
-            }}
-          >
-            {navItems.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={navItemVariants}
-                transition={{
-                  ease: [0.1, 0.25, 0.3, 1],
-                  duration: 0.3,
-                }}
-              >
-                <NavButton text={item.name} text2={item.link} />
-              </motion.div>
-            ))}
-            <motion.div
-              variants={navItemVariants}
-              transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 0.3,
-              }}
-            >
-              <DarkModeToggle />
-            </motion.div>
-          </motion.div>
-          <CTAButton />
-        </div>
-      </>
-    );
-  };
+  // const desktopNavBar = () => {
+  //   return (
+  //     <>
+  //       <Logotype />
+  //       <div className="flex flex-row gap-3 items-center">
+  //         <motion.div
+  //           className="flex flex-row gap-3 items-center"
+  //           variants={navVariants}
+  //           animate={desktopNavHidden ? "hidden" : "visible"}
+  //           transition={{
+  //             ease: [0.1, 0.25, 0.3, 1],
+  //             duration: 0.5,
+  //             staggerChildren: 0.05,
+  //           }}
+  //         >
+  //           {navItems.map((item, i) => (
+  //             <motion.div
+  //               key={i}
+  //               variants={navItemVariants}
+  //               transition={{
+  //                 ease: [0.1, 0.25, 0.3, 1],
+  //                 duration: 0.3,
+  //               }}
+  //             >
+  //               <NavButton text={item.name} text2={item.link} />
+  //             </motion.div>
+  //           ))}
+  //           <motion.div
+  //             variants={navItemVariants}
+  //             transition={{
+  //               ease: [0.1, 0.25, 0.3, 1],
+  //               duration: 0.3,
+  //             }}
+  //           >
+  //             <DarkModeToggle />
+  //           </motion.div>
+  //         </motion.div>
+  //         <CTAButton />
+  //       </div>
+  //     </>
+  //   );
+  // };
 
   useEffect(() => {
     if (mobileShouldOpenBurger) {
@@ -159,5 +134,5 @@ export default function NavBar() {
     };
   }, [mobileShouldOpenBurger]);
 
-  return <nav className={navStyling(width > 1023)}>{navBasedOnWidth(width > 1023)}</nav>;
+  return <nav className="fixed">{navBasedOnWidth(false)}</nav>;
 }

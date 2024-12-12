@@ -4,7 +4,7 @@ import { transitionEaseLinearDuration300 } from "@/components/util/constants";
 
 const FooterLogotype = () => {
   return (
-    <button className="mt-12 col-start-1 col-span-2 lg:col-start-1 lg:col-span-3">
+    <button className="mt-12 col-start-1 col-span-2 lg:col-start-1 lg:col-span-2">
       <Link href={"/"}>
         <svg
           width="383"

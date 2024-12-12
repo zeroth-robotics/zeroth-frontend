@@ -1,5 +1,6 @@
 import CTAButton from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
+import { Grid } from "@/components/grid/Grid";
 import NavBar from "@/components/navbar/navbar";
 import RobotRenderer from "@/components/robot/robotRenderer";
 
@@ -25,7 +26,7 @@ const RobotSection = () => {
 const BuyNowSection = () => {
   return (
     <div className="flex flex-col items-center text-center pt-10 max-w-full">
-      <CTAButton />
+      <CTAButton>Order GPR</CTAButton>
     </div>
   );
 };
@@ -34,7 +35,8 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
-      <main className="flex-grow p-8 max-w-7xl mx-auto px-4 w-full">
+      <Grid />
+      <main className="grid-r">
         <HeaderSection />
         <RobotSection />
         <BuyNowSection />
