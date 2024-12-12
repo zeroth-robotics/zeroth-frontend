@@ -4,18 +4,27 @@ import clsx from "clsx";
 
 const SHOP_URL = "https://shop.kscale.dev/";
 
-const CTAButton = ({ children, href = SHOP_URL }: { children: React.ReactNode; href?: string }) => {
+const CTAButton = ({
+  children,
+  href = SHOP_URL,
+  className,
+}: {
+  children: React.ReactNode;
+  href?: string;
+  className?: string;
+}) => {
   const router = useRouter();
 
   return (
     <button
-      className={
-        "font-planar font-normal text-body px-2 select-none " +
-        "bg-rust dark:bg-rust-dark text-background dark:text-foreground-dark " +
-        " hover:opacity-90 cursor-pointer " +
-        transitionEaseLinearDuration300 +
-        " rounded"
-      }
+      className={clsx(
+        "font-planar font-normal text-body px-2 py-1 select-none",
+        "bg-rust dark:bg-rust-dark text-background dark:text-foreground-dark ",
+        "hover:opacity-90 cursor-pointer",
+        transitionEaseLinearDuration300,
+        "rounded",
+        className
+      )}
       onClick={() => router.push(href ? href : SHOP_URL)}
     >
       {children}

@@ -5,13 +5,9 @@ import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
 import DarkModeToggle from "@/components/navbar/DarkModeToggle";
 import NavButton from "@/components/navbar/navButton";
 import { useWindowSize } from "@/components/util/functions";
+import clsx from "clsx";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
-
-const navItems = [
-  { name: "docs", link: "https://docs.kscale.dev/" },
-  { name: "dashboard", link: "https://dashboard.kscale.dev" },
-];
 
 const navVariants = {
   visible: {
@@ -30,9 +26,6 @@ const navItemVariants = {
     y: "-100%",
   },
 };
-
-const desktopNavStyling = "grid-r fixed";
-const mobileNavStyling = "grid-r fixed";
 
 export default function NavBar() {
   const { scrollY } = useScroll();
@@ -61,19 +54,41 @@ export default function NavBar() {
   const mobileNavBar = () => {
     return (
       <menu
-        className={
-          "grid-r overflow-hidden w-[100%] top-0 left-0 py-4 items-end bg-background dark:bg-background-dark " +
-          (mobileShouldOpenBurger ? "h-[100dvh] bg-background dark:bg-background-dark" : "h-fit")
-        }
+        className={clsx(
+          "grid-r overflow-hidden top-0 inset-x-0 py-4 items-end md:items-center bg-background dark:bg-background-dark",
+          mobileShouldOpenBurger ? "h-[100dvh]" : "h-fit"
+        )}
       >
         <Logotype />
 
-        <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
-          <CTAButton>Buy GPR</CTAButton>
-          <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
-        </div>
+        {width >= 768 ? (
+          <>
+            <motion.a
+              href="https://docs.kscale.dev/"
+              target="_blank"
+              className="-col-end-3 lg:-col-end-4"
+            >
+              Docs&#x2197;
+            </motion.a>
+            <motion.a
+              href="https://dashboard.kscale.dev"
+              target="_blank"
+              className="-col-end-2 lg:-col-end-3"
+            >
+              Log in
+            </motion.a>
+            <CTAButton className="lg:col-span-2 lg:col-start-8 2xl:col-span-2 2xl:col-start-11">
+              Buy GPR &#x2197;
+            </CTAButton>
+          </>
+        ) : (
+          <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
+            <CTAButton>Buy GPR</CTAButton>
+            <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
+          </div>
+        )}
 
-        {BurgerMenu({ isOpen: mobileShouldOpenBurger, items: navItems })}
+        {/* {width < 640 && BurgerMenu({ isOpen: mobileShouldOpenBurger, items: navItems })} */}
       </menu>
     );
   };
@@ -134,5 +149,5 @@ export default function NavBar() {
     };
   }, [mobileShouldOpenBurger]);
 
-  return <nav className="fixed">{navBasedOnWidth(false)}</nav>;
+  return <nav className="fixed top-0 z-50">{navBasedOnWidth(false)}</nav>;
 }

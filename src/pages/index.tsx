@@ -25,7 +25,7 @@ const ResearchSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col mb-12 gap-4">
-        <span className="text-caption uppercase opacity-70">Research</span>
+        <span className="text-caption uppercase opacity-70 relative y-1/2">Research</span>
         <h2 className="text-heading-md">
           The humanoid robot is as strong as its brain, not its body.
         </h2>
@@ -35,54 +35,13 @@ const ResearchSection = () => {
         </p>
       </hgroup>
       <div className="col-span-full overflow-hidden">
-        <div className="flex flex-row ">
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Computer Vision</h3>
-            <p className="text-body">
-              Advanced object detection and spatial awareness enabling precise interaction with the
-              environment.
-            </p>
-          </article>
-
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Natural Language</h3>
-            <p className="text-body">
-              Sophisticated language models allowing natural communication and complex task
-              understanding.
-            </p>
-          </article>
-
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Motion Planning</h3>
-            <p className="text-body">
-              Dynamic movement optimization with real-time adaptation to changing environments.
-            </p>
-          </article>
-
-          {/* Duplicate cards for infinite scroll effect */}
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Computer Vision</h3>
-            <p className="text-body">
-              Advanced object detection and spatial awareness enabling precise interaction with the
-              environment.
-            </p>
-          </article>
-
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Natural Language</h3>
-            <p className="text-body">
-              Sophisticated language models allowing natural communication and complex task
-              understanding.
-            </p>
-          </article>
-
-          <article className="flex-none w-[80vw] sm:w-[40vw] lg:w-[30vw] p-6 border border-foreground rounded-lg">
-            <h3 className="text-heading-sm mb-4">Motion Planning</h3>
-            <p className="text-body">
-              Dynamic movement optimization with real-time adaptation to changing environments.
-            </p>
-          </article>
-        </div>
+        <article className="flex-none p-6 border border-foreground rounded-lg">
+          <h3 className="text-heading-sm mb-4">Computer Vision</h3>
+          <p className="text-body">
+            Advanced object detection and spatial awareness enabling precise interaction with the
+            environment.
+          </p>
+        </article>
       </div>
     </section>
   );
@@ -205,7 +164,7 @@ const DataSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid py-16">
       <hgroup className="col-span-full sm:col-span-4 lg:col-start-2 flex flex-col mb-12 gap-4">
-        <span className="text-caption uppercase opacity-70">Data buy-back</span>
+        <span className="text-caption uppercase opacity-70 relative y-1/2">Data buy-back</span>
         <h2 className="text-heading-md">Get refunded each month that you send us data.</h2>
         <p>
           If you collect at least 100 hours of telemetry over the course of a month we&apos;ll pay
@@ -220,7 +179,7 @@ const CommunitySection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col gap-4">
-        <span className="text-caption uppercase opacity-70">Community</span>
+        <span className="text-caption uppercase opacity-70 relative y-1/2">Community</span>
         <h2 className="text-heading-md">Take ownership of how we keep building.</h2>
         <p>
           With over 2000 people in our Discord, our community has collaboratively on 6 humanoid
@@ -256,8 +215,8 @@ const CommunitySection = () => {
         </Link>
       </menu>
 
-      <article className="col-span-full lg:col-span-4 flex flex-col gap-y-2 my-16">
-        <h2 className="text-caption uppercase opacity-70">About us</h2>
+      <article className="col-span-full lg:col-span-4 flex flex-col gap-y-4 my-16">
+        <h2 className="text-caption uppercase opacity-70 relative relative y-1/2">About us</h2>
         <p>
           We&apos;re hackers, engineers, and researchers that believe in a world where robots are
           made for everyone
@@ -273,8 +232,8 @@ const CommunitySection = () => {
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col gap-y-16">
-      {/* <NavBar /> */}
+    <div className="min-h-screen flex flex-col">
+      <NavBar />
       <Grid />
       <HeaderSection />
       <main className="grid-r gap-y-4">
