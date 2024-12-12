@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import SocialMediaItem from "@/components/footer/SocialMediaItem";
 import { Discord, Github, LinkedIn, Twitter } from "@/components/footer/socialMediaSvgs";
 import FooterLogotype from "@/components/logos/footerLogotype";
@@ -32,7 +33,7 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
         extraStyling
       }
     >
-      <h3 className={"text-caption uppercase"}>{title}</h3>
+      <h3 className={"text-caption uppercase opacity-[77%]"}>{title}</h3>
       <ul className={"flex flex-col items-start gap-4"}>
         {items.map((item, index) => (
           <li key={index} className={"list-none"}>
@@ -100,14 +101,18 @@ export default function Footer() {
           "flex flex-col items-start gap-4 text-background dark:text-foreground-dark font-planar font-normal col-span-full sm:col-span-3 sm:col-start-4 lg:col-span-2 lg:col-start-4 2xl:col-start-7"
         }
       >
-        <h3 className={"text-caption uppercase"}>Get in touch</h3>
+        <h3 className={"text-caption uppercase opacity-[77%]"}>Get in touch</h3>
         <hgroup>
           <h4>Business inquiries</h4>
           <div className="cursor-pointer" onClick={() => handleCopyEmail()}>
             <p className="opacity-[77%]">ben@kscale.dev</p>
-            <button className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm">
+            <motion.button
+              className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: [1.1, 0.9, 1.1], transition: { duration: 0.1 } }}
+            >
               Copy email
-            </button>
+            </motion.button>
           </div>
         </hgroup>
       </section>

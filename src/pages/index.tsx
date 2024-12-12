@@ -1,4 +1,4 @@
-import CTAButton from "@/components/buttons/ctaButton";
+import CTAButton, { CTASubtitleButton } from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
 import { Grid } from "@/components/grid/Grid";
 import NavBar from "@/components/navbar/navbar";
@@ -25,7 +25,7 @@ const ResearchSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col mb-12 gap-4">
-        <span className="text-caption uppercase">Research</span>
+        <span className="text-caption uppercase opacity-70">Research</span>
         <h2 className="text-heading-md">
           The humanoid robot is as strong as its brain, not its body.
         </h2>
@@ -90,19 +90,55 @@ const ResearchSection = () => {
 
 const SpecSection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
-      <div className="col-span-full sm:col-span-5 lg:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8">
+    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16">
+      <article className="col-span-full sm:col-span-5 lg:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8">
         <hgroup className="">
           <span className="text-heading-md opacity-60 font-apparat">What is GPR?</span>
           <h2 className="text-heading-md">
-            A 4.5 foot humanoid robot, designed for robust use, made of CNC&apos;d aluminum. Capable
-            of locomotion, manipulation to jump-start your robotics explorations.
+            A 4.5 foot humanoid robot, optimized for our approach to software for embodied AI.
           </h2>
         </hgroup>
-        <Link href="/" className="text-body w-fit text-plasma dark:text-plasma-dark">
-          Read tech specs
+        <Link
+          href="/"
+          className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
+        >
+          Read tech specs{" "}
+          <svg
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.0195 16L7.01953 11L8.41953 9.55L11.0195 12.15V4H13.0195V12.15L15.6195 9.55L17.0195 11L12.0195 16ZM6.01953 20C5.46953 20 4.99886 19.8043 4.60753 19.413C4.2162 19.0217 4.0202 18.5507 4.01953 18V15H6.01953V18H18.0195V15H20.0195V18C20.0195 18.55 19.8239 19.021 19.4325 19.413C19.0412 19.805 18.5702 20.0007 18.0195 20H6.01953Z"
+              className="fill-plasma dark:fill-plasma-dark"
+            />
+          </svg>
         </Link>
-      </div>
+      </article>
+      <article className="col-span-full grid grid-cols-subgrid gap-y-4">
+        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+          We've built GPR 0.5 with an aerospace-grade alumininum body, for under $20,000 USD.{" "}
+          <span className="inline opacity-60">
+            Anodized with a matte black finish, because it looks cooler.
+          </span>
+        </h3>
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+      </article>
+      <article className="col-span-full grid grid-cols-subgrid gap-y-4">
+        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+          Equipped with 120 N m actuators at the hips, taking advantage of strong torque for dynamic
+          walking and manipulation.
+        </h3>
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+      </article>
+      <article className="col-span-full grid grid-cols-subgrid gap-y-4">
+        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+          Explore the potential of any idea with 32 TOPS of AI performance.
+        </h3>
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+      </article>
     </section>
   );
 };
@@ -123,45 +159,53 @@ const GallerySection = () => {
 
 const PricingSection = () => {
   return (
-    <section className="col-span-full grid lg:grid-cols-2 sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] gap-y-4 py-16">
-      <div className="flex flex-col gap-4 p-8 border border-foreground rounded-lg">
-        <span className="text-body opacity-60">Individual</span>
-        <h3 className="text-heading-md">$49,999</h3>
-        <p className="text-body mb-8">
-          Perfect for researchers and hobbyists. Includes one GPR unit with standard warranty and
-          basic support package.
+    <section className="col-span-full grid lg:grid-cols-2 3xl:col-span-10 3xl:col-start-2 4xl:col-span-8 4xl:col-start-3 sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] gap-y-4 py-16">
+      <article className="flex flex-col gap-y-4 p-8 bg-gradient-to-br from-methyl via-oxide to-rust rounded-lg text-background dark:text-background-dark">
+        <hgroup>
+          <span className="text-caption opacity-60">Limited edition &mdash; 20 units total</span>
+          <h3 className="text-heading-md font-apparat">
+            Get free yearly hardware upgrades as a founder
+          </h3>
+        </hgroup>
+        <p className=" text-body mb-24">
+          Priority delivery and yearly service on new parts and hardware, for the rest of your life.
         </p>
-        <Link
+        <CTASubtitleButton
+          className="mt-auto bg-background dark:bg-foreground text-rust dark:text-rust-dark"
           href="/order"
-          className="text-body w-fit px-6 py-3 bg-foreground text-background rounded-lg hover:opacity-90"
+          subtitle="$833 per month"
         >
-          Order now
-        </Link>
-      </div>
+          Order GPR Founders&apos; Edition
+        </CTASubtitleButton>
+      </article>
 
-      <div className="flex flex-col gap-4 p-8 border border-foreground rounded-lg py-16">
-        <span className="text-body opacity-60">Enterprise</span>
-        <h3 className="text-heading-md">Custom pricing</h3>
+      <article className="flex flex-col gap-y-4 p-8 border border-rust dark:border-foreground-dark rounded-lg text-rust dark:text-foreground-dark">
+        <hgroup>
+          <span className="text-caption opacity-60">Available for all engineers</span>
+          <h3 className="text-heading-md font-apparat">
+            Our plug and play robotics solution, at an accessible price.
+          </h3>
+        </hgroup>
         <p className="text-body mb-8">
-          Ideal for organizations and labs. Includes multiple units, extended warranty, priority
-          support, and training.
+          Invest in yourself and your engineering potential with GPR's embodied AI ecosytem.
         </p>
-        <Link
-          href="/contact"
-          className="text-body w-fit px-6 py-3 bg-foreground text-background rounded-lg hover:opacity-90"
+        <CTASubtitleButton
+          className="mt-auto bg-rust dark:bg-foreground-dark text-background dark:text-rust-dark"
+          href="/order"
+          subtitle="$533 per month"
         >
-          Contact sales
-        </Link>
-      </div>
+          Order GPR Developers&apos; Edition
+        </CTASubtitleButton>
+      </article>
     </section>
   );
 };
 
 const DataSection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
+    <section className="col-span-full grid grid-cols-subgrid py-16">
       <hgroup className="col-span-full sm:col-span-4 lg:col-start-2 flex flex-col mb-12 gap-4">
-        <span className="text-caption uppercase">Data buy-back</span>
+        <span className="text-caption uppercase opacity-70">Data buy-back</span>
         <h2 className="text-heading-md">Get refunded each month that you send us data.</h2>
         <p>
           If you collect at least 100 hours of telemetry over the course of a month we&apos;ll pay
@@ -174,15 +218,55 @@ const DataSection = () => {
 
 const CommunitySection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
-      <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col mb-12 gap-4">
-        <span className="text-caption uppercase">Community</span>
+    <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16">
+      <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col gap-4">
+        <span className="text-caption uppercase opacity-70">Community</span>
         <h2 className="text-heading-md">Take ownership of how we keep building.</h2>
         <p>
-          While we provide robust, accessible hardware, our end-to-end model is what makes GPR 1.0
-          perform. Here&apos;s some of the progress we&apos;ve made:
+          With over 2000 people in our Discord, our community has collaboratively on 6 humanoid
+          robot projects, building off each other&apos;s work and publishing papers on the forefront
+          of embodied AI tools.
         </p>
       </hgroup>
+      <menu className="col-span-full flex flex-row gap-x-4">
+        <Link
+          href="/"
+          className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
+        >
+          Read tech specs{" "}
+          <svg
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.0195 16L7.01953 11L8.41953 9.55L11.0195 12.15V4H13.0195V12.15L15.6195 9.55L17.0195 11L12.0195 16ZM6.01953 20C5.46953 20 4.99886 19.8043 4.60753 19.413C4.2162 19.0217 4.0202 18.5507 4.01953 18V15H6.01953V18H18.0195V15H20.0195V18C20.0195 18.55 19.8239 19.021 19.4325 19.413C19.0412 19.805 18.5702 20.0007 18.0195 20H6.01953Z"
+              className="fill-plasma dark:fill-plasma-dark"
+            />
+          </svg>
+        </Link>
+
+        <Link
+          href="/"
+          className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
+        >
+          Send feedback &#x2197;
+        </Link>
+      </menu>
+
+      <article className="col-span-full lg:col-span-4 flex flex-col gap-y-2 my-16">
+        <h2 className="text-caption uppercase opacity-70">About us</h2>
+        <p>
+          We&apos;re hackers, engineers, and researchers that believe in a world where robots are
+          made for everyone
+        </p>
+        <p>
+          We&apos;re from: Tesla AI, Google, Meta FAIR, Stanford, Xiaomi building opportunities for
+          robots to be more than workers.
+        </p>
+      </article>
     </section>
   );
 };
