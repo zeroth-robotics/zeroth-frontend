@@ -22,7 +22,7 @@ export const Grid = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: active ? 1 : 0 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[1000] grid-r pointer-events-none"
+      className="fixed inset-0 z-[1000] grid-r auto-rows-auto pointer-events-none"
     >
       <div className="bg-foreground opacity-10" />
       <div className="bg-foreground opacity-10" />
