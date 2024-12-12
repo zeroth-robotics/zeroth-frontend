@@ -6,7 +6,7 @@ import RobotRenderer from "@/components/robot/robotRenderer";
 
 const HeaderSection = () => {
   return (
-    <section className="pt-16">
+    <section className="col-span-full">
       <div className="flex flex-col items-center text-center pt-10 px-4 max-w-full">
         <h1 className="text-5xl mt-16">The world&apos;s freest humanoid robot</h1>
         <h2 className="text-3xl mt-8">Built to move humanity up the Kardashev scale</h2>
@@ -17,7 +17,7 @@ const HeaderSection = () => {
 
 const RobotSection = () => {
   return (
-    <div className="flex flex-col items-center text-center pt-10 max-w-full aspect-square my-8">
+    <div className="col-span-full flex flex-col items-center text-center pt-10 max-w-full aspect-square my-8">
       <RobotRenderer />
     </div>
   );
@@ -25,7 +25,7 @@ const RobotSection = () => {
 
 const BuyNowSection = () => {
   return (
-    <div className="flex flex-col items-center text-center pt-10 max-w-full">
+    <div className="col-span-full flex flex-col items-center text-center pt-10 max-w-full">
       <CTAButton>Order GPR</CTAButton>
     </div>
   );
