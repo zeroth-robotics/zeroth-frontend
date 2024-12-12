@@ -9,7 +9,7 @@ const Logotype = () => {
         className={
           "font-apparat font-bold text-3xl select-none z-50 whitespace-nowrap " +
           textBlackDarkWhite +
-          " hover:text-accent-blood-orange " +
+          " hover:text-rust " +
           transitionEaseLinearDuration300
         }
         href={"/"}

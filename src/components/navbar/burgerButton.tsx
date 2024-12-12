@@ -9,7 +9,7 @@ const BurgerButton = (props: Text2Props) => {
       className={
         "font-planar font-normal capitalize text-4xl select-none " +
         textBlackDarkWhite +
-        " hover:text-accent-blood-orange " +
+        " hover:text-rust " +
         transitionEaseLinearDuration300
       }
     >

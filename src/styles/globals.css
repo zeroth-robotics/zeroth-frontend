@@ -43,12 +43,16 @@
     @apply bg-background-dark text-foreground-dark transition-colors duration-300;
   }
 
+  html {
+    @apply text-[125%] 2xl:text-[175%];
+  }
+
   body {
     @apply min-h-screen;
   }
 
   *::selection {
-    @apply bg-accent-blood-orange text-background;
+    @apply bg-rust text-background dark:text-foreground-dark;
   }
 }
 

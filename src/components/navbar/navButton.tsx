@@ -15,7 +15,7 @@ const NavButton = (props: Text2Props) => {
       className={
         "font-planar font-normal capitalize w-full h-full text-2xl px-4 py-2 select-none " +
         textBlackDarkWhite +
-        " hover:bg-accent-blood-orange/10 dark:hover:bg-accent-blood-orange/20 " +
+        " hover:bg-rust/10 dark:hover:bg-rust/20 " +
         transitionEaseLinearDuration300
       }
       transition={navMotionTransition}

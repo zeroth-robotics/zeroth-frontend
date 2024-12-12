@@ -1,5 +1,5 @@
 import SocialMediaItem from "@/components/footer/SocialMediaItem";
-import { Discord, Facebook, Github, LinkedIn, Twitter } from "@/components/footer/socialMediaSvgs";
+import { Discord, Github, LinkedIn, Twitter } from "@/components/footer/socialMediaSvgs";
 import FooterLogotype from "@/components/logos/footerLogotype";
 import Link from "next/link";
 import { JSX } from "react";
@@ -8,7 +8,6 @@ const socialMediaSvgs: JSX.Element[] = [
   <Discord key={"discord"} />,
   <LinkedIn key={"linkedin"} />,
   <Twitter key={"twitter"} />,
-  <Facebook key={"facebook"} />,
   <Github key={"github"} />,
 ];
 
@@ -16,7 +15,7 @@ const socialMediaLinks: string[] = [
   "https://discord.gg/kscale",
   "https://www.linkedin.com/company/kscale",
   "https://x.com/kscalelabs",
-  "https://www.facebook.com/kscalelabs/",
+
   "https://github.com/kscalelabs",
 ];
 
@@ -30,13 +29,14 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
   return (
     <section
       className={
-        "flex flex-col items-start gap-4 text-off-white font-planar font-normal " + extraStyling
+        "flex flex-col items-start gap-4 text-background dark:text-foreground-dark font-planar font-normal " +
+        extraStyling
       }
     >
-      <p className={"text-2xl md:text-xl sm:text-lg"}>{title}</p>
-      <ul className={"flex flex-col items-start gap-3"}>
+      <h3 className={"text-caption uppercase"}>{title}</h3>
+      <ul className={"flex flex-col items-start gap-4"}>
         {items.map((item, index) => (
-          <li key={index} className={"list-none text-lg md:text-md sm:text-sm"}>
+          <li key={index} className={"list-none"}>
             <Link href={item.url} target={"_blank"}>
               {item.title}
             </Link>
@@ -48,53 +48,56 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
 };
 
 export default function Footer() {
-  const CopyRight = () => {
-    return (
-      <p
-        className={"font-planar font-light text-md md:text-sm sm:text-xs text-off-white opacity-75"}
-      >
-        Copyright © 2024 K-Scale Labs
-      </p>
-    );
-  };
-
   return (
-    <footer className={"z-50 bg-accent-blood-orange text-off-white p-6"}>
-      <div
-        className={"container mx-auto flex flex-col md:flex-row justify-between items-start gap-10"}
+    <footer
+      className={
+        "z-50 bg-rust text-background dark:text-foreground-dark px-[5vw] py-5 2xl:py-10 grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-9 2xl:grid-cols-12 gap-x-[5vw] sm:gap-x-[2.5vw] gap-y-8"
+      }
+    >
+      <ul
+        className={
+          "col-span-full sm:col-span-2 lg:col-span-3 5xl:col-span-2 flex flex-row gap-4 mb-8"
+        }
       >
-        <div className={"flex flex-col gap-4"}>
-          <FooterLogotype />
-          <ul className={"flex flex-row gap-4"}>
-            {socialMediaLinks.map((link: string, index: number) => (
-              <li className={"list-none"} key={index}>
-                <SocialMediaItem linkURL={link} iconSvg={socialMediaSvgs[index]} />
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={"flex flex-col md:flex-row gap-10"}>
-          <FooterSectionList
-            title={"Get in touch"}
-            items={[
-              { title: "ben@kscale.dev", url: "mailto:ben@kscale.dev" },
-              { title: "Schedule a call", url: "https://calendly.com/kscale" },
-            ]}
-            extraStyling={"col-span-3"}
-          />
-          <FooterSectionList
-            title={"Legal"}
-            items={[
-              { title: "Terms of service", url: "https://dashboard.kscale.dev/tos" },
-              { title: "Privacy policy", url: "https://dashboard.kscale.dev/privacy" },
-            ]}
-            extraStyling={"col-span-2"}
-          />
-        </div>
-      </div>
-      <div className={"container mx-auto mt-6"}>
-        <CopyRight />
-      </div>
+        {socialMediaLinks.map((link: string, index: number) => (
+          <li className={"list-none"} key={index}>
+            <SocialMediaItem linkURL={link} iconSvg={socialMediaSvgs[index]} />
+          </li>
+        ))}
+      </ul>
+
+      <section
+        className={
+          "flex flex-col items-start gap-4 text-background dark:text-foreground-dark font-planar font-normal col-span-full sm:col-span-3 sm:col-start-4 lg:col-span-2 lg:col-start-4 2xl:col-start-7"
+        }
+      >
+        <h3 className={"text-caption uppercase"}>Get in touch</h3>
+        <hgroup>
+          <h4>Business inquiries</h4>
+          <p className="opacity-[77%]">ben@kscale.dev</p>
+          <button className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm">
+            Copy email
+          </button>
+        </hgroup>
+      </section>
+      <FooterSectionList
+        title={"Product"}
+        items={[
+          { title: "GPR 0.5", url: "https://dashboard.kscale.dev/tos" },
+          { title: "Send feedback", url: "https://dashboard.kscale.dev/privacy" },
+        ]}
+        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 lg:col-span-2"}
+      />
+      <FooterSectionList
+        title={"Legal"}
+        items={[
+          { title: "Terms of service", url: "https://dashboard.kscale.dev/tos" },
+          { title: "Privacy policy", url: "https://dashboard.kscale.dev/privacy" },
+        ]}
+        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 lg:col-span-2"}
+      />
+
+      <FooterLogotype />
     </footer>
   );
 }
