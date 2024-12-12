@@ -9,7 +9,7 @@ const HeaderSection = () => {
   return (
     <header className="col-span-full grid-r min-h-[90svh] auto-rows-auto items-end bg-foreground text-background">
       {/* <Image src="/images/header.png" alt="Header" fill /> */}
-      <hgroup className="col-span-full sm:col-span-4 lg:col-span-3 lg:col-start-6 2xl:col-start-8 2xl:col-span-5 4xl:col-start-8 4xl:col-span-4 flex flex-col mb-12 gap-4">
+      <hgroup className="col-span-full sm:col-span-4 md:col-span-3 md:col-start-6 2xl:col-start-8 2xl:col-span-5 4xl:col-start-8 4xl:col-span-4 flex flex-col mb-12 gap-4">
         <h1 className="text-heading-lg">Made to be modified</h1>
         <h2 className="text-body">
           GPR 1.0 is an open-source &amp; auditable robot, for those who prefer transparency over
@@ -50,7 +50,7 @@ const ResearchSection = () => {
 const SpecSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16">
-      <article className="col-span-full sm:col-span-5 lg:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8">
+      <article className="col-span-full sm:col-span-5 md:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8">
         <hgroup className="">
           <span className="text-heading-md opacity-60 font-apparat">What is GPR?</span>
           <h2 className="text-heading-md">
@@ -77,26 +77,26 @@ const SpecSection = () => {
         </Link>
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
           We've built GPR 0.5 with an aerospace-grade alumininum body, for under $20,000 USD.{" "}
           <span className="inline opacity-60">
             Anodized with a matte black finish, because it looks cooler.
           </span>
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
           Equipped with 120 N m actuators at the hips, taking advantage of strong torque for dynamic
           walking and manipulation.
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
           Explore the potential of any idea with 32 TOPS of AI performance.
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
     </section>
   );
@@ -104,7 +104,7 @@ const SpecSection = () => {
 
 const RobotSection = () => {
   return (
-    <section className="col-span-full flex flex-col items-center text-center max-w-full aspect-square lg:aspect-video bg-plasma">
+    <section className="col-span-full flex flex-col items-center text-center max-w-full aspect-square md:aspect-video bg-plasma">
       <RobotRenderer />
     </section>
   );
@@ -118,7 +118,7 @@ const GallerySection = () => {
 
 const PricingSection = () => {
   return (
-    <section className="col-span-full grid lg:grid-cols-2 3xl:col-span-10 3xl:col-start-2 4xl:col-span-8 4xl:col-start-3 sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] gap-y-4 py-16">
+    <section className="col-span-full grid md:grid-cols-2 3xl:col-span-10 3xl:col-start-2 4xl:col-span-8 4xl:col-start-3 sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] gap-y-4 py-16">
       <article className="flex flex-col gap-y-4 p-8 bg-gradient-to-br from-methyl via-oxide to-rust rounded-lg text-background dark:text-background-dark">
         <hgroup>
           <span className="text-caption opacity-60">Limited edition &mdash; 20 units total</span>
@@ -163,7 +163,7 @@ const PricingSection = () => {
 const DataSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid py-16">
-      <hgroup className="col-span-full sm:col-span-4 lg:col-start-2 flex flex-col mb-12 gap-4">
+      <hgroup className="col-span-full sm:col-span-4 md:col-start-2 flex flex-col mb-12 gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Data buy-back</span>
         <h2 className="text-heading-md">Get refunded each month that you send us data.</h2>
         <p>
@@ -215,7 +215,7 @@ const CommunitySection = () => {
         </Link>
       </menu>
 
-      <article className="col-span-full lg:col-span-4 flex flex-col gap-y-4 my-16">
+      <article className="col-span-full md:col-span-4 flex flex-col gap-y-4 my-16">
         <h2 className="text-caption uppercase opacity-70 relative relative y-1/2">About us</h2>
         <p>
           We&apos;re hackers, engineers, and researchers that believe in a world where robots are

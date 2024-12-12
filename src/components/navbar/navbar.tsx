@@ -66,18 +66,18 @@ export default function NavBar() {
             <motion.a
               href="https://docs.kscale.dev/"
               target="_blank"
-              className="-col-end-3 lg:-col-end-4"
+              className="-col-end-3 md:-col-end-4"
             >
               Docs&#x2197;
             </motion.a>
             <motion.a
               href="https://dashboard.kscale.dev"
               target="_blank"
-              className="-col-end-2 lg:-col-end-3"
+              className="-col-end-2 md:-col-end-3"
             >
               Log in
             </motion.a>
-            <CTAButton className="lg:col-span-2 lg:col-start-8 2xl:col-span-2 2xl:col-start-11">
+            <CTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11">
               Buy GPR &#x2197;
             </CTAButton>
           </>

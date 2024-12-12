@@ -82,11 +82,11 @@ export default function Footer() {
 
   return (
     <footer
-      className={"z-50 bg-rust text-background dark:text-foreground-dark py-8  grid-r gap-y-8"}
+      className={"z-50 bg-rust text-background dark:text-foreground-dark py-8 grid-r gap-y-8"}
     >
       <ul
         className={
-          "col-span-full sm:col-span-2 lg:col-span-3 5xl:col-span-2 flex flex-row gap-4 mb-8"
+          "col-span-full sm:col-span-2 md:col-span-3 5xl:col-span-2 flex flex-row gap-4 mb-8"
         }
       >
         {socialMediaLinks.map((link: string, index: number) => (
@@ -98,7 +98,7 @@ export default function Footer() {
 
       <section
         className={
-          "flex flex-col items-start gap-4 text-background dark:text-foreground-dark font-planar font-normal col-span-full sm:col-span-3 sm:col-start-4 lg:col-span-2 lg:col-start-4 2xl:col-start-7"
+          "flex flex-col items-start gap-4 text-background dark:text-foreground-dark font-planar font-normal col-span-full sm:col-span-3 sm:col-start-4 md:col-span-2 md:col-start-4 2xl:col-start-7"
         }
       >
         <h3 className={"text-caption uppercase opacity-[77%]"}>Get in touch</h3>
@@ -122,7 +122,7 @@ export default function Footer() {
           { title: "GPR 0.5", url: "https://dashboard.kscale.dev/tos" },
           { title: "Send feedback", url: "https://dashboard.kscale.dev/privacy" },
         ]}
-        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 lg:col-span-2"}
+        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 md:col-span-2"}
       />
       <FooterSectionList
         title={"Legal"}
@@ -130,7 +130,7 @@ export default function Footer() {
           { title: "Terms of service", url: "https://dashboard.kscale.dev/tos" },
           { title: "Privacy policy", url: "https://dashboard.kscale.dev/privacy" },
         ]}
-        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 lg:col-span-2"}
+        extraStyling={"col-span-2 sm:col-span-3 sm:col-start-4 md:col-span-2"}
       />
 
       <FooterLogotype />

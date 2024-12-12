@@ -24,18 +24,18 @@ export const Grid = () => {
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[1000] grid-r auto-rows-auto pointer-events-none"
     >
-      <div className="bg-foreground opacity-10" />
-      <div className="bg-foreground opacity-10" />
-      <div className="bg-foreground opacity-10" />
-      <div className="bg-foreground opacity-10" />
-      <div className="hidden sm:block bg-foreground opacity-10" />
-      <div className="hidden sm:block bg-foreground opacity-10" />
-      <div className="hidden lg:block bg-foreground opacity-10" />
-      <div className="hidden lg:block bg-foreground opacity-10" />
-      <div className="hidden lg:block bg-foreground opacity-10" />
-      <div className="hidden 2xl:block bg-foreground opacity-10" />
-      <div className="hidden 2xl:block bg-foreground opacity-10" />
-      <div className="hidden 2xl:block bg-foreground opacity-10" />
+      <div className="bg-oxide opacity-10" />
+      <div className="bg-oxide opacity-10" />
+      <div className="bg-oxide opacity-10" />
+      <div className="bg-oxide opacity-10" />
+      <div className="hidden sm:block bg-oxide opacity-10" />
+      <div className="hidden sm:block bg-oxide opacity-10" />
+      <div className="hidden md:block bg-oxide opacity-10" />
+      <div className="hidden md:block bg-oxide opacity-10" />
+      <div className="hidden md:block bg-oxide opacity-10" />
+      <div className="hidden 2xl:block bg-oxide opacity-10" />
+      <div className="hidden 2xl:block bg-oxide opacity-10" />
+      <div className="hidden 2xl:block bg-oxide opacity-10" />
     </motion.div>
   );
 };
