@@ -162,7 +162,7 @@ pre {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   main {
     grid-template-columns: repeat(9, 1fr);
     gap: 2.5vw;

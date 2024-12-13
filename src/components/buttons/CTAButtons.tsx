@@ -208,7 +208,7 @@ export const CTASubtitleButton = ({
     >
       <a href={href} target={target} className="flex flex-col">
         {children}
-        <span className="block text-body opacity-60">{subtitle}</span>
+        <span className="block text-caption opacity-60">{subtitle}</span>
       </a>
     </motion.button>
   ) : (
@@ -233,7 +233,7 @@ export const CTASubtitleButton = ({
       onClick={() => router.push(href ? href : SHOP_URL)}
     >
       {children}
-      <span className="block text-body opacity-60">{subtitle}</span>
+      <span className="block text-caption opacity-60">{subtitle}</span>
     </motion.button>
   );
 };

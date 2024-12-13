@@ -7,7 +7,7 @@ import { InlineCTA, NavCTAButton, Size } from "@/components/buttons/CTAButtons";
 const CommunitySection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16 ">
-      <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col gap-4">
+      <hgroup className="col-span-full sm:col-span-4 sm:col-start-2 flex flex-col gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Community</span>
         <h2 className="text-heading-md">Take ownership of how we keep building.</h2>
         <p>
@@ -16,7 +16,7 @@ const CommunitySection = () => {
           of embodied AI tools.
         </p>
       </hgroup>
-      <menu className="col-span-full flex flex-row gap-x-4">
+      <menu className="col-span-full sm:col-span-4 sm:col-start-2 h-min flex flex-row gap-x-4">
         <NavCTAButton
           href="https://discord.com/invite/kscale"
           variant={ColorVariant.PLASMA}
@@ -31,7 +31,7 @@ const CommunitySection = () => {
         </InlineCTA>
       </menu>
 
-      <article className="col-span-full md:col-span-4 flex flex-col gap-y-4 my-16">
+      <article className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-7 3xl:col-span-5 3xl:col-start-8 4xl:col-span-4 4xl:col-start-7 flex flex-col gap-y-4 my-16">
         <h2 className="text-caption uppercase opacity-70 relative y-1/2">About us</h2>
         <p>
           We&apos;re hackers, engineers, and researchers that believe in a world where robots are
