@@ -108,35 +108,35 @@ export const SwipeCarousel = () => {
   const dimensions = useMemo(() => {
     if (width < 640) {
       return {
-        card: width * 0.6625,
-        gap: width * 0.05,
+        card: 66.25,
+        gap: 5,
         max: RESEARCH_ITEMS.length - 1,
       };
     }
     if (width < 768) {
       return {
-        card: width * (1.7 / 3 + 0.025),
-        gap: width * 0.025,
+        card: 170 / 3 + 2.5,
+        gap: 2.5,
         max: RESEARCH_ITEMS.length - 1,
       };
     }
     if (width < 1440) {
       return {
-        card: width * (2.8 / 9 + 0.075),
-        gap: width * 0.0125,
+        card: 280 / 9 + 7.5,
+        gap: 2.5,
         max: RESEARCH_ITEMS.length - 2,
       };
     }
     if (width < 1920) {
       return {
-        card: width * (0.875 / 3),
-        gap: width * 0.0125,
+        card: 87.5 / 3,
+        gap: 1.25,
         max: RESEARCH_ITEMS.length - 3,
       };
     }
     return {
-      card: width * 0.2125,
-      gap: width * 0.0125,
+      card: 21.25,
+      gap: 1.25,
       max: RESEARCH_ITEMS.length - 4,
     };
   }, [width]);
@@ -206,7 +206,7 @@ export const SwipeCarousel = () => {
             x: dragX,
           }}
           animate={{
-            translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
+            translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}vw`,
           }}
           transition={SPRING_OPTIONS}
           onDragEnd={onDragEnd}
