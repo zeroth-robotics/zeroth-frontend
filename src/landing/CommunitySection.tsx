@@ -7,7 +7,7 @@ import { InlineCTA, NavCTAButton, Size } from "@/components/buttons/CTAButtons";
 const CommunitySection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16 ">
-      <hgroup className="col-span-full sm:col-span-4 sm:col-start-2 flex flex-col gap-4">
+      <hgroup className="col-span-full sm:col-span-4 sm:col-start-2 md:col-span-5 md:col-start-2 lg:col-span-4 lg:col-start-2 2xl:col-span-5 2xl:col-start-2 3xl:col-span-5 3xl:col-start-2 4xl:col-span-4 4xl:col-start-2 flex flex-col gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Community</span>
         <h2 className="text-heading-md">Take ownership of how we keep building.</h2>
         <p>
@@ -16,7 +16,7 @@ const CommunitySection = () => {
           of embodied AI tools.
         </p>
       </hgroup>
-      <menu className="col-span-full sm:col-span-4 sm:col-start-2 h-min flex flex-row gap-x-4">
+      <menu className="col-span-full sm:col-span-4 sm:col-start-2 md:col-span-5 md:col-start-2 h-min flex flex-row gap-x-4">
         <NavCTAButton
           href="https://discord.com/invite/kscale"
           variant={ColorVariant.PLASMA}

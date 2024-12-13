@@ -193,9 +193,9 @@ export const SwipeCarousel = () => {
         </motion.button>
       </menu>
       <div className="">
-        <div className="fixed top-0 left-0 z-50 text-molten">
+        {/* <div className="fixed top-0 left-0 z-50 text-molten">
           {imgIndex} {dimensions.card} {dimensions.gap}
-        </div>
+        </div> */}
         <motion.div
           drag="x"
           dragConstraints={{
