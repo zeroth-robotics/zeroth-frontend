@@ -4,7 +4,7 @@ import { Grid } from "@/components/grid/Grid";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import NavBar from "@/components/navbar/navbar";
 import RobotRenderer from "@/components/robot/robotRenderer";
-import { motion } from "motion/dist/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 const HeaderSection = () => {

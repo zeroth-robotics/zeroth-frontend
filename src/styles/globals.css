@@ -19,69 +19,109 @@
 
   @font-face {
     font-family: "GT Planar";
-    src:
-      url("./fonts/GT-Planar-Regular.woff") format("woff"),
-      url("./fonts/GT-Planar-Regular.woff2") format("woff2");
+    src: url("./fonts/GT-Planar-Regular.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "GT Planar";
+    src: url("./fonts/GT-Planar-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: "CoFo Sans Mono", monospace, monospace;
-    src:
-      url("./fonts/CoFoSansMono-Regular.woff") format("woff"),
-      url("./fonts/CoFoSansMono-Regular.woff2") format("woff2");
+    src: url("./fonts/CoFoSansMono-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "CoFo Sans Mono", monospace, monospace;
+    src: url("./fonts/CoFoSansMono-Regular.woff") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
+
   :root {
-    @apply bg-background text-foreground transition-colors duration-300;
+    --background: #f8f4f2;
+    --foreground: #120e15;
+    --filament: #f8f4f2;
+    --carbon: #120e15;
+    --methyl: #7d0d8c;
+    --plasma: #b90674;
+    --oxide: #c90e33;
+    --rust: #fa4300;
+    --molten: #ff9000;
+    --sol: #f2f091;
   }
 
-  .dark {
-    @apply bg-background-dark text-foreground-dark transition-colors duration-300;
-  }
-
-  .grid-r {
-    @apply px-[5vw] grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 2xl:grid-cols-12 gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] auto-rows-min;
-  }
-
-  html {
-    @apply text-[125%] 2xl:text-[175%] 5xl:text-[200%];
-  }
-
-  body {
-    @apply min-h-screen;
-  }
-
-  *::selection {
-    @apply bg-rust text-background dark:text-foreground-dark;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0f0f10;
+      --foreground: #ede6e1;
+      --carbon: #0f0f10;
+      --filament: #ede6e1;
+      --methyl: #771584;
+      --plasma: #a81770;
+      --oxide: #98253c;
+      --rust: #de4208;
+      --molten: #f18a03;
+      --sol: #eae9bc;
+    }
   }
 }
 
+*::selection {
+  @apply bg-rust text-background dark:text-foreground-dark;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
 main {
+  display: grid;
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
 }
 
 h1 {
   @apply font-apparat;
   @apply font-medium;
   font-style: normal;
+  font-size: 62px;
+  line-height: 60px;
+  letter-spacing: -0.02em;
 }
 
 h2 {
   @apply font-apparat;
   @apply font-medium;
   font-style: normal;
+  font-size: 38.5px;
+  line-height: 40px;
+  letter-spacing: -0.015em;
 }
 
 h3 {
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
+  font-size: 25px;
+  line-height: 25px;
+  letter-spacing: -0.01em;
 }
 
 caption,
@@ -89,6 +129,9 @@ figcaption {
   @apply font-planar;
   @apply font-normal;
   font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
 }
 
 caption .code,
@@ -98,6 +141,9 @@ figcaption .pre {
   @apply font-mono;
   @apply font-normal;
   font-style: normal;
+  font-size: 13px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
 }
 
 code,
@@ -105,4 +151,130 @@ pre {
   @apply font-mono;
   @apply font-normal;
   font-style: normal;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 640px) {
+  main {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2.5%;
+  }
+}
+
+@media (min-width: 1440px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.25%;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 96px;
+    line-height: 84px;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 57.5px;
+    line-height: 56px;
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-size: 39.5px;
+    line-height: 42px;
+    letter-spacing: -0.01em;
+  }
+
+  caption,
+  figcaption {
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  caption .code,
+  caption .pre,
+  figcaption .code,
+  figcaption .pre {
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  code,
+  pre {
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+  }
+}
+
+.scroll-lock {
+  overflow: hidden;
+  height: 100vh; /* Prevents resizing quirks */
+}
+
+.grid-r {
+  @apply px-[5vw] grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 2xl:grid-cols-12 gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw] auto-rows-min;
+}
+
+html {
+  @apply text-[125%] 2xl:text-[175%] 5xl:text-[200%];
+}
+
+/*::-webkit-scrollbar {*/
+/*    width: 0.75vw;*/
+/*}*/
+
+/*::-webkit-scrollbar-track {*/
+/*    background: transparent;*/
+/*}*/
+
+/*need to add back .scrollbar-visible*/
+/*::-webkit-scrollbar-thumb {*/
+/*    background: #010101;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 0.1s;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    opacity: 1;*/
+/*    background: #010101;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 2s;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    opacity: 0;*/
+/*    border-radius: 0.6rem;*/
+/*    min-height: 0.6rem;*/
+/*    transition: ease-in 2s;*/
+/*}*/
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
 }
