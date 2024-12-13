@@ -35,7 +35,7 @@ const CommunitySection = () => {
         <h2 className="text-caption uppercase opacity-70 relative y-1/2">About us</h2>
         <p>
           We&apos;re hackers, engineers, and researchers that believe in a world where robots are
-          made for everyone
+          made for everyone.
         </p>
         <p>
           We&apos;re from Tesla AI, Google, Meta FAIR, Stanford, and Xiaomi building opportunities
