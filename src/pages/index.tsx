@@ -1,6 +1,7 @@
 import { CTAButton, CTAButtonMode, CTASubtitleButton } from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
 import { Grid } from "@/components/grid/Grid";
+import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import NavBar from "@/components/navbar/navbar";
 import RobotRenderer from "@/components/robot/robotRenderer";
 import { motion } from "framer-motion";
@@ -26,7 +27,7 @@ const HeaderSection = () => {
 
 const ResearchSection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16">
+    <section className="col-span-full grid grid-cols-subgrid auto-rows-min py-16">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col mb-12 gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Research</span>
         <h2 className="text-heading-md">
@@ -76,7 +77,7 @@ const ResearchSection = () => {
 const SpecSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16">
-      <article className="col-span-full sm:col-span-5 md:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8">
+      <article className="col-span-full sm:col-span-5 md:col-span-6 lg:col-span-5 xl:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8 lg:sticky top-32">
         <hgroup className="">
           <span className="text-heading-md opacity-60 font-apparat">What is GPR?</span>
           <h2 className="text-heading-md">
@@ -103,26 +104,26 @@ const SpecSection = () => {
         </Link>
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 text-heading-sm">
           We've built GPR 0.5 with an aerospace-grade alumininum body, for under $20,000 USD.{" "}
           <span className="inline opacity-60">
             Anodized with a matte black finish, because it looks cooler.
           </span>
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 text-heading-sm">
           Equipped with 120 N m actuators at the hips, taking advantage of strong torque for dynamic
           walking and manipulation.
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
-        <h3 className="sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 text-heading-sm">
+        <h3 className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 text-heading-sm">
           Explore the potential of any idea with 32 TOPS of AI performance.
         </h3>
-        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-4 md:col-start-2 2xl:col-span-6 2xl:col-start-2 4xl:col-span-5 4xl:col-start-2 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
+        <div className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-6 4xl:col-span-4 4xl:col-start-7 bg-gradient-to-b from-methyl via-oxide to-rust aspect-video rounded-md" />
       </article>
     </section>
   );
@@ -157,7 +158,7 @@ const PricingSection = () => {
         </p>
         <CTASubtitleButton
           className="mt-auto"
-          href="/order"
+          href="https://shop.kscale.dev/products/kbot-fe"
           subtitle="$833 per month"
           mode={CTAButtonMode.INVERT}
         >
@@ -175,7 +176,11 @@ const PricingSection = () => {
         <p className="text-body mb-8">
           Invest in yourself and your engineering potential with GPR's embodied AI ecosytem.
         </p>
-        <CTASubtitleButton className="mt-auto" href="/order" subtitle="$533 per month">
+        <CTASubtitleButton
+          className="mt-auto"
+          href="https://shop.kscale.dev/products/kbot"
+          subtitle="$533 per month"
+        >
           Order GPR Developers&apos; Edition
         </CTASubtitleButton>
       </article>
@@ -230,12 +235,22 @@ const CommunitySection = () => {
           </svg>
         </Link>
 
-        <Link
+        <motion.a
           href="/"
           className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
+          initial="initial"
+          whileHover="hover"
+          variants={{
+            initial: {
+              opacity: 0.6,
+            },
+            hover: {
+              opacity: 1,
+            },
+          }}
         >
-          Send feedback &#x2197;
-        </Link>
+          Send feedback <ExpressiveArrow />
+        </motion.a>
       </menu>
 
       <article className="col-span-full md:col-span-4 flex flex-col gap-y-4 my-16">

@@ -3,7 +3,7 @@ import { transitionEaseLinearDuration300 } from "@/components/util/constants";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 
-const SHOP_URL = "https://shop.kscale.dev/";
+const SHOP_URL = "https://shop.kscale.dev/collections/all";
 
 export enum CTAButtonVariant {
   METHYL,
@@ -75,6 +75,16 @@ const getVariantClass = (variant: CTAButtonVariant, mode: CTAButtonMode): string
   }
 };
 
+const hoverVariants = {
+  hover: {
+    scale: 1.05,
+  },
+  tap: {
+    scale: 0.95,
+    opacity: 0.8,
+  },
+};
+
 export const CTAButton = ({
   children,
   href = SHOP_URL,
@@ -93,14 +103,23 @@ export const CTAButton = ({
   return (
     <motion.button
       className={clsx(
-        "font-planar font-normal text-body px-2 py-1 select-none",
+        "font-planar font-normal text-body px-2 py-1 select-none flex flex-row gap-1 justify-center items-center",
 
-        "hover:opacity-90 cursor-pointer",
-        transitionEaseLinearDuration300,
+        "cursor-pointer",
         "rounded",
         getVariantClass(variant, mode),
         className
       )}
+      variants={hoverVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      whileHover="hover"
+      whileTap="tap"
+      transition={{
+        duration: 0.2,
+        ease: "circOut",
+      }}
       onClick={() => router.push(href ? href : SHOP_URL)}
     >
       {children}
@@ -126,20 +145,29 @@ export const CTASubtitleButton = ({
   const router = useRouter();
 
   return (
-    <button
+    <motion.button
       className={clsx(
         "font-planar font-normal text-body text-center items-center w-fit px-6 py-4 select-none",
         className,
-        "hover:opacity-90 cursor-pointer flex flex-col",
-        transitionEaseLinearDuration300,
+        "cursor-pointer flex flex-col",
         "rounded",
         getVariantClass(variant, mode)
       )}
+      variants={hoverVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      whileHover="hover"
+      whileTap="tap"
+      transition={{
+        duration: 0.2,
+        ease: "circOut",
+      }}
       onClick={() => router.push(href ? href : SHOP_URL)}
     >
       {children}
       <span className="block text-body opacity-60">{subtitle}</span>
-    </button>
+    </motion.button>
   );
 };
 

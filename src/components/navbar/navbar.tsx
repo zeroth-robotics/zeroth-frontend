@@ -8,6 +8,7 @@ import { useWindowSize } from "@/components/util/functions";
 import clsx from "clsx";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
+import { ExpressiveArrow } from "@/components/iconography/Iconography";
 // import { useLenis } from "lenis/react";
 const navVariants = {
   visible: {
@@ -30,28 +31,6 @@ const navItemVariants = {
 const arrowLinkVariants = {
   hover: {
     opacity: 0.5,
-  },
-};
-
-const arrowVariants = {
-  rest: {
-    x: "0%",
-    y: "0%",
-  },
-  hover: {
-    x: "100%",
-    y: "-100%",
-  },
-};
-
-const arrowBottomVariants = {
-  rest: {
-    x: "-200%",
-    y: "100%",
-  },
-  hover: {
-    x: "-100%",
-    y: "0%",
   },
 };
 
@@ -97,41 +76,24 @@ export default function NavBar() {
               href="https://docs.kscale.dev/"
               target="_blank"
               className="-col-end-3 md:-col-end-4 flex flex-row gap-1 items-center"
-              transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 0.3,
-              }}
               variants={arrowLinkVariants}
-              initial="rest"
+              initial="initial"
               whileHover="hover"
             >
-              Docs{" "}
-              <div className="relative overflow-hidden">
-                <motion.span key="arrow-1" className="inline-block" variants={arrowVariants}>
-                  &#x2197;
-                </motion.span>
-                <motion.span
-                  key="arrow-2"
-                  className="inline-block absolute"
-                  variants={arrowBottomVariants}
-                >
-                  &#x2197;
-                </motion.span>
-              </div>
+              Docs <ExpressiveArrow />
             </motion.a>
             <motion.a
               href="https://dashboard.kscale.dev"
               target="_blank"
               className="-col-end-2 md:-col-end-3"
-              transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 0.3,
-              }}
+              variants={arrowLinkVariants}
+              initial="initial"
+              whileHover="hover"
             >
               Log in
             </motion.a>
             <CTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11">
-              Buy GPR &#x2197;
+              Buy GPR <ExpressiveArrow />
             </CTAButton>
           </>
         ) : (
