@@ -9,53 +9,53 @@ const getVariantClass = (variant: ColorVariant, mode: FillMode): string => {
   if (mode === FillMode.FILL) {
     switch (variant) {
       case ColorVariant.METHYL:
-        return "bg-methyl text-background dark:text-foreground-dark";
+        return "bg-methyl text-filament";
       case ColorVariant.PLASMA:
-        return "bg-plasma text-background dark:text-foreground-dark";
+        return "bg-plasma text-filament";
       case ColorVariant.OXIDE:
-        return "bg-oxide text-background dark:text-foreground-dark";
+        return "bg-oxide text-filament";
       case ColorVariant.RUST:
-        return "bg-rust dark:bg-rust-dark text-background dark:text-foreground-dark";
+        return "bg-rust text-filament";
       case ColorVariant.MOLTEN:
-        return "bg-molten text-background dark:text-foreground-dark";
+        return "bg-molten text-filament";
       case ColorVariant.SOL:
-        return "bg-sol text-background dark:text-foreground-dark ";
+        return "bg-sol text-filament";
       default:
-        return "bg-foreground  dark:bg-foreground-dark text-background dark:text-background-dark";
+        return "bg-carbon text-filament";
     }
   } else if (mode === FillMode.INVERT) {
     switch (variant) {
       case ColorVariant.METHYL:
-        return "bg-background text-methyl dark:bg-foreground-dark dark:text-methyl-dark";
+        return "bg-filament text-methyl";
       case ColorVariant.PLASMA:
-        return "bg-background text-plasma dark:bg-foreground-dark dark:text-plasma-dark";
+        return "bg-filament text-plasma";
       case ColorVariant.OXIDE:
-        return "bg-background text-oxide dark:bg-foreground-dark dark:text-oxide-dark";
+        return "bg-filament text-oxide";
       case ColorVariant.RUST:
-        return "bg-background text-rust dark:bg-foreground-dark dark:text-rust-dark";
+        return "bg-filament text-rust";
       case ColorVariant.MOLTEN:
-        return "bg-background text-molten dark:bg-foreground-dark dark:text-molten-dark";
+        return "bg-filament text-molten";
       case ColorVariant.SOL:
-        return "bg-background text-sol dark:bg-foreground-dark dark:text-sol-dark";
+        return "bg-filament text-sol";
       default:
-        return "bg-foreground dark:bg-foreground-dark text-background dark:text-background-dark";
+        return "bg-filament text-carbon";
     }
   } else {
     switch (variant) {
       case ColorVariant.METHYL:
-        return "bg-background text-methyl dark:bg-foreground-dark dark:text-methyl-dark";
+        return "border border-methyl text-methyl";
       case ColorVariant.PLASMA:
-        return "bg-background text-plasma dark:bg-foreground-dark dark:text-plasma-dark";
+        return "border border-plasma text-plasma";
       case ColorVariant.OXIDE:
-        return "bg-background text-oxide dark:bg-foreground-dark dark:text-oxide-dark";
+        return "border border-oxide text-oxide";
       case ColorVariant.RUST:
-        return "bg-background text-rust dark:bg-foreground-dark dark:text-rust-dark";
+        return "border border-rust text-rust";
       case ColorVariant.MOLTEN:
-        return "bg-background text-molten dark:bg-foreground-dark dark:text-molten-dark";
+        return "border border-molten text-molten";
       case ColorVariant.SOL:
-        return "bg-background text-sol dark:bg-foreground-dark dark:text-sol-dark";
+        return "border border-sol text-sol";
       default:
-        return "bg-foreground dark:bg-foreground-dark text-background dark:text-background-dark";
+        return "border border-foregrounds text-foreground";
     }
   }
 };
