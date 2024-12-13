@@ -1,30 +1,25 @@
 import { NavCTAButton } from "@/components/buttons/CTAButtons";
 import Logotype from "@/components/logos/logotype";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
-import NavButton from "@/components/navbar/navButton";
+import { NavDocsButton, NavLogInButton } from "@/components/navbar/navButtons";
 import { useWindowSize } from "@/components/util/functions";
-import clsx from "clsx";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
-import { isDarkMode } from "@/components/util/isDarkMode";
 import BurgerMenu from "@/components/navbar/burgerMenu";
 import { FillMode } from "../color/Color";
 
-const navItems: string[] = ["Docs", "Log In", "Buy GPR"];
-
-const navItemLinks: string[] = [
-  "https://docs.kscale.dev/",
-  "https://dashboard.kscale.dev",
-  "https://shop.kscale.dev/",
-];
+const navButtons: React.ReactNode[] = [
+  { component: <NavDocsButton />, key: "docs" },
+  { component: <NavLogInButton />, key: "login" },
+].map((item) => React.cloneElement(item.component, { key: item.key }));
 
 const navVariants = {
   visible: {
     y: "0%",
   },
   hidden: {
-    y: "-100%",
+    y: "-150%",
   },
 };
 
@@ -33,13 +28,7 @@ const navItemVariants = {
     y: "0%",
   },
   hidden: {
-    y: "-100%",
-  },
-};
-
-const arrowLinkVariants = {
-  hover: {
-    opacity: 0.77,
+    y: "-150%",
   },
 };
 
@@ -69,61 +58,26 @@ export default function NavBar() {
 
   const mobileNavBar = () => {
     return (
-      <menu
-        className={clsx(
-          "overflow-hidden py-4 items-end md:items-center bg-background dark:bg-background-dark grid-m",
-          mobileShouldOpenBurger ? "h-[100dvh]" : "h-fit"
-        )}
+      <menu className={
+          "overflow-hidden w-[100%] p-4 top-0 left-0 gap-2.5 " +
+          (mobileShouldOpenBurger ? "h-[100dvh] bg-background " : "h-fit")
+        }
       >
-        <Logotype />
+        <div className={" flex flex-row grow justify-between"}>
+          <Logotype />
+          <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
+        </div>
+        {BurgerMenu(mobileShouldOpenBurger)}
 
-        {width >= 768 ? (
-          <>
-            <motion.a
-              href={navItemLinks[0]}
-              target="_blank"
-              className="-col-end-3 md:-col-end-4 flex flex-row gap-1 items-center"
-              variants={arrowLinkVariants}
-              initial="initial"
-              whileHover="hover"
-            >
-              {navItems[0]} <ExpressiveArrow />
-            </motion.a>
-            <motion.a
-              href={navItemLinks[1]}
-              target="_blank"
-              className="-col-end-2 md:-col-end-3"
-              variants={arrowLinkVariants}
-              initial="initial"
-              whileHover="hover"
-            >
-              {navItems[1]}
-            </motion.a>
-            <NavCTAButton
-              className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11"
-              mode={FillMode.FILL}
-            >
-              {navItems[2]}
-              <ExpressiveArrow />
-            </NavCTAButton>
-          </>
-        ) : (
-          <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
-            <NavCTAButton mode={FillMode.FILL}>{navItems[2]}</NavCTAButton>
-            <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
-          </div>
-        )}
-
-        {/*{width < 640 && BurgerMenu(mobileShouldOpenBurger, navItems, navItemLinks)}*/}
       </menu>
     );
   };
 
   const desktopNavBar = () => {
     return (
-      <>
+      <div className={"grid-m pt-5"}>
         <Logotype />
-        <div className="flex flex-row gap-3 items-center">
+        <div className="justify-self-end w1440:col-span-10 w1024:col-span-7 w640:col-span-7 flex flex-row gap-3 items-center">
           <motion.div
             className="flex flex-row gap-3 items-center"
             variants={navVariants}
@@ -134,8 +88,9 @@ export default function NavBar() {
               staggerChildren: 0.05,
             }}
           >
-            {navItems.map((navItem, i) => (
+            {navButtons.map((navItem, i) => (
               <motion.div
+                className={"flex flex-row"}
                 key={i}
                 variants={navItemVariants}
                 transition={{
@@ -143,22 +98,18 @@ export default function NavBar() {
                   duration: 0.3,
                 }}
               >
-                <NavButton text={navItem} text2={navItemLinks[i]} />
+                {navItem}
               </motion.div>
             ))}
-            <motion.div
-              variants={navItemVariants}
-              transition={{
-                ease: [0.1, 0.25, 0.3, 1],
-                duration: 0.3,
-              }}
-            >
-              <button>{isDarkMode() ? "🌙" : "☀️"}</button>
-            </motion.div>
           </motion.div>
-          <NavCTAButton mode={FillMode.FILL}>{navItems[2]}</NavCTAButton>
+          <NavCTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11" mode={FillMode.FILL}>
+            {`Buy GPR`}
+            <motion.div initial="initial" whileHover="hover">
+              <ExpressiveArrow size={"size-4"} />
+            </motion.div>
+          </NavCTAButton>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -174,5 +125,5 @@ export default function NavBar() {
     };
   }, [mobileShouldOpenBurger]);
 
-  return <nav className="fixed top-0 inset-x-0 z-50">{navBasedOnWidth(false)}</nav>;
+  return <nav className="fixed top-0 inset-x-0 z-50">{navBasedOnWidth(width >= 768)}</nav>;
 }
