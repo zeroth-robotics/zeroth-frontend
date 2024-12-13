@@ -19,7 +19,7 @@
         <mesh filename="meshes/body1-part.stl"/>
       </geometry>
       <material name="body1-part_material">
-        <color rgba="1 1 1 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -48,7 +48,7 @@
         <mesh filename="meshes/shoulder.stl"/>
       </geometry>
       <material name="shoulder_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -77,7 +77,7 @@
         <mesh filename="meshes/shoulder_2.stl"/>
       </geometry>
       <material name="shoulder_material_2">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -106,7 +106,7 @@
         <mesh filename="meshes/arm1_top.stl"/>
       </geometry>
       <material name="arm1_top_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -135,7 +135,7 @@
         <mesh filename="meshes/arm1_top_2.stl"/>
       </geometry>
       <material name="arm1_top_2_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -164,7 +164,7 @@
         <mesh filename="meshes/leg0_shell.stl"/>
       </geometry>
       <material name="leg0_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -193,7 +193,7 @@
         <mesh filename="meshes/leg0_shell_2.stl"/>
       </geometry>
       <material name="leg0_shell_material_2">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -222,7 +222,7 @@
         <mesh filename="meshes/arm2_shell.stl"/>
       </geometry>
       <material name="arm2_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -251,7 +251,7 @@
         <mesh filename="meshes/arm2_shell_2.stl"/>
       </geometry>
       <material name="arm2_shell_material_2">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -280,7 +280,7 @@
         <mesh filename="meshes/leg1_shell.stl"/>
       </geometry>
       <material name="leg1_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -309,7 +309,7 @@
         <mesh filename="meshes/leg1_shell3.stl"/>
       </geometry>
       <material name="leg1_shell3_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -338,7 +338,7 @@
         <mesh filename="meshes/arm3_shell.stl"/>
       </geometry>
       <material name="arm3_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -367,7 +367,7 @@
         <mesh filename="meshes/arm3_shell2.stl"/>
       </geometry>
       <material name="arm3_shell2_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -396,7 +396,7 @@
         <mesh filename="meshes/leg2_shell.stl"/>
       </geometry>
       <material name="leg2_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -425,7 +425,7 @@
         <mesh filename="meshes/leg2_shell_2.stl"/>
       </geometry>
       <material name="leg2_shell_material_2">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -454,7 +454,7 @@
         <mesh filename="meshes/hand_shell.stl"/>
       </geometry>
       <material name="hand_shell_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -483,7 +483,7 @@
         <mesh filename="meshes/hand_shell_2.stl"/>
       </geometry>
       <material name="hand_shell_material_2">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -512,7 +512,7 @@
         <mesh filename="meshes/leg3_shell2.stl"/>
       </geometry>
       <material name="leg3_shell2_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -541,7 +541,7 @@
         <mesh filename="meshes/leg3_shell22.stl"/>
       </geometry>
       <material name="leg3_shell22_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -570,7 +570,7 @@
         <mesh filename="meshes/foot3.stl"/>
       </geometry>
       <material name="foot3_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
@@ -599,7 +599,7 @@
         <mesh filename="meshes/foot1.stl"/>
       </geometry>
       <material name="foot1_material">
-        <color rgba="0.12156863 0.12156863 0.1372549 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
     <collision>
