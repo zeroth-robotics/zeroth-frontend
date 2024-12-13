@@ -125,7 +125,7 @@ export default function Footer() {
           >
             <p className="opacity-[77%]">ben@kscale.dev</p>
             <motion.button
-              className="bg-background dark:bg-foreground-dark text-rust dark:text-rust-dark text-code--caption px-1.5 py-[0.15rem] rounded-sm w-20 h-4 flex flex-colitems-center justify-center overflow-hidden"
+              className="bg-background text-rust text-code--caption px-1.5 py-[0.15rem] rounded-sm w-20 h-4 flex flex-colitems-center justify-center overflow-hidden"
               variants={{
                 initial: {
                   scale: 1,
