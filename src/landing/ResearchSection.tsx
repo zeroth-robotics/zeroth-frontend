@@ -1,5 +1,43 @@
 import { motion } from "motion/react";
 
+const RESEARCH_ITEMS = [
+  {
+    title: "Edge VLA",
+    description:
+      "Our general purpose foundation AI model, helping robots complete tasks autonomously. Through open-source data contributions, we're training a highly efficient model together.",
+    image: "/images/research/edge-vla.png",
+    link: "/",
+  },
+  {
+    title: "K-OS",
+    description:
+      "We've been refining our Rust-based package manager, streamlined operations for humanoid robotics hardware. 40% faster compiling compared to other ROS2-based systems.",
+    image: "/images/research/edge-vla.png",
+    link: "/",
+  },
+  {
+    title: "Klang",
+    description:
+      "Dedicated to efficiently parsing natural language, Klang acts a simple and flexible way to get started building robot applications. As of now, it supports EVLA to turn language into actions.",
+    image: "/images/research/edge-vla.png",
+    link: "/",
+  },
+  {
+    title: "kRec",
+    description:
+      "Our system for organizing and managing all your robot data produced during your research.",
+    image: "/images/research/edge-vla.png",
+    link: "/",
+  },
+  {
+    title: "kSim",
+    description:
+      "Built off of Issac Gym, get started with locomotion and manipulation with our simulation packages. We're working on building this out further to help you test your robot's movements on screen and in the physical world. ",
+    image: "/images/research/edge-vla.png",
+    link: "/",
+  },
+];
+
 const ResearchSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid auto-rows-min py-16">
@@ -15,11 +53,11 @@ const ResearchSection = () => {
       </hgroup>
       <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
         <div className="flex flex-row flex-none gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]">
-          {[0, 1, 2, 3, 4].map((i) => (
+          {RESEARCH_ITEMS.map((item, i) => (
             <motion.a
               className="border border-foreground rounded-lg w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw] flex-none"
               key={`research-card--${i}`}
-              href="/"
+              href={item.link}
               target="_blank"
             >
               <article className="p-4 flex flex-col gap-y-24">
@@ -33,12 +71,8 @@ const ResearchSection = () => {
                   />
                 </svg>
                 <div className="flex flex-col gap-y-4">
-                  <h3 className="text-body">Edge VLA</h3>
-                  <p className="text-caption">
-                    Our general purpose foundation AI model, helping robots complete tasks
-                    autonomously. Through open-source data contributions, we&apos;re training a
-                    highly efficient model together.
-                  </p>
+                  <h3 className="text-body">{item.title}</h3>
+                  <p className="text-caption">{item.description}</p>
                 </div>
               </article>
             </motion.a>
