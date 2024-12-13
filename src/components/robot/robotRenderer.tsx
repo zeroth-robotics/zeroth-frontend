@@ -128,7 +128,7 @@ const RobotRenderer: React.FC = () => {
       animate();
     });
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
     scene.add(ambientLight);
 
     const mainLight = new THREE.DirectionalLight(0xffffff, 2.0);
