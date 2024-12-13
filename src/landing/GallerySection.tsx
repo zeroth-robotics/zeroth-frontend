@@ -10,7 +10,7 @@ const GallerySection = () => {
 
   return (
     <section
-      className="relative col-span-full bg-gradient-to-b from-methyl via-oxide to-rust min-h-[360dvh]"
+      className="relative col-span-full bg-gradient-to-b from-methyl via-oxide to-rust min-h-[360svh]"
       ref={scrollRef}
     >
       <motion.div
