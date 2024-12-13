@@ -251,7 +251,7 @@ export const InlineCTA = ({
     <motion.a
       href={href}
       target={target}
-      className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
+      className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center fill-plasma"
       initial="initial"
       whileHover="hover"
       variants={{
