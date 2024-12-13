@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { ColorVariant, FillMode } from "@/components/color/Color";
 import { Discord, IconMode } from "@/components/footer/socialMediaSvgs";
-import { NavCTAButton, Size } from "@/components/buttons/CTAButtons";
+import { InlineCTA, NavCTAButton, Size } from "@/components/buttons/CTAButtons";
 
 const CommunitySection = () => {
   return (
@@ -18,29 +18,17 @@ const CommunitySection = () => {
       </hgroup>
       <menu className="col-span-full flex flex-row gap-x-4">
         <NavCTAButton
-          href="/"
+          href="https://discord.com/invite/kscale"
           variant={ColorVariant.PLASMA}
           size={Size.NORMAL}
           mode={FillMode.FILL}
+          target="_blank"
         >
           Join the Discord <Discord mode={IconMode.SET} />
         </NavCTAButton>
-        <motion.a
-          href="/"
-          className="text-body w-fit text-plasma dark:text-plasma-dark flex flex-row gap-1 items-center"
-          initial="initial"
-          whileHover="hover"
-          variants={{
-            initial: {
-              opacity: 0.77,
-            },
-            hover: {
-              opacity: 1,
-            },
-          }}
-        >
+        <InlineCTA href="https://docs.google.com/forms/d/e/1FAIpQLSemVaJ6HfieS9xDKv7SqWYArHyHLV-kraraiT_VEmPL_6lkPw/viewform">
           Send feedback <ExpressiveArrow />
-        </motion.a>
+        </InlineCTA>
       </menu>
 
       <article className="col-span-full md:col-span-4 flex flex-col gap-y-4 my-16">
