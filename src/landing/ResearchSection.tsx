@@ -55,11 +55,11 @@ interface ResearchItem {
 const ResearchCard = ({ title, description, image, link, index }: ResearchItem) => {
   return (
     <motion.div
-      className="bg-gradient-to-br from-methyl via-plasma to-oxide rounded-lg w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw] flex-none"
+      className="bg-gradient-to-br from-methyl via-plasma to-oxide rounded-lg flex-none"
       key={`research-card--${index}`}
       draggable={false}
     >
-      <article className="p-4 flex flex-col gap-24 h-full">
+      <article className="p-4 flex flex-col gap-24 h-full w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path
             className={"stroke-foreground "}
@@ -87,22 +87,6 @@ const ResearchCard = ({ title, description, image, link, index }: ResearchItem) 
   );
 };
 
-const ResearchCarousel = () => {
-  return (
-    <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
-      <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        className="flex flex-row  gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
-      >
-        {RESEARCH_ITEMS.map((item, i) => (
-          <ResearchCard {...item} index={i} />
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
 const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
@@ -115,37 +99,39 @@ const SPRING_OPTIONS = {
 export const SwipeCarousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const width = useWindowSize().width;
+  // w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw]
   const cardWidth = useMemo(() => {
+    if (width < 640) {
+      return {
+        card: width * 0.6625,
+        gap: width * 0.05,
+      };
+    }
     if (width < 768) {
-      return width * 0.6625;
+      return {
+        card: width * (1.7 / 3 + 0.025),
+        gap: width * 0.025,
+      };
     }
-    if (width < 1024) {
-      return width * 0.59167;
+    if (width < 1440) {
+      return {
+        card: width * (2.8 / 9 + 0.075),
+        gap: width * 0.0125,
+      };
     }
-    if (width < 1280) {
-      return width * 0.38611;
+    if (width < 1920) {
+      return {
+        card: width * (0.875 / 3),
+        gap: width * 0.0125,
+      };
     }
-    return width * 0.29167;
+    return {
+      card: width * 0.2125,
+      gap: width * 0.0125,
+    };
   }, [width]);
 
   const dragX = useMotionValue(0);
-
-  // useEffect(() => {
-  //   const intervalRef = setInterval(() => {
-  //     const x = dragX.get();
-
-  //     if (x === 0) {
-  //       setImgIndex((pv) => {
-  //         if (pv === RESEARCH_ITEMS.length - 1) {
-  //           return 0;
-  //         }
-  //         return pv + 1;
-  //       });
-  //     }
-  //   }, AUTO_DELAY);
-
-  //   return () => clearInterval(intervalRef);
-  // }, []);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -158,7 +144,9 @@ export const SwipeCarousel = () => {
 
   return (
     <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
-      <div className="fixed top-0 left-0 z-50 text-molten">{imgIndex}</div>
+      <div className="fixed top-0 left-0 z-50 text-molten">
+        {imgIndex} {cardWidth.card} {cardWidth.gap}
+      </div>
       <motion.div
         drag="x"
         dragConstraints={{
@@ -169,7 +157,7 @@ export const SwipeCarousel = () => {
           x: dragX,
         }}
         animate={{
-          translateX: `-${imgIndex * 20}%`,
+          translateX: `-${imgIndex * (cardWidth.card + cardWidth.gap)}px`,
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
