@@ -1,4 +1,5 @@
-import { CTAButtonMode, CTASubtitleButton } from "@/components/buttons/CTAButtons";
+import { CTASubtitleButton } from "@/components/buttons/CTAButtons";
+import { FillMode } from "@/components/color/Color";
 
 const PricingSection = () => {
   return (
@@ -17,7 +18,7 @@ const PricingSection = () => {
           className="mt-auto"
           href="https://shop.kscale.dev/products/kbot-fe"
           subtitle="$833 per month"
-          mode={CTAButtonMode.INVERT}
+          mode={FillMode.INVERT}
         >
           Order GPR Founders&apos; Edition
         </CTASubtitleButton>
