@@ -34,7 +34,7 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
       }
     >
       <h3 className={"text-caption uppercase opacity-[77%]"}>{title}</h3>
-      <ul className={"flex flex-col items-start gap-4"}>
+      <ul className={"flex flex-col items-start gap-4 md:gap-6"}>
         {items.map((item, index) => (
           <li key={index} className={"list-none"}>
             <Link href={item.url} target={"_blank"} className="hover:underline">
@@ -129,7 +129,7 @@ export default function Footer() {
           >
             <p className="opacity-[77%]">ben@kscale.dev</p>
             <motion.button
-              className="bg-filament text-rust text-code--caption px-1.5 py-[0.15rem] rounded-sm w-20 h-4 flex flex-colitems-center justify-center overflow-hidden"
+              className="mt-2 bg-filament text-rust text-code--caption px-1.5 py-[0.15rem] rounded-sm w-20 h-4 flex flex-colitems-center justify-center overflow-hidden"
               variants={{
                 initial: {
                   scale: 1,
@@ -152,7 +152,7 @@ export default function Footer() {
               <AnimatePresence mode="popLayout">
                 {isCopied ? (
                   <motion.span
-                    className="block"
+                    className="block select-none"
                     variants={{
                       initial: { opacity: 0, y: "100%" },
                       animate: { opacity: 1, y: 0 },
@@ -167,7 +167,7 @@ export default function Footer() {
                   </motion.span>
                 ) : (
                   <motion.span
-                    className="block"
+                    className="block select-none"
                     variants={{
                       initial: { opacity: 0, y: "100%" },
                       animate: { opacity: 1, y: 0 },
