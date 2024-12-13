@@ -1,26 +1,40 @@
-import BurgerButton from "@/components/navbar/burgerButton";
+import {
+  navItemLinks,
+  navItems,
+  textBlackDarkWhite,
+  transitionEaseLinearDuration300,
+} from "@/components/util/constants";
+import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { motion } from "motion/react";
+import Link from "next/link";
 
-interface BurgerMenuProps {
-  isOpen: boolean;
-  items: { name: string; link: string }[];
-}
-
-const BurgerMenu = ({ isOpen, items }: BurgerMenuProps) => {
+const BurgerMenu = (isOpen: boolean) => {
   return isOpen ? (
-    <motion.div
-      className={"flex flex-col items-start w-[100%] gap-10 py-12"}
-      initial={{ y: "-100%" }}
-      animate={{ y: "0%" }}
-      transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.5 }}
-    >
-      {items.map((item, index) => (
-        <li className={"list-none"} key={index}>
-          <BurgerButton text={item.name} text2={item.link} />
-        </li>
-      ))}
-    </motion.div>
-  ) : null;
+    <div className={"flex flex-col items-start w-[100%] gap-10 py-12 list-none"}>
+      {navItems.map((navItem, index) => {
+        return (
+          <motion.button
+            key={index}
+            className={
+              "font-planar font-normal capitalize text-2xl select-none flex flex-row " +
+              textBlackDarkWhite +
+              " hover:text-rust " +
+              transitionEaseLinearDuration300
+            }
+            initial="initial"
+            whileHover="hover"
+          >
+            <Link href={navItemLinks[index]} target={"_blank"}>
+              {navItem}
+            </Link>
+            {index !== 1 ? <ExpressiveArrow size={"size-7"} /> : <></>}
+          </motion.button>
+        );
+      })}
+    </div>
+  ) : (
+    <></>
+  );
 };
 
 export default BurgerMenu;

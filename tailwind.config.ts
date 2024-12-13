@@ -1,14 +1,15 @@
-import { DEFAULT } from "@react-three/fiber/dist/declarations/src/core/utils";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
+    "./src/**/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/landing/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/styles/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  darkMode: "media",
   theme: {
     extend: {
       screens: {
@@ -72,38 +73,16 @@ const config: Config = {
         ],
       },
       colors: {
-        background: {
-          DEFAULT: "#F8F4F2",
-          dark: "#0F0F10",
-        },
-        foreground: {
-          DEFAULT: "#120E15",
-          dark: "#EDE6E1",
-        },
-        methyl: {
-          DEFAULT: "#7D0D8C",
-          dark: "#771584",
-        },
-        plasma: {
-          DEFAULT: "#B90674",
-          dark: "#A81770",
-        },
-        oxide: {
-          DEFAULT: "#C90E33",
-          dark: "#98253C",
-        },
-        rust: {
-          DEFAULT: "#FA4300",
-          dark: "#DE4208",
-        },
-        molten: {
-          DEFAULT: "#FF9000",
-          dark: "#F18A03",
-        },
-        sol: {
-          DEFAULT: "#F2F091",
-          dark: "#EAE9BC",
-        },
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        filament: "var(--filament)",
+        carbon: "var(--carbon)",
+        methyl: "var(--methyl)",
+        plasma: "var(--plasma)",
+        oxide: "var(--oxide)",
+        rust: "var(--rust)",
+        molten: "var(--molten)",
+        sol: "var(--sol)",
       },
       fontFamily: {
         apparat: ["KMR Apparat", "sans-serif"],

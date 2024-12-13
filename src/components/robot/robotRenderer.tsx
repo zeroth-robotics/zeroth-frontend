@@ -166,12 +166,14 @@ const RobotRenderer: React.FC = () => {
     };
   }, []);
 
+
   return (
     <div 
       ref={mountRef} 
       className="w-full h-full bg-gradient-to-b from-rust via-oxide to-methyl dark:from-rust-dark dark:via-oxide-dark dark:to-methyl-dark"
     />
   );  
+
 };
 
 export default RobotRenderer;

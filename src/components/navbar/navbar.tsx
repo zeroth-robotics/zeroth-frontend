@@ -1,21 +1,25 @@
-import CTAButton from "@/components/buttons/ctaButton";
+import { NavCTAButton } from "@/components/buttons/CTAButtons";
 import Logotype from "@/components/logos/logotype";
-import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
-import DarkModeToggle from "@/components/navbar/DarkModeToggle";
-import NavButton from "@/components/navbar/navButton";
+import { NavDocsButton, NavLogInButton } from "@/components/navbar/navButtons";
 import { useWindowSize } from "@/components/util/functions";
-import clsx from "clsx";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
-// import { useLenis } from "lenis/react";
+import BurgerMenu from "@/components/navbar/burgerMenu";
+import { FillMode } from "../color/Color";
+
+const navButtons: React.ReactNode[] = [
+  { component: <NavDocsButton />, key: "docs" },
+  { component: <NavLogInButton />, key: "login" },
+].map((item) => React.cloneElement(item.component, { key: item.key }));
+
 const navVariants = {
   visible: {
     y: "0%",
   },
   hidden: {
-    y: "-100%",
+    y: "-150%",
   },
 };
 
@@ -24,13 +28,7 @@ const navItemVariants = {
     y: "0%",
   },
   hidden: {
-    y: "-100%",
-  },
-};
-
-const arrowLinkVariants = {
-  hover: {
-    opacity: 0.5,
+    y: "-150%",
   },
 };
 
@@ -55,119 +53,80 @@ export default function NavBar() {
   const width = useWindowSize().width;
 
   const navBasedOnWidth = (isDesktop: boolean) => {
-    return mobileNavBar();
+    return isDesktop ? desktopNavBar() : mobileNavBar();
   };
-
-  // const lenis = useLenis();
 
   const mobileNavBar = () => {
     return (
       <menu
-        className={clsx(
-          "grid-r overflow-hidden py-4 items-end md:items-center bg-background dark:bg-background-dark",
-          mobileShouldOpenBurger ? "h-[100dvh]" : "h-fit"
-        )}
+        className={
+          "overflow-hidden w-[100%] p-4 top-0 left-0 gap-2.5 " +
+          (mobileShouldOpenBurger ? "h-[100dvh] bg-background " : "h-fit")
+        }
       >
-        <Logotype />
-
-        {width >= 768 ? (
-          <>
-            <motion.a
-              href="https://docs.kscale.dev/"
-              target="_blank"
-              className="-col-end-3 md:-col-end-4 flex flex-row gap-1 items-center"
-              variants={arrowLinkVariants}
-              initial="initial"
-              whileHover="hover"
-            >
-              Docs <ExpressiveArrow />
-            </motion.a>
-            <motion.a
-              href="https://dashboard.kscale.dev"
-              target="_blank"
-              className="-col-end-2 md:-col-end-3"
-              variants={arrowLinkVariants}
-              initial="initial"
-              whileHover="hover"
-            >
-              Log in
-            </motion.a>
-            <CTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11">
-              Buy GPR <ExpressiveArrow />
-            </CTAButton>
-          </>
-        ) : (
-          <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
-            <CTAButton>Buy GPR</CTAButton>
-            <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
-          </div>
-        )}
-
-        {/* {width < 640 && BurgerMenu({ isOpen: mobileShouldOpenBurger, items: navItems })} */}
+        <div className={" flex flex-row grow justify-between"}>
+          <Logotype />
+          <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
+        </div>
+        {BurgerMenu(mobileShouldOpenBurger)}
       </menu>
     );
   };
 
-  // const desktopNavBar = () => {
-  //   return (
-  //     <>
-  //       <Logotype />
-  //       <div className="flex flex-row gap-3 items-center">
-  //         <motion.div
-  //           className="flex flex-row gap-3 items-center"
-  //           variants={navVariants}
-  //           animate={desktopNavHidden ? "hidden" : "visible"}
-  //           transition={{
-  //             ease: [0.1, 0.25, 0.3, 1],
-  //             duration: 0.5,
-  //             staggerChildren: 0.05,
-  //           }}
-  //         >
-  //           {navItems.map((item, i) => (
-  //             <motion.div
-  //               key={i}
-  //               variants={navItemVariants}
-  //               transition={{
-  //                 ease: [0.1, 0.25, 0.3, 1],
-  //                 duration: 0.3,
-  //               }}
-  //             >
-  //               <NavButton text={item.name} text2={item.link} />
-  //             </motion.div>
-  //           ))}
-  //           <motion.div
-  //             variants={navItemVariants}
-  //             transition={{
-  //               ease: [0.1, 0.25, 0.3, 1],
-  //               duration: 0.3,
-  //             }}
-  //           >
-  //             <DarkModeToggle />
-  //           </motion.div>
-  //         </motion.div>
-  //         <CTAButton />
-  //       </div>
-  //     </>
-  //   );
-  // };
+  const desktopNavBar = () => {
+    return (
+      <div className={"grid-m pt-5"}>
+        <Logotype />
+        <div className="justify-self-end w1440:col-span-10 w1024:col-span-7 w640:col-span-7 flex flex-row gap-3 items-center">
+          <motion.div
+            className="flex flex-row gap-3 items-center"
+            variants={navVariants}
+            animate={desktopNavHidden ? "hidden" : "visible"}
+            transition={{
+              ease: [0.1, 0.25, 0.3, 1],
+              duration: 0.5,
+              staggerChildren: 0.05,
+            }}
+          >
+            {navButtons.map((navItem, i) => (
+              <motion.div
+                className={"flex flex-row"}
+                key={i}
+                variants={navItemVariants}
+                transition={{
+                  ease: [0.1, 0.25, 0.3, 1],
+                  duration: 0.3,
+                }}
+              >
+                {navItem}
+              </motion.div>
+            ))}
+          </motion.div>
+          <NavCTAButton
+            className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11"
+            mode={FillMode.FILL}
+          >
+            {`Buy GPR`}
+            <motion.div initial="initial" whileHover="hover">
+              <ExpressiveArrow size={"size-4"} />
+            </motion.div>
+          </NavCTAButton>
+        </div>
+      </div>
+    );
+  };
 
   useEffect(() => {
     if (mobileShouldOpenBurger) {
       document.body.classList.add("scroll-lock");
-      // lenis.stop();
     } else {
       document.body.classList.remove("scroll-lock");
-      // lenis.start();
     }
 
-    // Cleanup on component unmount
     return () => {
       document.body.classList.remove("scroll-lock");
     };
   }, [mobileShouldOpenBurger]);
 
-  return <nav className="fixed top-0 inset-x-0 z-50">{navBasedOnWidth(false)}</nav>;
-}
-function useLenis() {
-  throw new Error("Function not implemented.");
+  return <nav className="fixed top-0 inset-x-0 z-50">{navBasedOnWidth(width >= 768)}</nav>;
 }
