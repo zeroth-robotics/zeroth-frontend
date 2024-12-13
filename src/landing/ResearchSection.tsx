@@ -59,7 +59,7 @@ const ResearchCard = ({ title, description, image, link, index }: ResearchItem) 
       key={`research-card--${index}`}
       draggable={false}
     >
-      <article className="p-4 flex flex-col gap-24 h-full w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw]">
+      <article className="p-4 flex flex-col gap-24 h-full w-[66.25vw] sm:w-[calc(100vw_*_(1.7_/3_+_0.025))] md:w-[calc(100vw_*_(2.8_/_9_+_0.075))] 2xl:w-[calc(100vw_*_(0.875_/_3))] 4xl:w-[21.5625vw]">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path
             className={"stroke-foreground "}
@@ -99,7 +99,7 @@ const SPRING_OPTIONS = {
 export const SwipeCarousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const width = useWindowSize().width;
-  // w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw]
+
   const dimensions = useMemo(() => {
     if (width < 640) {
       return {
@@ -147,29 +147,65 @@ export const SwipeCarousel = () => {
     }
   };
 
+  const decrement = () => {
+    if (imgIndex > 0) {
+      setImgIndex((pv) => pv - 1);
+    }
+  };
+
+  const increment = () => {
+    if (imgIndex < dimensions.max) {
+      setImgIndex((pv) => pv + 1);
+    }
+  };
+
   return (
-    <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
-      <div className="fixed top-0 left-0 z-50 text-molten">
-        {imgIndex} {dimensions.card} {dimensions.gap}
+    <div className="col-span-full -mx-[5vw] px-[5vw] overflow-hidden relative">
+      <menu className="flex gap-2 mb-4">
+        <motion.button
+          onClick={decrement}
+          aria-label="Previous"
+          className="select-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: imgIndex > 0 ? 1 : 0.5 }}
+          transition={{ duration: 0.2 }}
+        >
+          &larr;
+        </motion.button>
+        <motion.button
+          onClick={increment}
+          aria-label="Next"
+          className="select-none"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: imgIndex < dimensions.max ? 1 : 0.5 }}
+          transition={{ duration: 0.2 }}
+        >
+          &rarr;
+        </motion.button>
+      </menu>
+      <div className="">
+        <div className="fixed top-0 left-0 z-50 text-molten">
+          {imgIndex} {dimensions.card} {dimensions.gap}
+        </div>
+        <motion.div
+          drag="x"
+          dragConstraints={{
+            left: 0,
+            right: 0,
+          }}
+          style={{
+            x: dragX,
+          }}
+          animate={{
+            translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
+          }}
+          transition={SPRING_OPTIONS}
+          onDragEnd={onDragEnd}
+          className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
+        >
+          <Images imgIndex={imgIndex} />
+        </motion.div>
       </div>
-      <motion.div
-        drag="x"
-        dragConstraints={{
-          left: 0,
-          right: 0,
-        }}
-        style={{
-          x: dragX,
-        }}
-        animate={{
-          translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
-        }}
-        transition={SPRING_OPTIONS}
-        onDragEnd={onDragEnd}
-        className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
-      >
-        <Images imgIndex={imgIndex} />
-      </motion.div>
     </div>
   );
 };
