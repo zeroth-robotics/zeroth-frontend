@@ -1,5 +1,12 @@
 import { NavCTAButton } from "@/components/buttons/CTAButtons";
 import { ColorVariant, FillMode } from "@/components/color/Color";
+import {
+  EVLAIcon,
+  KOSIcon,
+  KRECIcon,
+  KSIMIcon,
+  KLANGIcon,
+} from "@/components/iconography/ResearchIcons";
 import { useWindowSize } from "@/components/util/functions";
 import { motion, useMotionValue } from "motion/react";
 import { useMemo } from "react";
@@ -13,6 +20,7 @@ const RESEARCH_ITEMS = [
       "Our general purpose foundation AI model, helping robots complete tasks autonomously. Through open-source data contributions, we're training a highly efficient model together.",
     image: "/images/research/edge-vla.png",
     link: "/",
+    icon: <EVLAIcon />,
   },
   {
     title: "K-OS",
@@ -20,6 +28,7 @@ const RESEARCH_ITEMS = [
       "We've been refining our Rust-based package manager, streamlined operations for humanoid robotics hardware. 40% faster compiling compared to other ROS2-based systems.",
     image: "/images/research/edge-vla.png",
     link: "/",
+    icon: <KOSIcon />,
   },
   {
     title: "Klang",
@@ -27,6 +36,7 @@ const RESEARCH_ITEMS = [
       "Dedicated to efficiently parsing natural language, Klang acts a simple and flexible way to get started building robot applications. As of now, it supports EVLA to turn language into actions.",
     image: "/images/research/edge-vla.png",
     link: "/",
+    icon: <KLANGIcon />,
   },
   {
     title: "kRec",
@@ -34,6 +44,7 @@ const RESEARCH_ITEMS = [
       "Our system for organizing and managing all your robot data produced during your research.",
     image: "/images/research/edge-vla.png",
     link: "/",
+    icon: <KRECIcon />,
   },
   {
     title: "kSim",
@@ -41,6 +52,7 @@ const RESEARCH_ITEMS = [
       "Built off of Issac Gym, get started with locomotion and manipulation with our simulation packages. We're working on building this out further to help you test your robot's movements on screen and in the physical world. ",
     image: "/images/research/edge-vla.png",
     link: "/",
+    icon: <KSIMIcon />,
   },
 ];
 
@@ -50,9 +62,10 @@ interface ResearchItem {
   image: string;
   link: string;
   index: number;
+  icon: React.ReactNode;
 }
 
-const ResearchCard = ({ title, description, image, link, index }: ResearchItem) => {
+const ResearchCard = ({ title, description, image, link, index, icon }: ResearchItem) => {
   return (
     <motion.div
       className="bg-gradient-to-br from-methyl via-plasma to-oxide rounded-lg flex-none"
@@ -60,15 +73,7 @@ const ResearchCard = ({ title, description, image, link, index }: ResearchItem) 
       draggable={false}
     >
       <article className="p-4 flex flex-col gap-24 h-full w-[66.25vw] sm:w-[calc(100vw_*_(1.7_/3_+_0.025))] md:w-[calc(100vw_*_(2.8_/_9_+_0.075))] 2xl:w-[calc(100vw_*_(0.875_/_3))] 4xl:w-[21.5625vw]">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path
-            className={"stroke-foreground "}
-            d="M12 2L2 22H22L12 2Z"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {icon}
         <div className="flex flex-col gap-y-4 h-full">
           <h3 className="text-body">{title}</h3>
           <p className="text-caption">{description}</p>
@@ -207,14 +212,14 @@ export const SwipeCarousel = () => {
           onDragEnd={onDragEnd}
           className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
         >
-          <Images imgIndex={imgIndex} />
+          <Images />
         </motion.div>
       </div>
     </div>
   );
 };
 
-const Images = ({ imgIndex }: { imgIndex: number }) => {
+const Images = () => {
   return (
     <>
       {RESEARCH_ITEMS.map((item, i) => (
