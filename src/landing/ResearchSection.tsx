@@ -87,12 +87,12 @@ const ResearchCard = ({ title, description, image, link, index }: ResearchItem) 
   );
 };
 
-const DRAG_BUFFER = 50;
+const DRAG_BUFFER = 64;
 
 const SPRING_OPTIONS = {
   type: "spring",
   mass: 1,
-  stiffness: 100,
+  stiffness: 40,
   damping: 20,
 };
 
@@ -141,9 +141,9 @@ export const SwipeCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
     if (x <= -DRAG_BUFFER && imgIndex < dimensions.max) {
-      setImgIndex((pv) => pv + 1);
+      setImgIndex((pv) => Math.min(pv + Math.floor(x / -DRAG_BUFFER), dimensions.max));
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
+      setImgIndex((pv) => Math.max(pv - Math.floor(x / DRAG_BUFFER), 0));
     }
   };
 
@@ -159,9 +159,13 @@ export const SwipeCarousel = () => {
     }
   };
 
+  useEffect(() => {
+    setImgIndex(0);
+  }, [width]);
+
   return (
     <div className="col-span-full -mx-[5vw] px-[5vw] overflow-hidden relative">
-      <menu className="flex gap-2 mb-4">
+      <menu className="flex max-lg:justify-end gap-4 lg:gap-2 mb-4 max-lg:text-heading-sm">
         <motion.button
           onClick={decrement}
           aria-label="Previous"
@@ -199,7 +203,7 @@ export const SwipeCarousel = () => {
           animate={{
             translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
           }}
-          transition={SPRING_OPTIONS}
+          transition={{ ease: "linear" }}
           onDragEnd={onDragEnd}
           className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
         >
@@ -214,7 +218,7 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
   return (
     <>
       {RESEARCH_ITEMS.map((item, i) => (
-        <ResearchCard {...item} index={i} />
+        <ResearchCard {...item} index={i} key={`research-card--${i}`} />
       ))}
     </>
   );
