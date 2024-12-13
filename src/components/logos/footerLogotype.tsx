@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { transitionEaseLinearDuration300 } from "@/components/util/constants";
 
 const FooterLogotype = () => {
   return (

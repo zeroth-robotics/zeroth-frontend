@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import Link from "next/link";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { ColorVariant } from "@/components/color/Color";
 import { Discord, IconMode } from "@/components/footer/socialMediaSvgs";
