@@ -1,7 +1,7 @@
 export const transitionEaseLinearDuration300: string = " transition ease-linear duration-300 ";
-export const bgBlackDarkWhite: string = " bg-foreground dark:bg-foreground-dark ";
-export const textBlackDarkWhite: string = " text-foreground dark:text-foreground-dark ";
-export const fillBlackDarkWhite: string = " fill-foreground dark:fill-foreground-dark ";
+export const bgBlackDarkWhite: string = " bg-foreground";
+export const textBlackDarkWhite: string = " text-foreground";
+export const fillBlackDarkWhite: string = " fill-foreground";
 
 export const navMotionTransition = {
   duration: 0.7,
@@ -12,3 +12,10 @@ export const navMotionTransition = {
 export const scaleMotionNumber = {
   scale: 0.95,
 };
+
+export const navItems: string[] = ["Docs", "Log In", "Buy GPR"];
+export const navItemLinks: string[] = [
+  "https://docs.kscale.dev/",
+  "https://dashboard.kscale.dev",
+  "https://shop.kscale.dev/",
+];
