@@ -1,8 +1,9 @@
-import CTAButton, { CTASubtitleButton } from "@/components/buttons/ctaButton";
+import { CTAButton, CTAButtonMode, CTASubtitleButton } from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
 import { Grid } from "@/components/grid/Grid";
 import NavBar from "@/components/navbar/navbar";
 import RobotRenderer from "@/components/robot/robotRenderer";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const HeaderSection = () => {
@@ -15,7 +16,9 @@ const HeaderSection = () => {
           GPR 1.0 is an open-source &amp; auditable robot, for those who prefer transparency over
           trust.
         </h2>
-        <CTAButton>Order GPR</CTAButton>
+        <CTASubtitleButton subtitle="Available on Shopify" className="w-full">
+          Order GPR 0.5
+        </CTASubtitleButton>
       </hgroup>
     </header>
   );
@@ -34,14 +37,37 @@ const ResearchSection = () => {
           perform. Here&apos;s some of the progress we&apos;ve made:
         </p>
       </hgroup>
-      <div className="col-span-full overflow-hidden">
-        <article className="flex-none p-6 border border-foreground rounded-lg">
-          <h3 className="text-heading-sm mb-4">Computer Vision</h3>
-          <p className="text-body">
-            Advanced object detection and spatial awareness enabling precise interaction with the
-            environment.
-          </p>
-        </article>
+      <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
+        <div className="flex flex-row flex-none gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]">
+          {[0, 1, 2, 3, 4].map((i) => (
+            <motion.a
+              className="border border-foreground rounded-lg w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw] flex-none"
+              key={`research-card--${i}`}
+              href="/"
+              target="_blank"
+            >
+              <article className="p-4 flex flex-col gap-y-24">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2L2 22H22L12 2Z"
+                    stroke="#000000"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div className="flex flex-col gap-y-4">
+                  <h3 className="text-body">Edge VLA</h3>
+                  <p className="text-caption">
+                    Our general purpose foundation AI model, helping robots complete tasks
+                    autonomously. Through open-source data contributions, we&apos;re training a
+                    highly efficient model together.
+                  </p>
+                </div>
+              </article>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -130,9 +156,10 @@ const PricingSection = () => {
           Priority delivery and yearly service on new parts and hardware, for the rest of your life.
         </p>
         <CTASubtitleButton
-          className="mt-auto bg-background dark:bg-foreground text-rust dark:text-rust-dark"
+          className="mt-auto"
           href="/order"
           subtitle="$833 per month"
+          mode={CTAButtonMode.INVERT}
         >
           Order GPR Founders&apos; Edition
         </CTASubtitleButton>
@@ -148,11 +175,7 @@ const PricingSection = () => {
         <p className="text-body mb-8">
           Invest in yourself and your engineering potential with GPR's embodied AI ecosytem.
         </p>
-        <CTASubtitleButton
-          className="mt-auto bg-rust dark:bg-foreground-dark text-background dark:text-rust-dark"
-          href="/order"
-          subtitle="$533 per month"
-        >
+        <CTASubtitleButton className="mt-auto" href="/order" subtitle="$533 per month">
           Order GPR Developers&apos; Edition
         </CTASubtitleButton>
       </article>

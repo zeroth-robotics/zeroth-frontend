@@ -8,7 +8,7 @@ import { useWindowSize } from "@/components/util/functions";
 import clsx from "clsx";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
-
+// import { useLenis } from "lenis/react";
 const navVariants = {
   visible: {
     y: "0%",
@@ -24,6 +24,34 @@ const navItemVariants = {
   },
   hidden: {
     y: "-100%",
+  },
+};
+
+const arrowLinkVariants = {
+  hover: {
+    opacity: 0.5,
+  },
+};
+
+const arrowVariants = {
+  rest: {
+    x: "0%",
+    y: "0%",
+  },
+  hover: {
+    x: "100%",
+    y: "-100%",
+  },
+};
+
+const arrowBottomVariants = {
+  rest: {
+    x: "-200%",
+    y: "100%",
+  },
+  hover: {
+    x: "-100%",
+    y: "0%",
   },
 };
 
@@ -51,11 +79,13 @@ export default function NavBar() {
     return mobileNavBar();
   };
 
+  // const lenis = useLenis();
+
   const mobileNavBar = () => {
     return (
       <menu
         className={clsx(
-          "grid-r overflow-hidden top-0 inset-x-0 py-4 items-end md:items-center bg-background dark:bg-background-dark",
+          "grid-r overflow-hidden py-4 items-end md:items-center bg-background dark:bg-background-dark",
           mobileShouldOpenBurger ? "h-[100dvh]" : "h-fit"
         )}
       >
@@ -66,14 +96,37 @@ export default function NavBar() {
             <motion.a
               href="https://docs.kscale.dev/"
               target="_blank"
-              className="-col-end-3 md:-col-end-4"
+              className="-col-end-3 md:-col-end-4 flex flex-row gap-1 items-center"
+              transition={{
+                ease: [0.1, 0.25, 0.3, 1],
+                duration: 0.3,
+              }}
+              variants={arrowLinkVariants}
+              initial="rest"
+              whileHover="hover"
             >
-              Docs&#x2197;
+              Docs{" "}
+              <div className="relative overflow-hidden">
+                <motion.span key="arrow-1" className="inline-block" variants={arrowVariants}>
+                  &#x2197;
+                </motion.span>
+                <motion.span
+                  key="arrow-2"
+                  className="inline-block absolute"
+                  variants={arrowBottomVariants}
+                >
+                  &#x2197;
+                </motion.span>
+              </div>
             </motion.a>
             <motion.a
               href="https://dashboard.kscale.dev"
               target="_blank"
               className="-col-end-2 md:-col-end-3"
+              transition={{
+                ease: [0.1, 0.25, 0.3, 1],
+                duration: 0.3,
+              }}
             >
               Log in
             </motion.a>
@@ -139,8 +192,10 @@ export default function NavBar() {
   useEffect(() => {
     if (mobileShouldOpenBurger) {
       document.body.classList.add("scroll-lock");
+      // lenis.stop();
     } else {
       document.body.classList.remove("scroll-lock");
+      // lenis.start();
     }
 
     // Cleanup on component unmount
@@ -149,5 +204,8 @@ export default function NavBar() {
     };
   }, [mobileShouldOpenBurger]);
 
-  return <nav className="fixed top-0 z-50">{navBasedOnWidth(false)}</nav>;
+  return <nav className="fixed top-0 inset-x-0 z-50">{navBasedOnWidth(false)}</nav>;
+}
+function useLenis() {
+  throw new Error("Function not implemented.");
 }
