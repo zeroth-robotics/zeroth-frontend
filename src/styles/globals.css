@@ -75,7 +75,7 @@
 }
 
 *::selection {
-  @apply bg-rust text-background dark:text-foreground-dark;
+  @apply bg-rust text-background;
 }
 
 body {

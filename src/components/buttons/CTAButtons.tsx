@@ -104,7 +104,6 @@ export const NavCTAButton = ({
     <motion.button
       className={clsx(
         "font-planar font-normal text-body px-2 py-1 select-none flex flex-row gap-1 justify-center items-center",
-
         "cursor-pointer",
         "rounded",
         getVariantClass(variant, mode),
