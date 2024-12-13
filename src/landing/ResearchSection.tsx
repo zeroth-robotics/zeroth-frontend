@@ -100,34 +100,39 @@ export const SwipeCarousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const width = useWindowSize().width;
   // w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw]
-  const cardWidth = useMemo(() => {
+  const dimensions = useMemo(() => {
     if (width < 640) {
       return {
         card: width * 0.6625,
         gap: width * 0.05,
+        max: RESEARCH_ITEMS.length - 1,
       };
     }
     if (width < 768) {
       return {
         card: width * (1.7 / 3 + 0.025),
         gap: width * 0.025,
+        max: RESEARCH_ITEMS.length - 1,
       };
     }
     if (width < 1440) {
       return {
         card: width * (2.8 / 9 + 0.075),
         gap: width * 0.0125,
+        max: RESEARCH_ITEMS.length - 2,
       };
     }
     if (width < 1920) {
       return {
         card: width * (0.875 / 3),
         gap: width * 0.0125,
+        max: RESEARCH_ITEMS.length - 3,
       };
     }
     return {
       card: width * 0.2125,
       gap: width * 0.0125,
+      max: RESEARCH_ITEMS.length - 4,
     };
   }, [width]);
 
@@ -135,7 +140,7 @@ export const SwipeCarousel = () => {
 
   const onDragEnd = () => {
     const x = dragX.get();
-    if (x <= -DRAG_BUFFER && imgIndex < RESEARCH_ITEMS.length - 1) {
+    if (x <= -DRAG_BUFFER && imgIndex < dimensions.max) {
       setImgIndex((pv) => pv + 1);
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
       setImgIndex((pv) => pv - 1);
@@ -145,7 +150,7 @@ export const SwipeCarousel = () => {
   return (
     <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
       <div className="fixed top-0 left-0 z-50 text-molten">
-        {imgIndex} {cardWidth.card} {cardWidth.gap}
+        {imgIndex} {dimensions.card} {dimensions.gap}
       </div>
       <motion.div
         drag="x"
@@ -157,7 +162,7 @@ export const SwipeCarousel = () => {
           x: dragX,
         }}
         animate={{
-          translateX: `-${imgIndex * (cardWidth.card + cardWidth.gap)}px`,
+          translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
