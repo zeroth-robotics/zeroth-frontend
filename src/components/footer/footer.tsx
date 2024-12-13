@@ -4,6 +4,7 @@ import { Discord, Github, LinkedIn, Twitter } from "@/components/footer/socialMe
 import FooterLogotype from "@/components/logos/footerLogotype";
 import Link from "next/link";
 import { JSX, useEffect, useState } from "react";
+import { circOut } from "motion";
 
 const socialMediaSvgs: JSX.Element[] = [
   <Discord key={"discord"} />,
@@ -37,7 +38,13 @@ const FooterSectionList = ({ extraStyling, items, title }: FooterSectionListProp
         {items.map((item, index) => (
           <li key={index} className={"list-none"}>
             <Link href={item.url} target={"_blank"} className="hover:underline">
-              {item.title}
+              <motion.span
+                initial={{ opacity: 1 }}
+                whileHover={{ opacity: 0.77 }}
+                transition={{ duration: 0.3, ease: circOut }}
+              >
+                {item.title}
+              </motion.span>
             </Link>
           </li>
         ))}

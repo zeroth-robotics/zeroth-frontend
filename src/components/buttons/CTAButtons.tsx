@@ -40,7 +40,7 @@ const getVariantClass = (variant: ColorVariant, mode: FillMode): string => {
       default:
         return "bg-filament text-carbon";
     }
-  } else {
+  } else if (mode === FillMode.STROKE) {
     switch (variant) {
       case ColorVariant.METHYL:
         return "border border-methyl text-methyl";
@@ -56,6 +56,23 @@ const getVariantClass = (variant: ColorVariant, mode: FillMode): string => {
         return "border border-sol text-sol";
       default:
         return "border border-foregrounds text-foreground";
+    }
+  } else {
+    switch (variant) {
+      case ColorVariant.METHYL:
+        return "bg-methyl dark:bg-filament text-filament dark:text-methyl";
+      case ColorVariant.PLASMA:
+        return "bg-plasma dark:bg-filament text-filament dark:text-plasma";
+      case ColorVariant.OXIDE:
+        return "bg-oxide dark:bg-filament text-filament dark:text-oxide";
+      case ColorVariant.RUST:
+        return "bg-rust dark:bg-filament text-filament dark:text-rust";
+      case ColorVariant.MOLTEN:
+        return "bg-molten dark:bg-filament text-filament  dark:text-molten";
+      case ColorVariant.SOL:
+        return "bg-sol dark:bg-filament text-filament dark:text-sol";
+      default:
+        return "bg-carbon dark:bg-filament text-filament dark:text-carbon";
     }
   }
 };
@@ -80,7 +97,7 @@ export const NavCTAButton = ({
   href = SHOP_URL,
   className,
   variant = ColorVariant.RUST,
-  mode = FillMode.FILL,
+  mode = FillMode.DEFAULT,
   size = Size.THIN,
 }: {
   children: React.ReactNode;
@@ -125,7 +142,7 @@ export const CTASubtitleButton = ({
   subtitle,
   href = SHOP_URL,
   variant = ColorVariant.RUST,
-  mode = FillMode.FILL,
+  mode = FillMode.DEFAULT,
 }: {
   className?: string;
   children: React.ReactNode;

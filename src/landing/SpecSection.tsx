@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const SpecSection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16 grid-m">
+    <section className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16">
       <article className="col-span-full sm:col-span-5 md:col-span-6 lg:col-span-5 xl:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8 lg:sticky top-32">
         <hgroup className="">
           <span className="text-heading-md opacity-60 font-apparat">What is GPR?</span>

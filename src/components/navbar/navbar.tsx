@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { isDarkMode } from "@/components/util/isDarkMode";
 import BurgerMenu from "@/components/navbar/burgerMenu";
+import { FillMode } from "../color/Color";
 
 const navItems: string[] = ["Docs", "Log In", "Buy GPR"];
 
@@ -38,7 +39,7 @@ const navItemVariants = {
 
 const arrowLinkVariants = {
   hover: {
-    opacity: 0.5,
+    opacity: 0.77,
   },
 };
 
@@ -70,7 +71,7 @@ export default function NavBar() {
     return (
       <menu
         className={clsx(
-          "grid-m overflow-hidden py-4 items-end md:items-center bg-background dark:bg-background-dark",
+          "overflow-hidden py-4 items-end md:items-center bg-background dark:bg-background-dark grid-m",
           mobileShouldOpenBurger ? "h-[100dvh]" : "h-fit"
         )}
       >
@@ -98,14 +99,17 @@ export default function NavBar() {
             >
               {navItems[1]}
             </motion.a>
-            <NavCTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11">
+            <NavCTAButton
+              className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11"
+              mode={FillMode.FILL}
+            >
               {navItems[2]}
               <ExpressiveArrow />
             </NavCTAButton>
           </>
         ) : (
           <div className="-col-end-1 col-span-2 flex flex-row gap-2 justify-end h-fit">
-            <NavCTAButton>{navItems[2]}</NavCTAButton>
+            <NavCTAButton mode={FillMode.FILL}>{navItems[2]}</NavCTAButton>
             <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
           </div>
         )}
@@ -152,7 +156,7 @@ export default function NavBar() {
               <button>{isDarkMode() ? "🌙" : "☀️"}</button>
             </motion.div>
           </motion.div>
-          <NavCTAButton>{navItems[2]}</NavCTAButton>
+          <NavCTAButton mode={FillMode.FILL}>{navItems[2]}</NavCTAButton>
         </div>
       </>
     );

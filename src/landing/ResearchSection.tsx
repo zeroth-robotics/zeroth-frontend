@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 const ResearchSection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid auto-rows-min py-16 grid-m">
+    <section className="col-span-full grid grid-cols-subgrid auto-rows-min py-16">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col mb-12 gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Research</span>
         <h2 className="text-heading-md">

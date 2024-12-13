@@ -160,7 +160,7 @@ const RobotRenderer: React.FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-full" />;
+  return <div ref={mountRef} className="col-span-full w-full h-full" />;
 };
 
 export default RobotRenderer;

@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
-import { ColorVariant } from "@/components/color/Color";
+import { ColorVariant, FillMode } from "@/components/color/Color";
 import { Discord, IconMode } from "@/components/footer/socialMediaSvgs";
 import { NavCTAButton, Size } from "@/components/buttons/CTAButtons";
 
 const CommunitySection = () => {
   return (
-    <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16 grid-m ">
+    <section className="col-span-full grid grid-cols-subgrid auto-rows-min gap-y-4 py-16 ">
       <hgroup className="col-span-full sm:col-span-4 2xl:col-span-4 flex flex-col gap-4">
         <span className="text-caption uppercase opacity-70 relative y-1/2">Community</span>
         <h2 className="text-heading-md">Take ownership of how we keep building.</h2>
@@ -17,7 +17,12 @@ const CommunitySection = () => {
         </p>
       </hgroup>
       <menu className="col-span-full flex flex-row gap-x-4">
-        <NavCTAButton href="/" variant={ColorVariant.PLASMA} size={Size.NORMAL}>
+        <NavCTAButton
+          href="/"
+          variant={ColorVariant.PLASMA}
+          size={Size.NORMAL}
+          mode={FillMode.FILL}
+        >
           Join the Discord <Discord mode={IconMode.SET} />
         </NavCTAButton>
         <motion.a
@@ -27,7 +32,7 @@ const CommunitySection = () => {
           whileHover="hover"
           variants={{
             initial: {
-              opacity: 0.6,
+              opacity: 0.77,
             },
             hover: {
               opacity: 1,
