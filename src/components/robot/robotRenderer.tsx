@@ -128,7 +128,6 @@ const RobotRenderer: React.FC = () => {
       animate();
     });
 
-
     const mainLight = new THREE.DirectionalLight(0xffffff, 2);
     mainLight.position.set(100, 0, -20);
     camera.add(mainLight);
@@ -137,10 +136,9 @@ const RobotRenderer: React.FC = () => {
     fill1Light.position.set(-100, 0, -200);
     camera.add(fill1Light);
 
-    const fill2Light = new THREE.DirectionalLight(0xffffff, .2);
+    const fill2Light = new THREE.DirectionalLight(0xffffff, 0.2);
     fill2Light.position.set(0, 0, 10);
     camera.add(fill2Light);
-
 
     scene.add(camera);
 
@@ -167,11 +165,11 @@ const RobotRenderer: React.FC = () => {
   }, []);
 
   return (
-    <div 
-      ref={mountRef} 
+    <div
+      ref={mountRef}
       className="w-full h-full bg-gradient-to-b from-rust via-oxide to-methyl dark:from-rust-dark dark:via-oxide-dark dark:to-methyl-dark"
     />
-  );  
+  );
 };
 
 export default RobotRenderer;
