@@ -1,4 +1,4 @@
-import { CTAButtonMode, CTASubtitleButton } from "@/components/buttons/ctaButton";
+import { CTAButtonMode, CTASubtitleButton } from "@/components/buttons/CTAButtons";
 import Footer from "@/components/footer/footer";
 import { Grid } from "@/components/grid/Grid";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
@@ -50,8 +50,8 @@ const ResearchSection = () => {
               <article className="p-4 flex flex-col gap-y-24">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
+                    className={"stroke-foreground "}
                     d="M12 2L2 22H22L12 2Z"
-                    stroke="#000000"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"

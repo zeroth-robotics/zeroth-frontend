@@ -85,7 +85,7 @@ const hoverVariants = {
   },
 };
 
-export const CTAButton = ({
+export const NavCTAButton = ({
   children,
   href = SHOP_URL,
   className,
@@ -170,5 +170,3 @@ export const CTASubtitleButton = ({
     </motion.button>
   );
 };
-
-export default CTAButton;

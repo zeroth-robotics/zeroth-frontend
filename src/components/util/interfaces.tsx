@@ -1,7 +1,4 @@
 import { Dispatch, JSX, SetStateAction } from "react";
-export interface TextProps {
-  text: string;
-}
 
 export interface Text2Props {
   text: string;
@@ -27,6 +24,12 @@ export interface SocialMediaItemProps {
 
 export interface SizeColourProps {
   styling: string;
+}
+
+export interface BurgerMenuProps {
+  isOpen: boolean;
+  navItemNames: string[];
+  navItemLinks: string[];
 }
 
 export interface BurgerOpenButtonProps {
