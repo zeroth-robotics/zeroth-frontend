@@ -225,10 +225,6 @@ pre {
   height: 100vh; /* Prevents resizing quirks */
 }
 
-.alignment {
-  @apply px-[5vw];
-}
-
 .grid-a {
   @apply px-[5vw] grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 2xl:grid-cols-12 gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw];
 }
