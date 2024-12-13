@@ -10,11 +10,11 @@ export const EVLAIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       className="size-16 w-fit"
     >
-      <path d="M12 12L9.5 3.5" stroke="black" stroke-width="0.5" />
-      <path d="M12 12L20.5 6.5" stroke="black" stroke-width="0.5" />
-      <path d="M12 12L20.5 15.5" stroke="black" stroke-width="0.5" />
-      <path d="M12 12L9.5 20.5" stroke="black" stroke-width="0.5" />
-      <path d="M12 12L3.5 13.5" stroke="black" stroke-width="0.5" />
+      <path d="M12 12L9.5 3.5" stroke="black" strokeWidth="0.5" />
+      <path d="M12 12L20.5 6.5" stroke="black" strokeWidth="0.5" />
+      <path d="M12 12L20.5 15.5" stroke="black" strokeWidth="0.5" />
+      <path d="M12 12L9.5 20.5" stroke="black" strokeWidth="0.5" />
+      <path d="M12 12L3.5 13.5" stroke="black" strokeWidth="0.5" />
       <circle cx="12" cy="12" r="3" fill="black" />
       <circle cx="9.5" cy="3.5" r="1.5" fill="black" />
       <circle cx="9.5" cy="20.5" r="1.5" fill="black" />
@@ -42,11 +42,7 @@ export const KOSIcon = () => {
       <rect opacity="0.7" width="14" height="5" transform="matrix(-1 0 0 1 16 10)" fill="black" />
       <rect width="12" height="5" transform="matrix(-1 0 0 1 22 5)" fill="black" />
       <rect opacity="0.3" width="14" height="5" transform="matrix(-1 0 0 1 16 15)" fill="black" />
-      <path
-        d="M3.5 7.5H8.5M8.5 7.5L7.16667 6M8.5 7.5L7.16667 9"
-        stroke="black"
-        stroke-width="0.5"
-      />
+      <path d="M3.5 7.5H8.5M8.5 7.5L7.16667 6M8.5 7.5L7.16667 9" stroke="black" strokeWidth="0.5" />
     </motion.svg>
   );
 };
@@ -68,7 +64,7 @@ export const KLANGIcon = () => {
         height="15.5"
         transform="matrix(-1 0 0 1 21.5 4)"
         stroke="black"
-        stroke-width="0.5"
+        strokeWidth="0.5"
       />
       <path
         opacity="0.3"
@@ -84,7 +80,7 @@ export const KLANGIcon = () => {
         d="M13.8564 14.0602C13.4412 14.0602 13.1078 13.9324 12.8563 13.6769C12.6048 13.4174 12.479 13.0501 12.479 12.575C12.479 12.0999 12.6048 11.7346 12.8563 11.4791C13.1078 11.2196 13.4412 11.0898 13.8564 11.0898C14.2197 11.0898 14.5131 11.1737 14.7367 11.3414C14.9643 11.5051 15.11 11.7206 15.1739 11.9881L14.6948 12.072C14.6549 11.9203 14.563 11.7905 14.4193 11.6827C14.2756 11.5709 14.0879 11.515 13.8564 11.515C13.5729 11.515 13.3513 11.6089 13.1916 11.7965C13.0359 11.9841 12.9581 12.2436 12.9581 12.575C12.9581 12.9064 13.0359 13.1659 13.1916 13.3535C13.3513 13.5412 13.5729 13.635 13.8564 13.635C14.0879 13.635 14.2756 13.5811 14.4193 13.4733C14.563 13.3615 14.6549 13.2278 14.6948 13.0721L15.1679 13.1559C15.104 13.4274 14.9603 13.647 14.7367 13.8147C14.5131 13.9783 14.2197 14.0602 13.8564 14.0602Z"
         fill="black"
       />
-      <path d="M17 7V16" stroke="black" stroke-width="0.5" />
+      <path d="M17 7V16" stroke="black" strokeWidth="0.5" />
     </motion.svg>
   );
 };
@@ -122,15 +118,15 @@ export const KSIMIcon = () => {
     >
       <g opacity="0.7">
         <circle cx="14.5" cy="19.5" r="2.5" fill="black" />
-        <path d="M14.5 19.5L16 2" stroke="black" stroke-width="0.5" stroke-linecap="round" />
+        <path d="M14.5 19.5L16 2" stroke="black" strokeWidth="0.5" strokeLinecap="round" />
       </g>
       <circle cx="10.5" cy="19" r="2.5" fill="black" />
-      <path d="M10.5 18.75L16 2" stroke="black" stroke-width="0.5" stroke-linecap="round" />
+      <path d="M10.5 18.75L16 2" stroke="black" strokeWidth="0.5" strokeLinecap="round" />
       <circle cx="4.5" cy="14.5" r="2.5" transform="rotate(90 4.5 14.5)" fill="black" />
-      <path d="M4.5 14.5L16 2" stroke="black" stroke-width="0.5" stroke-linecap="round" />
+      <path d="M4.5 14.5L16 2" stroke="black" strokeWidth="0.5" strokeLinecap="round" />
       <g opacity="0.3">
         <circle cx="18.5" cy="18.5" r="2.5" fill="black" />
-        <path d="M18.5 18.5L16 2" stroke="black" stroke-width="0.5" stroke-linecap="round" />
+        <path d="M18.5 18.5L16 2" stroke="black" strokeWidth="0.5" strokeLinecap="round" />
       </g>
     </motion.svg>
   );
