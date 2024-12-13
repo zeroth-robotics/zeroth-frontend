@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { ColorVariant, FillMode } from "@/components/color/Color";
 import { Discord, IconMode } from "@/components/footer/socialMediaSvgs";
@@ -27,9 +26,8 @@ const CommunitySection = () => {
           Join the Discord <Discord mode={IconMode.SET} />
         </NavCTAButton>
         <InlineCTA href="https://docs.google.com/forms/d/e/1FAIpQLSemVaJ6HfieS9xDKv7SqWYArHyHLV-kraraiT_VEmPL_6lkPw/viewform">
-          Send feedback <ExpressiveArrow />
+          Send feedback <ExpressiveArrow size={"size-4"} />
         </InlineCTA>
-
       </menu>
 
       <article className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-6 2xl:col-start-7 3xl:col-span-5 3xl:col-start-8 4xl:col-span-4 4xl:col-start-7 flex flex-col gap-y-4 my-16">

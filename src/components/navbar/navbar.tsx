@@ -58,7 +58,8 @@ export default function NavBar() {
 
   const mobileNavBar = () => {
     return (
-      <menu className={
+      <menu
+        className={
           "overflow-hidden w-[100%] p-4 top-0 left-0 gap-2.5 " +
           (mobileShouldOpenBurger ? "h-[100dvh] bg-background " : "h-fit")
         }
@@ -68,7 +69,6 @@ export default function NavBar() {
           <BurgerOpenButton isOpen={mobileShouldOpenBurger} onClick={setMobileShouldOpenBurger} />
         </div>
         {BurgerMenu(mobileShouldOpenBurger)}
-
       </menu>
     );
   };
@@ -102,7 +102,10 @@ export default function NavBar() {
               </motion.div>
             ))}
           </motion.div>
-          <NavCTAButton className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11" mode={FillMode.FILL}>
+          <NavCTAButton
+            className="md:col-span-2 md:col-start-8 2xl:col-span-2 2xl:col-start-11"
+            mode={FillMode.FILL}
+          >
             {`Buy GPR`}
             <motion.div initial="initial" whileHover="hover">
               <ExpressiveArrow size={"size-4"} />
