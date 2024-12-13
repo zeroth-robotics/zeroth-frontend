@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { transitionEaseLinearDuration300 } from "@/components/util/constants";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 

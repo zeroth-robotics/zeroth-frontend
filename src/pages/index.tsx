@@ -9,14 +9,15 @@ import GallerySection from "@/landing/GallerySection";
 import PricingSection from "@/landing/PricingSection";
 import DataSection from "@/landing/DataSection";
 import CommunitySection from "@/landing/CommunitySection";
+import { CTASubtitleButton } from "@/components/buttons/CTAButtons";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
       <Grid />
-      <HeaderSection />
       <main className="grid-r gap-y-4">
+        <HeaderSection />
         <ResearchSection />
         <SpecSection />
         <RobotSection />
