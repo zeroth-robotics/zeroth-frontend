@@ -8,7 +8,7 @@ import {
   KLANGIcon,
 } from "@/components/iconography/ResearchIcons";
 import { useWindowSize } from "@/components/util/functions";
-import { motion, useMotionValue } from "motion/react";
+import { cubicBezier, motion, useMotionValue } from "motion/react";
 import { useMemo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -92,12 +92,12 @@ const ResearchCard = ({ title, description, image, link, index, icon }: Research
   );
 };
 
-const DRAG_BUFFER = 64;
+const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
   type: "spring",
   mass: 1,
-  stiffness: 40,
+  stiffness: 100,
   damping: 20,
 };
 
@@ -146,9 +146,9 @@ export const SwipeCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
     if (x <= -DRAG_BUFFER && imgIndex < dimensions.max) {
-      setImgIndex((pv) => Math.min(pv + Math.floor(x / -DRAG_BUFFER), dimensions.max));
+      setImgIndex((pv) => Math.min(pv + Math.round(x / -DRAG_BUFFER), dimensions.max));
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => Math.max(pv - Math.floor(x / DRAG_BUFFER), 0));
+      setImgIndex((pv) => Math.max(pv - Math.round(x / DRAG_BUFFER), 0));
     }
   };
 
@@ -208,7 +208,7 @@ export const SwipeCarousel = () => {
           animate={{
             translateX: `-${imgIndex * (dimensions.card + dimensions.gap)}px`,
           }}
-          transition={{ ease: "linear" }}
+          transition={SPRING_OPTIONS}
           onDragEnd={onDragEnd}
           className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
         >
