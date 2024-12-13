@@ -1,4 +1,10 @@
-import { motion } from "motion/react";
+import { NavCTAButton } from "@/components/buttons/CTAButtons";
+import { ColorVariant, FillMode } from "@/components/color/Color";
+import { useWindowSize } from "@/components/util/functions";
+import { motion, useMotionValue } from "motion/react";
+import { useMemo } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const RESEARCH_ITEMS = [
   {
@@ -38,6 +44,171 @@ const RESEARCH_ITEMS = [
   },
 ];
 
+interface ResearchItem {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  index: number;
+}
+
+const ResearchCard = ({ title, description, image, link, index }: ResearchItem) => {
+  return (
+    <motion.div
+      className="bg-gradient-to-br from-methyl via-plasma to-oxide rounded-lg w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw] flex-none"
+      key={`research-card--${index}`}
+      draggable={false}
+    >
+      <article className="p-4 flex flex-col gap-24 h-full">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            className={"stroke-foreground "}
+            d="M12 2L2 22H22L12 2Z"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <div className="flex flex-col gap-y-4 h-full">
+          <h3 className="text-body">{title}</h3>
+          <p className="text-caption">{description}</p>
+          <NavCTAButton
+            href={link}
+            target="_blank"
+            className="mt-auto w-fit px-2"
+            variant={ColorVariant.PLASMA}
+            mode={FillMode.INVERT}
+          >
+            View project
+          </NavCTAButton>
+        </div>
+      </article>
+    </motion.div>
+  );
+};
+
+const ResearchCarousel = () => {
+  return (
+    <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        className="flex flex-row  gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
+      >
+        {RESEARCH_ITEMS.map((item, i) => (
+          <ResearchCard {...item} index={i} />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+const DRAG_BUFFER = 50;
+
+const SPRING_OPTIONS = {
+  type: "spring",
+  mass: 1,
+  stiffness: 100,
+  damping: 20,
+};
+
+export const SwipeCarousel = () => {
+  const [imgIndex, setImgIndex] = useState(0);
+  const width = useWindowSize().width;
+  const cardWidth = useMemo(() => {
+    if (width < 768) {
+      return width * 0.6625;
+    }
+    if (width < 1024) {
+      return width * 0.59167;
+    }
+    if (width < 1280) {
+      return width * 0.38611;
+    }
+    return width * 0.29167;
+  }, [width]);
+
+  const dragX = useMotionValue(0);
+
+  // useEffect(() => {
+  //   const intervalRef = setInterval(() => {
+  //     const x = dragX.get();
+
+  //     if (x === 0) {
+  //       setImgIndex((pv) => {
+  //         if (pv === RESEARCH_ITEMS.length - 1) {
+  //           return 0;
+  //         }
+  //         return pv + 1;
+  //       });
+  //     }
+  //   }, AUTO_DELAY);
+
+  //   return () => clearInterval(intervalRef);
+  // }, []);
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+    if (x <= -DRAG_BUFFER && imgIndex < RESEARCH_ITEMS.length - 1) {
+      setImgIndex((pv) => pv + 1);
+    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
+      setImgIndex((pv) => pv - 1);
+    }
+  };
+
+  return (
+    <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
+      <div className="fixed top-0 left-0 z-50 text-molten">{imgIndex}</div>
+      <motion.div
+        drag="x"
+        dragConstraints={{
+          left: 0,
+          right: 0,
+        }}
+        style={{
+          x: dragX,
+        }}
+        animate={{
+          translateX: `-${imgIndex * 20}%`,
+        }}
+        transition={SPRING_OPTIONS}
+        onDragEnd={onDragEnd}
+        className="flex flex-none cursor-grab active:cursor-grabbing gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]"
+      >
+        <Images imgIndex={imgIndex} />
+      </motion.div>
+    </div>
+  );
+};
+
+const Images = ({ imgIndex }: { imgIndex: number }) => {
+  return (
+    <>
+      {RESEARCH_ITEMS.map((item, i) => (
+        <ResearchCard {...item} index={i} />
+      ))}
+    </>
+  );
+};
+
+// const Dots = ({ imgIndex, setImgIndex }) => {
+//   return (
+//     <div className="mt-4 flex w-full justify-center gap-2">
+//       {imgs.map((_, idx) => {
+//         return (
+//           <button
+//             key={idx}
+//             onClick={() => setImgIndex(idx)}
+//             className={`h-3 w-3 rounded-full transition-colors ${
+//               idx === imgIndex ? "bg-neutral-50" : "bg-neutral-500"
+//             }`}
+//           />
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
 const ResearchSection = () => {
   return (
     <section className="col-span-full grid grid-cols-subgrid auto-rows-min py-16">
@@ -51,35 +222,10 @@ const ResearchSection = () => {
           perform. Here&apos;s some of the progress we&apos;ve made:
         </p>
       </hgroup>
-      <div className="col-span-full overflow-hidden relative -mx-[5vw] px-[5vw]">
-        <div className="flex flex-row flex-none gap-x-[5vw] sm:gap-x-[2.5vw] 2xl:gap-x-[1.25vw]">
-          {RESEARCH_ITEMS.map((item, i) => (
-            <motion.a
-              className="border border-foreground rounded-lg w-[66.25vw] sm:w-[59.167vw] md:w-[38.611vw] 2xl:w-[29.167vw] 4xl:w-[21.5625vw] flex-none"
-              key={`research-card--${i}`}
-              href={item.link}
-              target="_blank"
-            >
-              <article className="p-4 flex flex-col gap-y-24">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    className={"stroke-foreground "}
-                    d="M12 2L2 22H22L12 2Z"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="flex flex-col gap-y-4">
-                  <h3 className="text-body">{item.title}</h3>
-                  <p className="text-caption">{item.description}</p>
-                </div>
-              </article>
-            </motion.a>
-          ))}
-        </div>
-      </div>
+      {/* <ResearchCarousel /> */}
+      <SwipeCarousel />
     </section>
   );
 };
+
 export default ResearchSection;
