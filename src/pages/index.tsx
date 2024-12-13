@@ -1,10 +1,10 @@
-import { CTAButton, CTAButtonMode, CTASubtitleButton } from "@/components/buttons/ctaButton";
+import { CTAButtonMode, CTASubtitleButton } from "@/components/buttons/ctaButton";
 import Footer from "@/components/footer/footer";
 import { Grid } from "@/components/grid/Grid";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import NavBar from "@/components/navbar/navbar";
 import RobotRenderer from "@/components/robot/robotRenderer";
-import { motion } from "framer-motion";
+import { motion } from "motion/dist/react";
 import Link from "next/link";
 
 const HeaderSection = () => {
@@ -254,7 +254,7 @@ const CommunitySection = () => {
       </menu>
 
       <article className="col-span-full md:col-span-4 flex flex-col gap-y-4 my-16">
-        <h2 className="text-caption uppercase opacity-70 relative relative y-1/2">About us</h2>
+        <h2 className="text-caption uppercase opacity-70 relative y-1/2">About us</h2>
         <p>
           We&apos;re hackers, engineers, and researchers that believe in a world where robots are
           made for everyone
