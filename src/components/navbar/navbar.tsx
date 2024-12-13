@@ -110,13 +110,7 @@ export default function NavBar() {
           </div>
         )}
 
-        {width < 640 && (
-          <BurgerMenu
-            isOpen={mobileShouldOpenBurger}
-            navItemNames={navItems}
-            navItemLinks={navItemLinks}
-          />
-        )}
+        {/*{width < 640 && BurgerMenu(mobileShouldOpenBurger, navItems, navItemLinks)}*/}
       </menu>
     );
   };
