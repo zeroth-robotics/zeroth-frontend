@@ -14,6 +14,7 @@ const SpecSection = () => {
   return (
     <section
       className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16  auto-rows-min overflow-y-visible items-start "
+
       ref={ref}
     >
       <motion.article
