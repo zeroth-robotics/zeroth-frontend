@@ -14,10 +14,9 @@ const SpecSection = () => {
   return (
     <section
       className="col-span-full grid grid-cols-subgrid min-h-[90svh] py-16 gap-y-16  auto-rows-min overflow-y-visible items-start "
-
       ref={ref}
     >
-      <motion.article
+      <motion.aside
         className="col-span-full sm:col-span-5 md:col-span-6 lg:col-span-4 xl:col-span-4 2xl:col-span-6 4xl:col-span-5 flex flex-col gap-8 lg:sticky top-32"
         style={{
           opacity,
@@ -32,7 +31,7 @@ const SpecSection = () => {
         <InlineCTA href="https://docs.kscale.dev/robot/intro">
           Read tech specs <ExpressiveArrow size="size-4" />
         </InlineCTA>
-      </motion.article>
+      </motion.aside>
       <article className="col-span-full grid grid-cols-subgrid gap-y-4">
         <h3 className="col-span-full sm:col-span-5 sm:col-start-2 md:col-span-5 md:col-start-4 lg:col-span-4 lg:col-start-6 xl:col-span-3 xl:col-start-6 2xl:col-span-5 2xl:col-start-8 3xl:col-span-5 3xl:col-start-8 4xl:col-span-4 4xl:col-start-8 text-heading-sm">
           {`We've built K-Bot with an aerospace-grade alumininum body, for under $20,000 USD. `}
