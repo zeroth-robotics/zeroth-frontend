@@ -107,6 +107,7 @@ const RobotRenderer: React.FC = () => {
       controls.screenSpacePanning = false;
       controls.maxPolarAngle = Math.PI / 2;
       controls.enableZoom = false;
+      controls.enablePan = false;
 
       const startTime = Date.now();
 
