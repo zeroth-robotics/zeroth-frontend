@@ -59,7 +59,11 @@ const RobotRenderer: React.FC = () => {
       0.1,
       1000
     );
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance",
+    });
     const currentMount = mountRef.current;
 
     if (currentMount) {
