@@ -42,7 +42,7 @@ export default function Home() {
         <SpecSection />
         <RobotSection />
         <GallerySection />
-        <PricingSection />
+        {/* <PricingSection /> */}
         <CommunitySection />
         <Sponsors />
       </main>

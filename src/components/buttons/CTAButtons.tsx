@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { ColorVariant, FillMode } from "@/components/util/constants";
 import { Size } from "@/components/util/constants";
 
-const SHOP_URL = "https://shop.kscale.dev/collections/all";
+const SHOP_URL = "https://discord.gg/4skdbdtCw8";
 
 const getVariantClass = (variant: ColorVariant, mode: FillMode): string => {
   if (mode === FillMode.FILL) {

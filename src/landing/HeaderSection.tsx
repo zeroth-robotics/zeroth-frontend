@@ -22,8 +22,8 @@ const HeaderSection = () => {
         <h2 className="text-body">
           K-Bot is an open-source humanoid robot, for those who prefer transparency over trust.
         </h2>
-        <CTASubtitleButton subtitle="Shipping Q1 2025" className="w-full" mode={FillMode.FILL}>
-          Preorder K-Bot today
+        <CTASubtitleButton subtitle="Contribute to the Community" className="w-full" mode={FillMode.FILL}>
+          Join our Discord
         </CTASubtitleButton>
       </hgroup>
     </header>
