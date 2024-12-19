@@ -70,14 +70,18 @@ export default function NavBar() {
         <Logotype atTop={atTop} isMenuOpen={mobileShouldOpenBurger} />
         <div
           className={
+          master
             "flex flex-row gap-6 items-center 2xl:-col-end-2 xl:-col-end-2 lg:-col-end-2 md:-col-end-2"
+        staging
           }
         >
           <NavDocsButton atTop={atTop} />
           <NavLogInButton atTop={atTop} />
+        master
           {/* <NavCTAButton className=" col-span-2 -col-end-1 " mode={FillMode.FILL}>
             View products
           </NavCTAButton> */}
+        staging
         </div>
       </>
     );
