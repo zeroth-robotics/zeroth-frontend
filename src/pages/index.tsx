@@ -1,15 +1,14 @@
 import Footer from "@/components/footer/footer";
 import NavBar from "@/components/navbar/navbar";
+import CommunitySection from "@/landing/CommunitySection";
+import GallerySection from "@/landing/GallerySection";
 import HeaderSection from "@/landing/HeaderSection";
 import ResearchSection from "@/landing/ResearchSection";
-import SpecSection from "@/landing/SpecSection";
 import RobotSection from "@/landing/RobotSection";
-import GallerySection from "@/landing/GallerySection";
-import PricingSection from "@/landing/PricingSection";
-import CommunitySection from "@/landing/CommunitySection";
+import SpecSection from "@/landing/SpecSection";
 import Sponsors from "@/landing/Sponsors";
-import { useEffect } from "react";
 import { useLenis } from "lenis/dist/lenis-react";
+import { useEffect } from "react";
 
 export default function Home() {
   const lenis = useLenis();
@@ -42,7 +41,6 @@ export default function Home() {
         <SpecSection />
         <RobotSection />
         <GallerySection />
-        {/* <PricingSection /> */}
         <CommunitySection />
         <Sponsors />
       </main>
