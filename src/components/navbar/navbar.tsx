@@ -1,14 +1,12 @@
-import { NavCTAButton } from "@/components/buttons/CTAButtons";
 import Logotype from "@/components/logos/logotype";
+import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
 import { NavDocsButton, NavLogInButton } from "@/components/navbar/navButtons";
 import { useWindowSize } from "@/components/util/functions";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
-import React, { useEffect, useState } from "react";
-import BurgerMenu from "@/components/navbar/burgerMenu";
-import { FillMode } from "@/components/util/constants";
-import { useLenis } from "lenis/dist/lenis-react";
 import clsx from "clsx";
+import { useLenis } from "lenis/dist/lenis-react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const { scrollY } = useScroll();
@@ -70,18 +68,11 @@ export default function NavBar() {
         <Logotype atTop={atTop} isMenuOpen={mobileShouldOpenBurger} />
         <div
           className={
-          master
             "flex flex-row gap-6 items-center 2xl:-col-end-2 xl:-col-end-2 lg:-col-end-2 md:-col-end-2"
-        staging
           }
         >
           <NavDocsButton atTop={atTop} />
           <NavLogInButton atTop={atTop} />
-        master
-          {/* <NavCTAButton className=" col-span-2 -col-end-1 " mode={FillMode.FILL}>
-            View products
-          </NavCTAButton> */}
-        staging
         </div>
       </>
     );
