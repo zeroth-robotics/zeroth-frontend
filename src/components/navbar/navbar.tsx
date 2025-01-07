@@ -77,7 +77,10 @@ export default function NavBar() {
                 key={index}
                 href={navItem.link}
                 target={navItem.isExternal ? "_blank" : "_self"}
-                className="-col-end-3 md:-col-end-4 2xl:-col-end-4 2xl:text-[0.75rem] lg:text-[1rem] md:text-[0.8rem] flex flex-row gap-2 size-fit items-center select-none self-center pointer-events-auto"
+                className={clsx(
+                  "-col-end-3 md:-col-end-4 2xl:-col-end-4 2xl:text-[0.75rem] lg:text-[1rem] md:text-[0.8rem] flex flex-row gap-2 size-fit items-center select-none self-center pointer-events-auto",
+                  atTop ? "text-white" : "text-black"
+                )}
                 initial="initial"
                 whileHover="hover"
                 transition={{ duration: 0.2, ease: "circOut" }}

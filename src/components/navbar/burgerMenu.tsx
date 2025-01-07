@@ -1,10 +1,5 @@
-import { CTASubtitleButton } from "@/components/buttons/CTAButtons";
 import { ExpressiveArrow } from "@/components/iconography/Iconography";
-import {
-  FillMode,
-  navigationConfig,
-  transitionEaseLinearDuration300,
-} from "@/components/util/constants";
+import { navigationConfig, transitionEaseLinearDuration300 } from "@/components/util/constants";
 import { motion } from "motion/react";
 import Link from "next/link";
 
@@ -41,14 +36,6 @@ const BurgerMenu = (isOpen: boolean) => {
           </motion.button>
         );
       })}
-
-      <CTASubtitleButton
-        subtitle="Contribute to the Community"
-        className="w-full col-span-full h-fit"
-        mode={FillMode.FILL}
-      >
-        Join our Discord
-      </CTASubtitleButton>
     </motion.div>
   ) : (
     <></>
