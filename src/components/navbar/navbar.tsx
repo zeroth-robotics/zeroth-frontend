@@ -81,7 +81,6 @@ export default function NavBar() {
                 initial="initial"
                 whileHover="hover"
                 transition={{ duration: 0.2, ease: "circOut" }}
-                target={navItem.isExternal ? "_blank" : "_self"}
               >
                 {navItem.name}
               </motion.a>
