@@ -77,12 +77,32 @@ export default function NavBar() {
                 key={index}
                 href={navItem.link}
                 target={navItem.isExternal ? "_blank" : "_self"}
-                className="-col-end-3 md:-col-end-4 2xl:-col-end-4 2xl:text-[0.75rem] lg:text-[1rem] md:text-[0.8rem] flex flex-row gap-1 size-fit items-center select-none self-center pointer-events-auto"
+                className="-col-end-3 md:-col-end-4 2xl:-col-end-4 2xl:text-[0.75rem] lg:text-[1rem] md:text-[0.8rem] flex flex-row gap-2 size-fit items-center select-none self-center pointer-events-auto"
                 initial="initial"
                 whileHover="hover"
                 transition={{ duration: 0.2, ease: "circOut" }}
               >
                 {navItem.name}
+                {navItem.isExternal && (
+                  <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    variants={{
+                      initial: { x: 0 },
+                      hover: { x: 4 },
+                    }}
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </motion.svg>
+                )}
               </motion.a>
             );
           })}
