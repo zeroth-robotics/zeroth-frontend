@@ -1,7 +1,7 @@
 import Logotype from "@/components/logos/logotype";
 import BurgerMenu from "@/components/navbar/burgerMenu";
 import BurgerOpenButton from "@/components/navbar/burgerOpenButton";
-import { NavDocsButton, NavLogInButton } from "@/components/navbar/navButtons";
+import { navigationConfig } from "@/components/util/constants";
 import { useWindowSize } from "@/components/util/functions";
 import clsx from "clsx";
 import { useLenis } from "lenis/dist/lenis-react";
@@ -71,8 +71,22 @@ export default function NavBar() {
             "flex flex-row gap-6 items-center 2xl:-col-end-2 xl:-col-end-2 lg:-col-end-2 md:-col-end-2"
           }
         >
-          <NavDocsButton atTop={atTop} />
-          <NavLogInButton atTop={atTop} />
+          {navigationConfig.map((navItem, index) => {
+            return (
+              <motion.a
+                key={index}
+                href={navItem.link}
+                target={navItem.isExternal ? "_blank" : "_self"}
+                className="-col-end-3 md:-col-end-4 2xl:-col-end-4 2xl:text-[0.75rem] lg:text-[1rem] md:text-[0.8rem] flex flex-row gap-1 size-fit items-center select-none self-center pointer-events-auto"
+                initial="initial"
+                whileHover="hover"
+                transition={{ duration: 0.2, ease: "circOut" }}
+                target={navItem.isExternal ? "_blank" : "_self"}
+              >
+                {navItem.name}
+              </motion.a>
+            );
+          })}
         </div>
       </>
     );

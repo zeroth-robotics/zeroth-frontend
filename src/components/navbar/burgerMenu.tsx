@@ -1,13 +1,12 @@
+import { CTASubtitleButton } from "@/components/buttons/CTAButtons";
+import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import {
   FillMode,
-  navItemLinksMobile,
-  navItemsMobile,
+  navigationConfig,
   transitionEaseLinearDuration300,
 } from "@/components/util/constants";
-import { ExpressiveArrow } from "@/components/iconography/Iconography";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { CTASubtitleButton } from "@/components/buttons/CTAButtons";
 
 const BurgerMenu = (isOpen: boolean) => {
   return isOpen ? (
@@ -18,7 +17,7 @@ const BurgerMenu = (isOpen: boolean) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2, ease: "circOut" }}
     >
-      {navItemsMobile.map((navItem, index) => {
+      {navigationConfig.map((navItem, index) => {
         return (
           <motion.button
             key={index}
@@ -33,12 +32,12 @@ const BurgerMenu = (isOpen: boolean) => {
           >
             <Link
               className={"font-planar pointer-events-auto"}
-              href={navItemLinksMobile[index].link}
-              target={navItemLinksMobile[index].target}
+              href={navItem.link}
+              target={navItem.isExternal ? "_blank" : "_self"}
             >
-              {navItem}
+              {navItem.name}
             </Link>
-            {index !== 1 ? <ExpressiveArrow size={"size-10"} /> : <></>}
+            {navItem.isExternal ? <ExpressiveArrow size={"size-10"} /> : <></>}
           </motion.button>
         );
       })}

@@ -1,9 +1,7 @@
-import { CTAButton } from "@/components/buttons/CTAButtons";
-import { ColorVariant, Size, FillMode } from "@/components/util/constants";
+import RobotWrapper from "@/components/robot/RobotWrapper";
+import { useWindowSize } from "@/components/util/functions";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import { useWindowSize } from "@/components/util/functions";
-import RobotWrapper from "@/components/robot/RobotWrapper";
 
 const RobotSection = () => {
   const ref = useRef(null);
@@ -22,16 +20,6 @@ const RobotSection = () => {
         <p className="text-body">
           Interact with your robot through our toolkit, supporting real-time ML application.
         </p>
-        <CTAButton
-          href="https://dashboard.kscale.dev"
-          variant={ColorVariant.PLASMA}
-          size={Size.NORMAL}
-          mode={FillMode.FILL}
-          target="_self"
-          className="max-md:w-fit"
-        >
-          Dashboard
-        </CTAButton>
       </hgroup>
       <div
         className="col-span-full w-full relative h-[60svh] lg:h-full lg:aspect-video min-h-[16rem]"
