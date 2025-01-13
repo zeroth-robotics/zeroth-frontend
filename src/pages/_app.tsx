@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactLenis } from "lenis/dist/lenis-react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -40,6 +41,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <ReactLenis root>
         <Component {...pageProps} />
       </ReactLenis>
+
+      <Analytics />
     </>
   );
 }
