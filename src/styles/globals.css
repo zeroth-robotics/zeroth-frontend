@@ -275,28 +275,6 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
-html::-webkit-scrollbar {
-  display: none;
-}
-
-body::-webkit-scrollbar {
-  overflow: inherit;
-  scrollbar-gutter: stable;
-}
-
-body.scroll-bar::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb:hover {
-  background: var(--plasma);
-  border-radius: 1rem;
-}
-
-body::-webkit-scrollbar-track {
-  border-radius: 4px;
-}
-
-body::-webkit-scrollbar-button {
-  display: none;
-}
 
 .rfm-child {
   padding: 1rem;
@@ -338,47 +316,4 @@ main .sponsors {
 
 .rust-stroke {
   @apply border-rust text-rust bg-background;
-}
-
-/*CURSOR*/
-@media (pointer: fine) {
-  body {
-    cursor: auto;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  span,
-  text,
-  code,
-  blockquote,
-  label,
-  li,
-  p {
-    cursor: text;
-  }
-
-  button,
-  button *,
-  a,
-  a *,
-  input,
-  input *,
-  label,
-  label *,
-  .pointer {
-    cursor: pointer;
-  }
-
-  .grab {
-    cursor: grab;
-  }
-
-  .grab:active {
-    cursor: grabbing;
-  }
 }
