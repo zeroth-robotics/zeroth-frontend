@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>K-Scale Labs</title>
+        <title>Zeroth Bot</title>
         <meta
           name="description"
           content="Developing the world's most accessible platform for embodied intelligence. We're hackers, engineers, and researchers that believe in a world where robots are made for everyone. We're from Tesla AI, Google, Meta FAIR, Stanford, and Xiaomi building opportunities for robots to be more than workers."
